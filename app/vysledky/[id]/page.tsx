@@ -1,5 +1,4 @@
 import Airtable from "airtable";
-import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import { decodeType, field, number, record } from "typescript-json-decoder";
 
@@ -18,7 +17,7 @@ type Result = decodeType<typeof decodeResult>;
 //
 
 export default async function ResultPage({ params }: Props) {
-  const result = await getCachedResult((await params).id);
+  const result = await getResult((await params).id);
   if (!result) {
     notFound();
   }
@@ -51,6 +50,7 @@ async function getResult(id: string): Promise<Result | null> {
     });
 }
 
-const getCachedResult = unstable_cache((id) => getResult(id), [], {
-  revalidate: 3600,
-});
+/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
+export async function generateStaticParams() {
+  return [];
+}

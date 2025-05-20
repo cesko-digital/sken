@@ -49,3 +49,8 @@ async function getResult(id: string): Promise<Result | null> {
       return null;
     });
 }
+
+/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
+export async function generateStaticParams() {
+  return [];
+}

@@ -72,3 +72,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
   };
 }
+
+/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
+export async function generateStaticParams() {
+  return [];
+}

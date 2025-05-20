@@ -1,4 +1,5 @@
 import Airtable from "airtable";
+import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import { decodeType, field, number, record } from "typescript-json-decoder";
 
@@ -17,7 +18,7 @@ type Result = decodeType<typeof decodeResult>;
 //
 
 export default async function ResultPage({ params }: Props) {
-  const result = await getResult((await params).id);
+  const result = await getCachedResult((await params).id);
   if (!result) {
     notFound();
   }
@@ -49,3 +50,7 @@ async function getResult(id: string): Promise<Result | null> {
       return null;
     });
 }
+
+const getCachedResult = unstable_cache((id) => getResult(id), [], {
+  revalidate: 3600,
+});

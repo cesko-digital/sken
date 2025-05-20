@@ -13,6 +13,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          data-domain="sken.nezisk.digital"
+          src="https://plausible.io/js/script.js"
+        ></script>
+      </head>
       <body>{children}</body>
     </html>
   );

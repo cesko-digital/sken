@@ -50,7 +50,12 @@ async function getResult(id: string): Promise<Result | null> {
     });
 }
 
-/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
-export async function generateStaticParams() {
+/**
+ * Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987
+ *
+ * This is bypassed (underscore) while in development, as we get closer to production,
+ * we will turn caching back on by removing the underscore.
+ */
+export async function _generateStaticParams() {
   return [];
 }

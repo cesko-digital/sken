@@ -34,7 +34,7 @@ export default async function ResultPage({ params }: Props) {
 
 const decodeResult = record({
   answer1: field("Answer 1", number),
-  answer2: field("Answer 1", number),
+  answer2: field("Answer 2", number),
 });
 
 async function getResult(id: string): Promise<Result | null> {

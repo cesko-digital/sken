@@ -1,12 +1,6 @@
 import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
-import {
-  allAreas,
-  allAxes,
-  getAssessmentStats,
-  getFormResponse,
-  maxScore,
-} from "./db";
+import { allAxes, getAssessmentStats, getFormResponse, maxScore } from "./db";
 import { Metadata } from "next";
 
 type Params = {

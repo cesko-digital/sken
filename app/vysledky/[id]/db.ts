@@ -12,17 +12,20 @@ import {
 // Types
 //
 
-export type Area =
-  | "Spolupráce"
-  | "Řízení"
-  | "Rozhodování"
-  | "Data"
-  | "Bezpečnost"
-  | "Odolnost"
-  | "Rozvoj";
+const allAreas = [
+  "Spolupráce",
+  "Řízení",
+  "Rozhodování",
+  "Data",
+  "Bezpečnost",
+  "Odolnost",
+  "Rozvoj",
+] as const;
 
-export type Axis = "Nástroje" | "Dovednosti" | "Kultura";
+const allAxes = ["Nástroje", "Dovednosti", "Kultura"] as const;
 
+export type Area = (typeof allAreas)[number];
+export type Axis = (typeof allAxes)[number];
 export type Assessment = Record<Area, Record<Axis, number>>;
 
 export type FormResponse = decodeType<typeof decodeFormResponse>;
@@ -105,6 +108,38 @@ export const decodeFormResponse = (value: unknown) => {
     scores: decodeAssessment(value),
   };
 };
+
+const sum = (a: number, b: number) => a + b;
+
+export const sumScoresForArea = (assessment: Assessment, area: Area) =>
+  Object.values(assessment[area]).reduce(sum, 0);
+
+export const sumScoresForAxis = (assessment: Assessment, axis: Axis) =>
+  Object.values(assessment)
+    .map((val) => val[axis])
+    .reduce(sum, 0);
+
+export const getScoreHistogram = (assessment: Assessment) => {
+  const allScores: number[] = Object.values(assessment).flatMap(Object.values);
+  const counts: Record<number, number> = {};
+  allScores.forEach((score) => {
+    counts[score] = counts[score] ? counts[score] + 1 : 1;
+  });
+  return counts;
+};
+
+export const getAssessmentStats = (assessment: Assessment) => ({
+  totalScoreByArea: Object.fromEntries(
+    allAreas.map((area) => [area, sumScoresForArea(assessment, area)])
+  ),
+  averageScoreByAxis: Object.fromEntries(
+    allAxes.map((axis) => [
+      axis,
+      (sumScoresForAxis(assessment, axis) / allAreas.length).toFixed(2),
+    ])
+  ),
+  scoreCountByScore: getScoreHistogram(assessment),
+});
 
 //
 // API

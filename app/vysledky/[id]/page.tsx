@@ -20,7 +20,6 @@ export default async function ResultPage({ params }: Props) {
         Response ID {response.meta.id}, organization name{" "}
         {response.meta.organizationName}.
       </p>
-      <pre>{JSON.stringify(response.scores, null, 2)}</pre>
     </div>
   );
 }

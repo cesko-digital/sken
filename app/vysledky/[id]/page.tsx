@@ -10,13 +10,17 @@ export type Props = {
 };
 
 export default async function ResultPage({ params }: Props) {
-  const result = await getFormResponse((await params).id);
-  if (!result) {
+  const response = await getFormResponse((await params).id);
+  if (!response) {
     notFound();
   }
   return (
-    <p>
-      Answer 1: {result.answer1}, answer 2: {result.answer2}
-    </p>
+    <div>
+      <p>
+        Response ID {response.meta.id}, organization name{" "}
+        {response.meta.organizationName}.
+      </p>
+      <pre>{JSON.stringify(response.scores, null, 2)}</pre>
+    </div>
   );
 }

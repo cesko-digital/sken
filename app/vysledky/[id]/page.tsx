@@ -68,7 +68,7 @@ const AxisScoreSection = ({
       <BarChart
         layout="horizontal"
         series={[{ data: values.map(second) }]}
-        yAxis={[{ data: values.map(first) }]}
+        yAxis={[{ data: values.map(first), tickLabelStyle: { angle: -90 } }]}
         xAxis={[{ max: maxScore, tickMinStep: 1 }]}
         height={300}
       />

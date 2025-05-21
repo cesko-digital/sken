@@ -12,7 +12,7 @@ import {
 // Types
 //
 
-const allAreas = [
+export const allAreas = [
   "Spolupráce",
   "Řízení",
   "Rozhodování",
@@ -22,7 +22,9 @@ const allAreas = [
   "Rozvoj",
 ] as const;
 
-const allAxes = ["Nástroje", "Dovednosti", "Kultura"] as const;
+export const allAxes = ["Nástroje", "Dovednosti", "Kultura"] as const;
+
+export const maxScore = 5;
 
 export type Area = (typeof allAreas)[number];
 export type Axis = (typeof allAxes)[number];

@@ -1,6 +1,12 @@
 import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
-import { getAssessmentStats, getFormResponse } from "./db";
+import {
+  allAreas,
+  allAxes,
+  getAssessmentStats,
+  getFormResponse,
+  maxScore,
+} from "./db";
 import { Metadata } from "next";
 
 type Params = {
@@ -69,6 +75,7 @@ const AxisScoreSection = ({
         layout="horizontal"
         series={[{ data: values.map(second) }]}
         yAxis={[{ data: values.map(first) }]}
+        xAxis={[{ max: maxScore, tickMinStep: 1 }]}
         height={300}
       />
     </div>
@@ -87,6 +94,7 @@ const AreaScoreSection = ({
       <BarChart
         series={[{ data: values.map(second) }]}
         xAxis={[{ data: values.map(first) }]}
+        yAxis={[{ max: allAxes.length * maxScore }]}
         height={300}
       />
     </div>

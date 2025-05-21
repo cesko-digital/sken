@@ -1,6 +1,7 @@
 import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
 import { getAssessmentStats, getFormResponse } from "./db";
+import { Metadata } from "next";
 
 type Params = {
   id: string;
@@ -52,6 +53,17 @@ const ScoreDistributionSection = ({
     </div>
   );
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const response = await getFormResponse((await params).id);
+  if (!response) {
+    notFound();
+  }
+  return {
+    title: `Scan results for ${response.meta.organizationName}`,
+    description: "TBD",
+  };
+}
 
 const first = <A, B>(pair: [A, B]) => pair[0];
 const second = <A, B>(pair: [A, B]) => pair[1];

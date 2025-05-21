@@ -23,6 +23,8 @@ export default async function ResultPage({ params }: Props) {
         Scan results for “{response.meta.organizationName}”
       </h1>
       <ScoreDistributionSection distribution={stats.scoreCountByScore} />
+      <AxisScoreSection axisScores={stats.averageScoreByAxis} />
+      <AreaScoreSection areaScores={stats.totalScoreByArea} />
     </div>
   );
 }
@@ -48,6 +50,43 @@ const ScoreDistributionSection = ({
             },
           },
         ]}
+        height={300}
+      />
+    </div>
+  );
+};
+
+const AxisScoreSection = ({
+  axisScores,
+}: {
+  axisScores: Record<string, number>;
+}) => {
+  const values = Object.entries(axisScores);
+  return (
+    <div className="flex flex-col gap-4">
+      <h2 className="text-2xl">Axe Scores</h2>
+      <BarChart
+        layout="horizontal"
+        series={[{ data: values.map(second) }]}
+        yAxis={[{ data: values.map(first) }]}
+        height={300}
+      />
+    </div>
+  );
+};
+
+const AreaScoreSection = ({
+  areaScores,
+}: {
+  areaScores: Record<string, number>;
+}) => {
+  const values = Object.entries(areaScores);
+  return (
+    <div className="flex flex-col gap-4">
+      <h2 className="text-2xl">Area Scores</h2>
+      <BarChart
+        series={[{ data: values.map(second) }]}
+        xAxis={[{ data: values.map(first) }]}
         height={300}
       />
     </div>

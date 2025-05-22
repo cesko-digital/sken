@@ -2,7 +2,7 @@
 
 @layer components {
   .typo-title {
-    @apply text-3xl text-balance;
+    @apply text-4xl text-balance;
   }
 
   .typo-title2 {
@@ -12,4 +12,9 @@
   .typo-link {
     @apply cursor-pointer underline underline-offset-2 text-[#0000ff];
   }
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
 }

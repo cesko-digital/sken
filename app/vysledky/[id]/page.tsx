@@ -21,8 +21,12 @@ export default async function ResultPage({ params }: Props) {
   return (
     <div className="flex flex-col gap-10">
       <h1 className="typo-title">
-        Sken digitální vyspělosti – {response.meta.organizationName}
+        Výsledky skenu digitální vyspělosti pro {response.meta.organizationName}
       </h1>
+      <p>
+        Pojďme se podívat, jak je na tom vaše organizace. 
+        <em>Doporučujeme si vzít k ruce papír a tužku.</em>
+      </p>
       <ScoreDistributionSection distribution={stats.scoreCountByScore} />
       <AxisScoreSection axisScores={stats.averageScoreByAxis} />
       <AreaScoreSection areaScores={stats.totalScoreByArea} />
@@ -36,22 +40,32 @@ const ScoreDistributionSection = ({
   distribution: Record<string, number>;
 }) => {
   const values = Object.entries(distribution);
+  const labels = {
+    "0": "Nevíme",
+    "1": "Nevyužitý potenciál",
+    "2": "Dobrý začátek",
+    "3": "Solidní základ",
+    "4": "Vynikající praxe",
+    "5": "Inspirativní přístup",
+  } as Record<string, string>;
+  const labelFor = (i: string) => labels[i] ?? i;
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="typo-title2">Skóre za jednotlivé úrovně</h2>
+      <h2 className="typo-title2">Celková vyspělost</h2>
       <ChartWrapper>
         <BarChart
           series={[{ data: values.map(second) }]}
           xAxis={[
             {
-              data: values.map(first),
+              data: values.map(first).map(labelFor),
               colorMap: {
                 type: "ordinal",
-                values: ["0"],
+                values: [labelFor("0")],
                 colors: ["lightGray"],
               },
             },
           ]}
+          barLabel="value"
           height={300}
         />
       </ChartWrapper>
@@ -108,13 +122,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
   return {
-    title: `Sken digitální vyspělosti: ${response.meta.organizationName}`,
+    title: `${response.meta.organizationName}: Výsledky skenu digitální vyspělosti`,
     description: "TBD: Stručný popisek",
   };
 }
 
 const ChartWrapper = ({ children }: { children: ReactNode }) => (
-  <div className="bg-gray-50 p-4 pl-0">{children}</div>
+  <div className="bg-gray-50 border-[1px] border-gray-300 p-4 pt-6 pl-0">
+    {children}
+  </div>
 );
 
 const first = <A, B>(pair: [A, B]) => pair[0];

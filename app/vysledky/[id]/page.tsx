@@ -2,6 +2,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
 import { allAxes, getAssessmentStats, getFormResponse, maxScore } from "./db";
 import { Metadata } from "next";
+import { ReactNode } from "react";
 
 type Params = {
   id: string;
@@ -38,20 +39,22 @@ const ScoreDistributionSection = ({
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl">Score Distribution</h2>
-      <BarChart
-        series={[{ data: values.map(second) }]}
-        xAxis={[
-          {
-            data: values.map(first),
-            colorMap: {
-              type: "ordinal",
-              values: ["0"],
-              colors: ["lightGray"],
+      <ChartWrapper>
+        <BarChart
+          series={[{ data: values.map(second) }]}
+          xAxis={[
+            {
+              data: values.map(first),
+              colorMap: {
+                type: "ordinal",
+                values: ["0"],
+                colors: ["lightGray"],
+              },
             },
-          },
-        ]}
-        height={300}
-      />
+          ]}
+          height={300}
+        />
+      </ChartWrapper>
     </div>
   );
 };
@@ -65,13 +68,15 @@ const AxisScoreSection = ({
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl">Axe Scores</h2>
-      <BarChart
-        layout="horizontal"
-        series={[{ data: values.map(second) }]}
-        yAxis={[{ data: values.map(first), tickLabelStyle: { angle: -90 } }]}
-        xAxis={[{ max: maxScore, tickMinStep: 1 }]}
-        height={300}
-      />
+      <ChartWrapper>
+        <BarChart
+          layout="horizontal"
+          series={[{ data: values.map(second) }]}
+          yAxis={[{ data: values.map(first), tickLabelStyle: { angle: -90 } }]}
+          xAxis={[{ max: maxScore, tickMinStep: 1 }]}
+          height={300}
+        />
+      </ChartWrapper>
     </div>
   );
 };
@@ -85,12 +90,14 @@ const AreaScoreSection = ({
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl">Area Scores</h2>
-      <BarChart
-        series={[{ data: values.map(second) }]}
-        xAxis={[{ data: values.map(first) }]}
-        yAxis={[{ max: allAxes.length * maxScore }]}
-        height={300}
-      />
+      <ChartWrapper>
+        <BarChart
+          series={[{ data: values.map(second) }]}
+          xAxis={[{ data: values.map(first) }]}
+          yAxis={[{ max: allAxes.length * maxScore }]}
+          height={300}
+        />
+      </ChartWrapper>
     </div>
   );
 };
@@ -105,6 +112,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: "TBD",
   };
 }
+
+const ChartWrapper = ({ children }: { children: ReactNode }) => (
+  <div className="bg-gray-50 p-4 pl-0">{children}</div>
+);
 
 const first = <A, B>(pair: [A, B]) => pair[0];
 const second = <A, B>(pair: [A, B]) => pair[1];

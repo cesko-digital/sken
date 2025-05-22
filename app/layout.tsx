@@ -20,7 +20,7 @@ export default function RootLayout({
           src="https://plausible.io/js/script.js"
         ></script>
       </head>
-      <body>{children}</body>
+      <body className="p-4">{children}</body>
     </html>
   );
 }

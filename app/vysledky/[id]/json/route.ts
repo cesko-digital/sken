@@ -1,4 +1,5 @@
-import { getAssessmentStats, getFormResponse } from "../db";
+import { getFormResponse } from "@/app/api";
+import { getAssessmentStats } from "@/app/model";
 
 type Params = {
   id: string;

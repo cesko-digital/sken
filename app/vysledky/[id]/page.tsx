@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { getAssessmentStats, getFormResponse } from "./db";
+import { getFormResponse } from "@/app/api";
+import { getAssessmentStats } from "@/app/model";
 import { Metadata } from "next";
 import { AxisScoreChart } from "./AxisScoreChart";
 import { AreaScoreChart } from "./AreaScoreChart";

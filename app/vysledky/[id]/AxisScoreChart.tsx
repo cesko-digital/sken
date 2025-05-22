@@ -1,7 +1,7 @@
 "use client";
 
 import { LineChart } from "@mui/x-charts";
-import { Axis, scoreLabels } from "./db";
+import { Axis, scoreLabels } from "@/app/model";
 import { ChartWrapper, TextWrapper } from "./Components";
 
 export const AxisScoreChart = ({

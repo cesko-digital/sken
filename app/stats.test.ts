@@ -1,10 +1,10 @@
+import assert from "node:assert";
 import test from "node:test";
 import {
   Assessment,
   averageScoresForAxis,
   getScoreHistogramByAxis,
-} from "./vysledky/[id]/db";
-import assert from "node:assert";
+} from "./model";
 
 test("Treat zero as missing value in averages", () => {
   const scores: Assessment = {

@@ -1,6 +1,6 @@
 import { BarChart } from "@mui/x-charts";
 import { ChartWrapper, first, second, TextWrapper } from "./Components";
-import { allAxes, maxScore } from "./db";
+import { allAxes, maxScore } from "@/app/model";
 
 export const AreaScoreChart = ({ data }: { data: Record<string, number> }) => {
   const values = Object.entries(data);

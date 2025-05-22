@@ -24,6 +24,15 @@ export const allAreas = [
 
 export const allAxes = ["Nástroje", "Dovednosti", "Kultura"] as const;
 
+export const scoreLabels = {
+  "0": "Nevíme",
+  "1": "Nevyužitý potenciál",
+  "2": "Dobrý začátek",
+  "3": "Solidní základ",
+  "4": "Vynikající praxe",
+  "5": "Inspirativní přístup",
+} as Record<string, string>;
+
 export const maxScore = 5;
 
 export type Area = (typeof allAreas)[number];
@@ -169,6 +178,21 @@ export const getScoreHistogram = (assessment: Assessment) => {
   return counts;
 };
 
+export const getScoreHistogramByAxis = (assessment: Assessment) => {
+  const histo: Partial<Record<Axis, Record<string, number>>> = {};
+  for (const axis of allAxes) {
+    const counts: Record<number, number> = {};
+    const allScores: number[] = Object.values(assessment).map(
+      (val) => val[axis]
+    );
+    for (let score = 0; score <= maxScore; score++) {
+      counts[score] = allScores.filter((s) => s === score).length;
+    }
+    histo[axis] = counts;
+  }
+  return histo as Record<Axis, Record<string, number>>;
+};
+
 export const getAssessmentStats = (assessment: Assessment) => ({
   totalScoreByArea: Object.fromEntries(
     allAreas.map((area) => [area, sumScoresForArea(assessment, area)])
@@ -177,4 +201,5 @@ export const getAssessmentStats = (assessment: Assessment) => ({
     allAxes.map((axis) => [axis, averageScoresForAxis(assessment, axis)])
   ),
   scoreCountByScore: getScoreHistogram(assessment),
+  scoreCountByScoreAndAxis: getScoreHistogramByAxis(assessment),
 });

@@ -12,9 +12,12 @@
   .typo-link {
     @apply cursor-pointer underline underline-offset-2 text-[#0000ff];
   }
+
+  .typo-emphasis {
+    @apply bg-yellow-100;
+  }
 }
 
 em {
   font-style: normal;
-  font-weight: bold;
 }

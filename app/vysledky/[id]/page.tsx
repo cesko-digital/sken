@@ -1,6 +1,12 @@
 import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
-import { allAxes, getAssessmentStats, getFormResponse, maxScore } from "./db";
+import {
+  allAreas,
+  allAxes,
+  getAssessmentStats,
+  getFormResponse,
+  maxScore,
+} from "./db";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -21,7 +27,7 @@ export default async function ResultPage({ params }: Props) {
   return (
     <div className="max-w-[900px] m-auto flex flex-col gap-10 my-20">
       <h1 className="text-3xl">
-        Scan results for “{response.meta.organizationName}”
+        Sken digitální vyspělosti – {response.meta.organizationName}
       </h1>
       <ScoreDistributionSection distribution={stats.scoreCountByScore} />
       <AxisScoreSection axisScores={stats.averageScoreByAxis} />
@@ -38,7 +44,7 @@ const ScoreDistributionSection = ({
   const values = Object.entries(distribution);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Score Distribution</h2>
+      <h2 className="text-2xl">Skóre za jednotlivé úrovně</h2>
       <ChartWrapper>
         <BarChart
           series={[{ data: values.map(second) }]}
@@ -67,7 +73,7 @@ const AxisScoreSection = ({
   const values = Object.entries(axisScores);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Axe Scores</h2>
+      <h2 className="text-2xl">Skóre podle pilířů</h2>
       <ChartWrapper>
         <BarChart
           layout="horizontal"
@@ -89,7 +95,7 @@ const AreaScoreSection = ({
   const values = Object.entries(areaScores);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Area Scores</h2>
+      <h2 className="text-2xl">Úroveň digitální vyspělosti podle oblastí</h2>
       <ChartWrapper>
         <BarChart
           series={[{ data: values.map(second) }]}
@@ -108,8 +114,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
   return {
-    title: `Scan results for ${response.meta.organizationName}`,
-    description: "TBD",
+    title: `Sken digitální vyspělosti: ${response.meta.organizationName}`,
+    description: "TBD: Stručný popisek",
   };
 }
 

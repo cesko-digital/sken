@@ -1,12 +1,6 @@
 import { BarChart } from "@mui/x-charts/BarChart";
 import { notFound } from "next/navigation";
-import {
-  allAreas,
-  allAxes,
-  getAssessmentStats,
-  getFormResponse,
-  maxScore,
-} from "./db";
+import { allAxes, getAssessmentStats, getFormResponse, maxScore } from "./db";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -25,8 +19,8 @@ export default async function ResultPage({ params }: Props) {
   }
   const stats = getAssessmentStats(response.scores);
   return (
-    <div className="max-w-[900px] m-auto flex flex-col gap-10 my-20">
-      <h1 className="text-3xl">
+    <div className="flex flex-col gap-10">
+      <h1 className="typo-title">
         Sken digitální vyspělosti – {response.meta.organizationName}
       </h1>
       <ScoreDistributionSection distribution={stats.scoreCountByScore} />
@@ -44,7 +38,7 @@ const ScoreDistributionSection = ({
   const values = Object.entries(distribution);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Skóre za jednotlivé úrovně</h2>
+      <h2 className="typo-title2">Skóre za jednotlivé úrovně</h2>
       <ChartWrapper>
         <BarChart
           series={[{ data: values.map(second) }]}
@@ -73,7 +67,7 @@ const AxisScoreSection = ({
   const values = Object.entries(axisScores);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Skóre podle pilířů</h2>
+      <h2 className="typo-title2">Skóre podle pilířů</h2>
       <ChartWrapper>
         <BarChart
           layout="horizontal"
@@ -95,7 +89,7 @@ const AreaScoreSection = ({
   const values = Object.entries(areaScores);
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl">Úroveň digitální vyspělosti podle oblastí</h2>
+      <h2 className="typo-title2">Úroveň digitální vyspělosti podle oblastí</h2>
       <ChartWrapper>
         <BarChart
           series={[{ data: values.map(second) }]}

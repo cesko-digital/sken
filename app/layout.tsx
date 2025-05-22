@@ -20,7 +20,28 @@ export default function RootLayout({
           src="https://plausible.io/js/script.js"
         ></script>
       </head>
-      <body className="p-4">{children}</body>
+      <body className="p-7 pb-20">
+        <div className="max-w-[900px] m-auto my-4 md:my-20">{children}</div>
+        <footer className="max-w-[900px] m-auto mt-10">
+          <p>
+            Sken digitální vyspělosti provozuje{" "}
+            <a href="https://www.cesko.digital" className="typo-link">
+              Česko.Digital
+            </a>
+            .
+          </p>
+          <p>
+            Zdrojový kód najdete{" "}
+            <a
+              href="https://github.com/cesko-digital/sken"
+              className="typo-link"
+            >
+              na GitHubu
+            </a>
+            .
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }

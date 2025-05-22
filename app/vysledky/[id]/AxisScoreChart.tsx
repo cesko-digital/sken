@@ -20,6 +20,8 @@ export const AxisScoreChart = ({
               data: scores,
               tickMinStep: 1,
               valueFormatter: (v: number) => scoreLabels[v],
+              min: 0.5,
+              max: 5.5,
             },
           ]}
           yAxis={[{ label: "Kolikrát jste takto hodnotili" }]}

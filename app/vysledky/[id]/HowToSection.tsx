@@ -1,10 +1,11 @@
 import Markdoc, { renderers } from "@markdoc/markdoc";
 import { promises as fs } from "fs";
+import path from "path";
 import React, { ReactNode } from "react";
 
 export async function HowtoSection() {
   const source = await fs.readFile(
-    process.cwd() + "/app/vysledky/[id]/howto.md",
+    path.join(process.cwd(), "/app/vysledky/[id]/howto.md"),
     "utf-8"
   );
   const ast = Markdoc.parse(source);

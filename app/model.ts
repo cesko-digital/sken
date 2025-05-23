@@ -1,3 +1,5 @@
+import { second } from "./utils";
+
 /** All areas we work with */
 export const allAreas = [
   "Spolupráce",
@@ -43,6 +45,18 @@ export const sumScoresForAxis = (assessment: Assessment, axis: Axis) =>
     .map((val) => val[axis])
     .reduce(sum, 0);
 
+export const groupScoresByAxis = (
+  assessment: Assessment
+): Record<Axis, number[]> => {
+  const out: Partial<Record<Axis, number[]>> = {};
+  for (const axis of allAxes) {
+    out[axis] = Object.entries(assessment)
+      .map(second)
+      .map((scores) => scores[axis]);
+  }
+  return out as Record<Axis, number[]>;
+};
+
 export const averageScoresForAxis = (assessment: Assessment, axis: Axis) => {
   const nonZeroValues = Object.values(assessment)
     .map((val) => val[axis])
@@ -82,6 +96,7 @@ export const getAssessmentStats = (assessment: Assessment) => ({
   averageScoreByAxis: Object.fromEntries(
     allAxes.map((axis) => [axis, averageScoresForAxis(assessment, axis)])
   ),
+  scoresByAxis: groupScoresByAxis(assessment),
   scoreCountByScore: getScoreHistogram(assessment),
   scoreCountByScoreAndAxis: getScoreHistogramByAxis(assessment),
 });

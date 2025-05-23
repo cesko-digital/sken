@@ -1,6 +1,7 @@
 import { BarChart } from "@mui/x-charts";
-import { ChartWrapper, first, second, TextWrapper } from "./Components";
+import { ChartWrapper, TextWrapper } from "./Components";
 import { scoreLabels } from "@/app/model";
+import { first, second } from "@/app/utils";
 
 export const ScoreDistributionChart = ({
   data,

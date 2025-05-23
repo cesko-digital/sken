@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { AxisScoreChart } from "./AxisScoreChart";
 import { AreaScoreChart } from "./AreaScoreChart";
 import { ScoreDistributionChart } from "./ScoreDistributionChart";
+import { StackedScoreChart } from "./StackedScoreChart";
 
 type Params = {
   id: string;
@@ -34,6 +35,7 @@ export default async function ResultPage({ params }: Props) {
       <ScoreDistributionChart data={stats.scoreCountByScore} />
       <AxisScoreChart data={stats.scoreCountByScoreAndAxis} />
       <AreaScoreChart data={stats.totalScoreByArea} />
+      <StackedScoreChart data={stats.scoresByAxis} />
     </div>
   );
 }

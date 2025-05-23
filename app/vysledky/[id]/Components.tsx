@@ -11,6 +11,3 @@ export const ChartWrapper: Wrapper = ({ children }) => (
 export const TextWrapper: Wrapper = ({ children }) => (
   <div className="max-w-prose flex flex-col gap-2 text-balance">{children}</div>
 );
-
-export const first = <A, B>(pair: [A, B]) => pair[0];
-export const second = <A, B>(pair: [A, B]) => pair[1];

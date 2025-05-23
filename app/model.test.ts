@@ -4,6 +4,7 @@ import {
   Assessment,
   averageScoresForAxis,
   getScoreHistogramByAxis,
+  groupScoresByAxis,
 } from "./model";
 
 test("Treat zero as missing value in averages", () => {
@@ -112,5 +113,51 @@ test("Calculate score histogram by axis", () => {
       "4": 2,
       "5": 2,
     },
+  });
+});
+
+test("Group scores by axis", () => {
+  const scores: Assessment = {
+    Spolupráce: {
+      Nástroje: 5,
+      Dovednosti: 5,
+      Kultura: 5,
+    },
+    Řízení: {
+      Nástroje: 1,
+      Dovednosti: 4,
+      Kultura: 2,
+    },
+    Rozhodování: {
+      Nástroje: 3,
+      Dovednosti: 1,
+      Kultura: 2,
+    },
+    Data: {
+      Nástroje: 1,
+      Dovednosti: 4,
+      Kultura: 4,
+    },
+    Bezpečnost: {
+      Nástroje: 0,
+      Dovednosti: 1,
+      Kultura: 4,
+    },
+    Odolnost: {
+      Nástroje: 2,
+      Dovednosti: 0,
+      Kultura: 2,
+    },
+    Rozvoj: {
+      Nástroje: 1,
+      Dovednosti: 3,
+      Kultura: 5,
+    },
+  };
+  const out = groupScoresByAxis(scores);
+  assert.deepEqual(out, {
+    Nástroje: [5, 1, 3, 1, 0, 2, 1],
+    Dovednosti: [5, 4, 1, 4, 1, 0, 3],
+    Kultura: [5, 2, 2, 4, 4, 2, 5],
   });
 });

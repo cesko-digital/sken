@@ -4,7 +4,7 @@ import React, { ReactNode } from "react";
 
 export async function HowtoSection() {
   const source = await fs.readFile(
-    process.cwd() + "/app/vysledky/howto.md",
+    process.cwd() + "/app/vysledky/[id]/howto.md",
     "utf-8"
   );
   const ast = Markdoc.parse(source);

@@ -45,6 +45,7 @@ const AxisScoreChart = ({ data, caption }: ChartProps) => {
     <ChartWrapper caption={caption}>
       <BarChart
         series={[{ data: values }]}
+        yAxis={[{ label: "Celkové skóre" }]}
         xAxis={[
           {
             data: axisLabels,
@@ -92,6 +93,7 @@ const StackedAxisScoreChart = ({ data, caption }: ChartProps) => {
           stack: "stack",
           label: axisLabels[index],
         }))}
+        yAxis={[{ label: "Kolikrát jste takto hodnotili" }]}
         xAxis={[{ data: scoreLabels }]}
         barLabel="value"
         height={height.higher}
@@ -108,6 +110,7 @@ const ScoreOverAreaChart = ({ data, caption }: ChartProps) => {
       <BarChart
         series={[{ data: values }]}
         xAxis={[{ data: areaLabels }]}
+        yAxis={[{ label: "Celkové skóre" }]}
         barLabel="value"
         height={height.normal}
       />
@@ -125,6 +128,7 @@ const ScoreOverAreaAndAxisChart = ({ data, caption }: ChartProps) => {
           label: axisLabels[index],
           data: axeValues,
         }))}
+        yAxis={[{ label: "Součet skóre" }]}
         xAxis={[{ data: areaLabels }]}
         barLabel="value"
         height={height.normal}
@@ -148,6 +152,7 @@ const TopicDrillDownChart = ({
           stack: "stack",
         }))}
         xAxis={[{ data: topicLabels[area] }]}
+        yAxis={[{ label: "Součet skóre" }]}
         height={height.normal}
         barLabel="value"
       />

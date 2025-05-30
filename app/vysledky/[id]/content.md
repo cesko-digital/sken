@@ -4,6 +4,8 @@
 
 Sken vychází z předpokladu, že lidé v organizaci dosahují **špičkových výsledků** pouze pokud se vzájemně doplňují a podporují **3 pilíře: Kultura, Dovednosti a Nástroje**.
 
+{% image src="https://assets.cesko.digital/11f81f04.jpg" width=2309 height=1732 alt="" /%}
+
 **Sken funguje na principu _benchmarkování_**: nabízí výroky, které popisují to, jak může organizace fungovat. Úkolem vyplňující osoby je **posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované organizace**.
 
 Odpovědi se zaznamenávají jako hodnoty na škále 1–5, kdy 1= výrok vůbec neodpovídá a 5 = výrok naprosto odpovídá. Jinými slovy, **čím vyšší hodnota, tím blíže má aktuální stav organizace k cílovému stavu popsanému ve výroku**.

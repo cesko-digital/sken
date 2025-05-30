@@ -7,6 +7,7 @@ import { config } from "@/src/markdoc";
 import React from "react";
 import { promises as fs } from "fs";
 import { ChartTags } from "@/app/vysledky/[id]/Charts";
+import Image from "next/image";
 
 type Params = {
   id: string;
@@ -41,7 +42,9 @@ export default async function ResultPage({ params }: Props) {
 
   return (
     <div className="markdoc-root">
-      {renderers.react(renderTree, React, { components: ChartTags })}
+      {renderers.react(renderTree, React, {
+        components: { ...ChartTags, Image },
+      })}
     </div>
   );
 }

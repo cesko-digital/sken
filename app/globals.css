@@ -97,3 +97,11 @@ ul,
 ol {
   max-width: 80ch;
 }
+
+.markdoc-root img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--colors-dark-gray);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -19,7 +19,17 @@ type ChartProps = {
   caption?: string;
 };
 
-const colorSeries = ["#4155FB", "orange", "#FA4F58"];
+const defaultColor = "#ffa600";
+const colorSeries = [
+  "#fd7f6f",
+  "#7eb0d5",
+  "#b2e061",
+  "#bd7ebe",
+  "#ffb55a",
+  "#ffee65",
+  "#beb9db",
+];
+
 const height = {
   normal: 300,
   higher: 400,
@@ -44,7 +54,7 @@ const AxisScoreChart = ({ data, caption }: ChartProps) => {
   return (
     <ChartWrapper caption={caption}>
       <BarChart
-        series={[{ data: values }]}
+        series={[{ data: values, color: defaultColor }]}
         yAxis={[{ label: "Celkové skóre" }]}
         xAxis={[
           {
@@ -68,7 +78,7 @@ const ScoreDistributionChart = ({ data, caption }: ChartProps) => {
   return (
     <ChartWrapper caption={caption}>
       <BarChart
-        series={[{ data: values }]}
+        series={[{ data: values, color: defaultColor }]}
         yAxis={[{ label: "Kolikrát jste takto hodnotili" }]}
         xAxis={[{ data: scoreLabels }]}
         barLabel="value"
@@ -92,6 +102,7 @@ const StackedAxisScoreChart = ({ data, caption }: ChartProps) => {
           data: scores,
           stack: "stack",
           label: axisLabels[index],
+          color: colorSeries[index],
         }))}
         yAxis={[{ label: "Kolikrát jste takto hodnotili" }]}
         xAxis={[{ data: scoreLabels }]}
@@ -108,7 +119,7 @@ const ScoreOverAreaChart = ({ data, caption }: ChartProps) => {
   return (
     <ChartWrapper caption={caption}>
       <BarChart
-        series={[{ data: values }]}
+        series={[{ data: values, color: defaultColor }]}
         xAxis={[{ data: areaLabels }]}
         yAxis={[{ label: "Celkové skóre" }]}
         barLabel="value"
@@ -127,6 +138,7 @@ const ScoreOverAreaAndAxisChart = ({ data, caption }: ChartProps) => {
         series={transpose(areas).map((axeValues, index) => ({
           label: axisLabels[index],
           data: axeValues,
+          color: colorSeries[index],
         }))}
         yAxis={[{ label: "Součet skóre" }]}
         xAxis={[{ data: areaLabels }]}
@@ -150,6 +162,7 @@ const TopicDrillDownChart = ({
           label: axisLabels[index],
           data: topicScores,
           stack: "stack",
+          color: colorSeries[index],
         }))}
         xAxis={[{ data: topicLabels[area] }]}
         yAxis={[{ label: "Součet skóre" }]}

@@ -6,7 +6,6 @@ import Markdoc, { renderers } from "@markdoc/markdoc";
 import { config } from "@/src/markdoc";
 import React from "react";
 import { promises as fs } from "fs";
-import { ContentTags } from "@/components/Content";
 import { ChartTags } from "@/components/Charts";
 
 type Params = {
@@ -41,13 +40,8 @@ export default async function ResultPage({ params }: Props) {
   });
 
   return (
-    <div>
-      {renderers.react(renderTree, React, {
-        components: {
-          ...ContentTags,
-          ...ChartTags,
-        },
-      })}
+    <div className="markdoc-root">
+      {renderers.react(renderTree, React, { components: ChartTags })}
     </div>
   );
 }

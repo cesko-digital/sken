@@ -1,11 +1,11 @@
 import { BarChart } from "@mui/x-charts";
-import { ChartProps, ChartWrapper } from "./Charts";
+import { ChartProps } from "./Charts";
 import { axisLabels, sumScoresByAxis } from "@/src/model";
 
 export const AxisScoreChart = ({ data }: ChartProps) => {
   const scores = sumScoresByAxis(data);
   return (
-    <ChartWrapper>
+    <div className="chart-wrapper">
       <BarChart
         series={[{ data: scores }]}
         xAxis={[
@@ -20,6 +20,6 @@ export const AxisScoreChart = ({ data }: ChartProps) => {
         barLabel="value"
         height={300}
       />
-    </ChartWrapper>
+    </div>
   );
 };

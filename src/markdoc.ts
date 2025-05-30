@@ -8,30 +8,8 @@ const chart = (tagName: string): Schema => ({
   },
 });
 
-/**
- * Our custom Markdown processing config
- *
- * We customize the tag names used for standard nodes
- * such as paragraphs so that we can style them as needed.
- */
+/** Our custom Markdoc config with charting tags */
 export const config: Config = {
-  nodes: {
-    paragraph: { render: "Para" },
-    list: { render: "List" },
-    item: { render: "Item" },
-    em: { render: "Em" },
-    strong: { render: "Strong" },
-    heading: { render: "Heading2" },
-    link: {
-      render: "Link",
-      attributes: {
-        href: {
-          type: "String",
-          required: true,
-        },
-      },
-    },
-  },
   tags: {
     axis_score_chart: chart("AxisScoreChart"),
     score_distribution_chart: chart("ScoreDistributionChart"),

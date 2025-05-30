@@ -1,11 +1,11 @@
 import { axisLabels, getScoreHistogramByAxis, scoreLabels } from "@/src/model";
-import { ChartProps, ChartWrapper } from "./Charts";
+import { ChartProps } from "./Charts";
 import { BarChart } from "@mui/x-charts";
 
 export const StackedAxisScoreChart = ({ data }: ChartProps) => {
   const values = getScoreHistogramByAxis(data);
   return (
-    <ChartWrapper>
+    <div className="chart-wrapper">
       <BarChart
         series={values.map((scores, index) => ({
           data: scores,
@@ -16,6 +16,6 @@ export const StackedAxisScoreChart = ({ data }: ChartProps) => {
         barLabel="value"
         height={400}
       />
-    </ChartWrapper>
+    </div>
   );
 };

@@ -1,23 +1,10 @@
-@import "tailwindcss";
-
-@layer components {
-  .typo-title {
-    @apply text-4xl text-balance;
-  }
-
-  .typo-title2 {
-    @apply text-2xl text-balance;
-  }
-
-  .typo-link {
-    @apply cursor-pointer underline underline-offset-2 text-[#0000ff];
-  }
-
-  .typo-emphasis {
-    @apply bg-yellow-100;
-  }
+body {
+  padding: 20px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-em {
-  font-style: normal;
+main,
+footer {
+  max-width: 900px;
+  margin: auto;
 }

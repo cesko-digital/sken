@@ -6,7 +6,7 @@ import Markdoc, { renderers } from "@markdoc/markdoc";
 import { config } from "@/src/markdoc";
 import React from "react";
 import { promises as fs } from "fs";
-import { ChartTags } from "@/components/Charts";
+import { ChartTags } from "@/app/vysledky/[id]/Charts";
 
 type Params = {
   id: string;
@@ -34,7 +34,7 @@ export default async function ResultPage({ params }: Props) {
   const renderTree = Markdoc.transform(syntaxTree, {
     ...config,
     variables: {
-      organizationName: response.meta.organizationName,
+      organisationName: response.meta.organisationName,
       data: response.scores,
     },
   });
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
   return {
-    title: `${response.meta.organizationName}: Výsledky skenu digitální vyspělosti`,
+    title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
     description: "TBD: Stručný popisek",
   };
 }

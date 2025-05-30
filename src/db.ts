@@ -195,7 +195,7 @@ export const decodeScoreChart = (chart: unknown): ScoreChart => {
 export const decodeFormResponse = (value: unknown) => {
   const decodeMetadata = record({
     id: field("fldz2KGNqvJe7TUiv", string),
-    organizationName: field("flddAwhNuOpDJSrgJ", string),
+    organisationName: field("flddAwhNuOpDJSrgJ", string),
   });
   return {
     meta: decodeMetadata(value),

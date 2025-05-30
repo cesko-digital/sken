@@ -1,8 +1,16 @@
+//
+// Types
+//
+
 export type Score = 1 | 2 | 3 | 4 | 5;
 
 export type TopicScores = Score[];
 export type AreaScores = TopicScores[];
 export type ScoreChart = AreaScores[];
+
+//
+// Labels
+//
 
 export const areaLabels = [
   "Komunikace & Spolupráce",
@@ -21,10 +29,45 @@ export const scoreLabels = [
 
 export const axisLabels = ["Kultura", "Dovednosti", "Nástroje"] as const;
 
+export const topicLabels = [
+  [
+    "Rychlost a jasnost komunikace",
+    "Sdílení a dostupnost informací",
+    "Kvalita spolupráce v týmu",
+    "Dokumentace a uchovávání komunikace",
+    "Digitální komunikace navenek]",
+  ],
+  [
+    "Automatizace rutinních úkolů",
+    "Digitální postupy a schvalování",
+    "Sběr a využívání dat pro rozhodování",
+    "Plánování a sledování projektů",
+    "Integrace a propojení nástrojů",
+  ],
+  [
+    "Ochrana před kybernetickými hrozbami",
+    "Správa uživatelských účtů a přístupů",
+    "Zálohování a obnova dat",
+    "Hybridní a vzdálená práce",
+    "Aktualizace a údržba systémů",
+  ],
+  [
+    "Samostatnost při řešení problémů",
+    "Osvojování nových technologií",
+    "Využívání pokročilých funkcí",
+    "Správa digitálních znalostí",
+    "Investice do digitálního rozvoje",
+  ],
+];
+
 const areas = areaLabels.length;
 const axes = axisLabels.length;
 const scores = scoreLabels.length;
 const topics = 5;
+
+//
+// Helpers
+//
 
 type VisitArgs<T> = {
   accum: T;
@@ -57,6 +100,22 @@ const zero2 = (length1: number, length2: number): number[][] =>
     .fill(0)
     .map(() => zero(length2));
 
+export const transpose = (matrix: number[][]): number[][] => {
+  const height = matrix.length;
+  const width = matrix[0].length;
+  const transposed = zero2(width, height);
+  for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+      transposed[col][row] = matrix[row][col];
+    }
+  }
+  return transposed;
+};
+
+//
+// Statistics
+//
+
 export const getScoreHistogram = (chart: ScoreChart) =>
   visit(chart, zero(scores), ({ accum, score }) => {
     accum[score - 1] += 1;
@@ -78,6 +137,6 @@ export const sumScoresByArea = (chart: ScoreChart) =>
   });
 
 export const sumScoresByAreaAndAxis = (chart: ScoreChart) =>
-  visit(chart, zero2(areas, axes), ({ accum, area, axis, score }) => {
-    accum[area][axis] += score;
+  visit(chart, zero2(axes, areas), ({ accum, area, axis, score }) => {
+    accum[axis][area] += score;
   });

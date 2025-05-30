@@ -5,6 +5,9 @@ const chart = (tagName: string): Schema => ({
   selfClosing: true,
   attributes: {
     data: {},
+    caption: {
+      type: String,
+    },
   },
 });
 
@@ -13,6 +16,9 @@ const topicChart = (tagName: string): Schema => ({
   selfClosing: true,
   attributes: {
     data: {},
+    caption: {
+      type: String,
+    },
     area: {
       type: Number,
     },

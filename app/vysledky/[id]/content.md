@@ -4,7 +4,7 @@
 
 Sken vychází z předpokladu, že lidé v organizaci dosahují **špičkových výsledků** pouze pokud se vzájemně doplňují a podporují **3 pilíře: Kultura, Dovednosti a Nástroje**.
 
-**Sken funguje na principu *benchmarkování***: nabízí výroky, které popisují to, jak může organizace fungovat. Úkolem vyplňující osoby je **posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované organizace**.
+**Sken funguje na principu _benchmarkování_**: nabízí výroky, které popisují to, jak může organizace fungovat. Úkolem vyplňující osoby je **posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované organizace**.
 
 Odpovědi se zaznamenávají jako hodnoty na škále 1–5, kdy 1= výrok vůbec neodpovídá a 5 = výrok naprosto odpovídá. Jinými slovy, **čím vyšší hodnota, tím blíže má aktuální stav organizace k cílovému stavu popsanému ve výroku**.
 
@@ -39,12 +39,12 @@ A teď už se pojďme podívat, jak je na tom vaše organizace. **Doporučujeme 
 
 ## Část první: Celková úroveň digitální vyspělosti
 
-{% score_distribution_chart data=$data /%}
+{% score_distribution_chart caption="1. Celková úroveň digitální vyspělosti" data=$data /%}
 
 Graf č. 1 ukazuje, jak často skenovaná organizace dosahuje jednotlivých úrovní.
 
-- *Nevyužitý potenciál* ukazuje počet odpovědí s hodnotou 1 („Vůbec neodpovídá“).
-- *Inspirativní přístup* ukazuje počet odpovědí s hodnotou 5 („Naprosto odpovídá“).
+- _Nevyužitý potenciál_ ukazuje počet odpovědí s hodnotou 1 („Vůbec neodpovídá“).
+- _Inspirativní přístup_ ukazuje počet odpovědí s hodnotou 5 („Naprosto odpovídá“).
 - Ostatní sloupce ukazují počty odpovědí s hodnotami 2, 3, 4.
 
 **V ideálním případě by všechny odpovědi měly spadat do kategorie Solidní základ a výše.**
@@ -52,17 +52,17 @@ Graf č. 1 ukazuje, jak často skenovaná organizace dosahuje jednotlivých úro
 - Pokud převažují odpovědi typu Nevyužitý potenciál a Dobrý začátek, rovnou lze konstatovat, že zvyšování digitální vyspělosti by se mělo stát hlavní prioritou skenované organizace.
 - Pokud převažují odpovědi typu Solidní základ a výše, je třeba se nejprve podívat na další grafy.
 
-{% axis_score_chart data=$data /%}
+{% axis_score_chart caption="2. Srovnání celkové úrovně pilířů" data=$data /%}
 
-{% stacked_axis_score_chart data=$data /%}
+{% stacked_axis_score_chart caption="3. Vliv pilířů na celkovou úroveň digitální vyspělosti" data=$data /%}
 
 ## Část druhá: Úroveň pilířů v jednotlivých oblastech
 
-{% score_over_area_chart data=$data /%}
+{% score_over_area_chart caption="4. Srovnání celkové úrovně klíčových oblastí" data=$data /%}
 
 Opět platí, že cílem je co největší rovnováha. **Pokud některá oblast dosahuje výrazně nižších hodnot, je třeba věnovat ji zvýšenou pozornost.** Grafy ve třetí části vám pomohou určit, na jaká konkrétní témata se v dané oblasti zaměřit.
 
-{% score_over_area_and_axis_chart data=$data /%}
+{% score_over_area_and_axis_chart caption="5. Srovnání úrovně pilířů v jednotlivých oblastech" data=$data /%}
 
 Zpozorněte, pokud **některý z pilířů dosahuje v rámci některé oblasti výrazně nižší úrovně než ostatní pilíře**, zejména pokud k tomu dochází opakovaně napříč oblastmi.
 
@@ -77,13 +77,13 @@ Vypište si na papír všechna témata, která splňují tato kritéria:
 
 Pokud je témat hodně, seřaďte je od nejnižší hodnoty a věnujte jim pozornost v tomto pořadí.
 
-{% topic_drilldown_chart data=$data area=0 /%}
+{% topic_drilldown_chart caption="6. Úroveň témat v oblasti Komunikace & Spolupráce" data=$data area=0 /%}
 
-{% topic_drilldown_chart data=$data area=1 /%}
+{% topic_drilldown_chart caption="7. Úroveň témat v oblasti Procesy & Automatizace" data=$data area=1 /%}
 
-{% topic_drilldown_chart data=$data area=2 /%}
+{% topic_drilldown_chart caption="8. Úroveň témat v oblasti Bezpečnost & Flexibilita" data=$data area=2 /%}
 
-{% topic_drilldown_chart data=$data area=3 /%}
+{% topic_drilldown_chart caption="9. Úroveň témat v oblasti Učení & Rozvoj" data=$data area=3 /%}
 
 ## Promyšlení dalšího postupu
 

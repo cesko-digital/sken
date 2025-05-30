@@ -22,7 +22,7 @@ Podrobně viz [dokumentaci Markdoc](https://markdoc.dev/docs/variables).
 Značky se zapisují takto:
 
 ```markdown
-{% score_distribution_chart data=$data /%}
+{% score_distribution_chart caption="Popisek grafu" data=$data /%}
 ```
 
 Dokument podporuje následující typy grafů:

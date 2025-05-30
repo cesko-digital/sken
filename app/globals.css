@@ -1,8 +1,11 @@
 :root {
+  /* Colors */
   --colors-it: #0000ff;
   --colors-highlight: #fef9c2;
   --colors-dark-gray: #d1d5dc;
   --colors-gray: #f9fafb;
+  /* Layout */
+  --width-prose: 80ch;
 }
 
 @font-face {
@@ -95,11 +98,12 @@ strong {
 .markdoc-root p,
 ul,
 ol {
-  max-width: 80ch;
+  max-width: var(--width-prose);
 }
 
 .markdoc-root img {
   width: 100%;
+  max-width: var(--width-prose);
   height: auto;
   border: 1px solid var(--colors-dark-gray);
   margin-top: 10px;

@@ -102,3 +102,20 @@ Pokud je témat hodně, seřaďte je od nejnižší hodnoty a věnujte jim pozor
 - Pokud nejnižší hodnoty dosahuje pilíř Nástroje, znamená to, že hlavní překážkou pro další zvyšování digitální vyspělosti je nedostatečná digitální infrastruktura.
   - Vhodným krokem může být například zmapování procesů a potřeb v oblastech a tématech s nejnižší úrovní s cílem pojmenovat kritéria pro výběr nového nástroje
   - Kde s mapováním začít a na co se zaměřit, vyčtete z grafů ve třetí části.
+
+{% box %}
+
+## Máte téma, ale nevíte, co dál? Zkonzultujte další postup na Tržišti
+
+**_Tržiště_ je volně přístupné internetové fórum**, které provozuje organizace Česko.Digital. Neziskové organizace zde mohou **bezplatně poptávat dobrovolnickou i placenou pomoc** se vším, co se týká digitálních technologií.
+
+Je to ideální místo, kam zavítat, pokud:
+
+- váháte, jak na základě výsledků skenu postupovat dál,
+- nebo už máte konkrétní zadání a **sháníte někoho, kdo vám pomůže s jeho realizací**.
+
+**Vytvořte nový příspěvek, popište, s čím potřebujete pomoct a počkejte na reakce.**
+
+{% button href="https://trziste.diskutuj.digital" title="Navštivte Tržiště" /%}
+
+{% /box %}

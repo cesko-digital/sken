@@ -1,13 +1,3 @@
-:root {
-  /* Colors */
-  --colors-it: #0000ff;
-  --colors-highlight: #fef9c2;
-  --colors-dark-gray: #d1d5dc;
-  --colors-gray: #f9fafb;
-  /* Layout */
-  --width-prose: 80ch;
-}
-
 @font-face {
   font-family: "Cesko.Digital";
   font-display: swap;
@@ -28,8 +18,19 @@
   font-style: normal;
 }
 
+:root {
+  /* Colors */
+  --colors-it: #0000ff;
+  --colors-highlight: #fef9c2;
+  --colors-dark-gray: #d1d5dc;
+  --colors-black: #1e293b;
+  --colors-gray: #f9fafb;
+  /* Layout */
+  --width-prose: 80ch;
+}
+
 body {
-  padding: 20px;
+  padding: 40px 20px 50px 20px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   line-height: 1.5em;
 }
@@ -69,7 +70,7 @@ h2,
 h3 {
   font-family: "Cesko.Digital", sans-serif;
   font-weight: 600;
-  line-height: 1.3em;
+  line-height: 1.2em;
   text-wrap: balance;
 }
 
@@ -80,7 +81,13 @@ h1 {
 h2 {
   font-size: 2em;
   margin-top: 2em;
-  margin-bottom: 1em;
+  margin-bottom: 0.7em;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child {
+  margin-top: 0;
 }
 
 a,
@@ -108,4 +115,26 @@ ol {
   border: 1px solid var(--colors-dark-gray);
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.markdoc-root .box {
+  background-color: var(--colors-gray);
+  border: 1px solid var(--colors-dark-gray);
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.markdoc-root .button-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.markdoc-root .button {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 1.5ex 3ex 1.5ex 3ex;
+  background-color: var(--colors-black);
+  border-radius: 1ex;
 }

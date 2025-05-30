@@ -1,5 +1,6 @@
 import { Config, Schema } from "@markdoc/markdoc";
 
+/** Basic chart with a `data` attribute */
 const chart = (tagName: string): Schema => ({
   render: tagName,
   selfClosing: true,
@@ -11,6 +12,7 @@ const chart = (tagName: string): Schema => ({
   },
 });
 
+/** Topic chart that has an `area` attribute in addition to `data` */
 const topicChart = (tagName: string): Schema => ({
   render: tagName,
   selfClosing: true,
@@ -25,6 +27,11 @@ const topicChart = (tagName: string): Schema => ({
   },
 });
 
+/**
+ * Custom image
+ *
+ * We don’t use plain Markdown images because they would cause layout jumps.
+ */
 const image: Schema = {
   render: "Image",
   selfClosing: true,
@@ -48,6 +55,26 @@ const image: Schema = {
   },
 };
 
+const box = {
+  render: "Box",
+  children: ["paragraph", "tag", "list"],
+};
+
+const button = {
+  render: "Button",
+  selfClosing: true,
+  attributes: {
+    href: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
+};
+
 /** Our custom Markdoc config with charting tags */
 export const config: Config = {
   tags: {
@@ -57,6 +84,8 @@ export const config: Config = {
     score_over_area_chart: chart("ScoreOverAreaChart"),
     score_over_area_and_axis_chart: chart("ScoreOverAreaAndAxisChart"),
     topic_drilldown_chart: topicChart("TopicDrillDownChart"),
+    button,
     image,
+    box,
   },
 };

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import path from "path";
 import Markdoc, { renderers } from "@markdoc/markdoc";
 import { config } from "@/src/markdoc";
-import React from "react";
+import React, { ReactNode } from "react";
 import { promises as fs } from "fs";
 import { ChartTags } from "@/app/vysledky/[id]/Charts";
 import Image from "next/image";
@@ -43,11 +43,23 @@ export default async function ResultPage({ params }: Props) {
   return (
     <div className="markdoc-root">
       {renderers.react(renderTree, React, {
-        components: { ...ChartTags, Image },
+        components: { ...ChartTags, Image, Box, Button },
       })}
     </div>
   );
 }
+
+const Box = ({ children }: { children: ReactNode }) => (
+  <div className="box">{children}</div>
+);
+
+const Button = ({ href, title }: { href: string; title: string }) => (
+  <div className="button-wrapper">
+    <a href={href} target="_blank" className="button">
+      {title}
+    </a>
+  </div>
+);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const response = await getFormResponse((await params).id);

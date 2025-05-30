@@ -19,7 +19,7 @@ type ChartProps = {
   caption?: string;
 };
 
-const colorSeries = ["#4155FB", "#FA4F58", "orange"];
+const colorSeries = ["#4155FB", "orange", "#FA4F58"];
 const height = {
   normal: 300,
   higher: 400,

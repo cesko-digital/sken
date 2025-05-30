@@ -4,16 +4,20 @@ Jednoduchá aplikace pro zobrazení výstupů z [dotazníku digitální vyspěl
 
 Napsaná v [Next.js](https://nextjs.org), běží na [Vercelu](https://vercel.com). Data se načítají z [Airtable](https://airtable.com).
 
+## Úpravy obsahu
+
 V principu jde hlavně o textový dokument s grafy, takže hlavní část obsahu je [tento soubor](https://github.com/cesko-digital/sken/blob/main/app/vysledky/%5Bid%5D/content.md) v [Markdownu](https://en.wikipedia.org/wiki/Markdown), parsovaný pomocí [Markdoc](https://markdoc.dev).
 
 Kromě standardních Markdown značek dokument podporuje proměnné a značky pro grafy.
 
-Proměnné:
+### Proměnné
 
 * `organisationName` – název organizace, za kterou byl formulář vyplněný
 * `data` – matice číselných skóre pro sazbu grafů
 
 Podrobně viz [dokumentaci Markdoc](https://markdoc.dev/docs/variables).
+
+### Značky
 
 Značky se zapisují takto:
 

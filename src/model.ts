@@ -35,7 +35,7 @@ export const topicLabels = [
     "Sdílení a dostupnost informací",
     "Kvalita spolupráce v týmu",
     "Dokumentace a uchovávání komunikace",
-    "Digitální komunikace navenek]",
+    "Digitální komunikace navenek",
   ],
   [
     "Automatizace rutinních úkolů",

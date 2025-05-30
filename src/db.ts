@@ -17,6 +17,12 @@ export async function getFormResponse(
 ): Promise<FormResponse | null> {
   const base = new Airtable().base("appmxoOm1pOLmmGDn");
   const table = base("tblBOTdYlMjW4hxUb");
+
+  // Special-cased IDs for testing purposes
+  if (["sample", "zkouska", "test"].includes(id)) {
+    return sampleFormResponse;
+  }
+
   // We should use `find` here since we know the ID beforehand,
   // but the `select` method lets us set the `returnFieldsByFieldId`
   // flag that we need.
@@ -201,4 +207,45 @@ export const decodeFormResponse = (value: unknown) => {
     meta: decodeMetadata(value),
     scores: decodeScoreChart(value),
   };
+};
+
+//
+// Samples
+//
+
+const sampleFormResponse = {
+  meta: {
+    id: "rec1lBKLBdgwgCT2B",
+    organisationName: "Doughnut Czechia",
+  },
+  scores: [
+    [
+      [2, 4, 4],
+      [1, 1, 1],
+      [4, 5, 5],
+      [2, 1, 1],
+      [4, 3, 3],
+    ],
+    [
+      [2, 2, 1],
+      [1, 1, 1],
+      [3, 4, 1],
+      [4, 4, 2],
+      [1, 1, 1],
+    ],
+    [
+      [1, 3, 1],
+      [1, 4, 1],
+      [2, 2, 1],
+      [5, 5, 5],
+      [2, 3, 2],
+    ],
+    [
+      [5, 4, 1],
+      [4, 4, 1],
+      [3, 2, 1],
+      [2, 2, 1],
+      [2, 2, 1],
+    ],
+  ] as ScoreChart,
 };

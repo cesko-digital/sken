@@ -68,11 +68,11 @@ const ScoreDistributionChart = ({ data }: ChartProps) => {
  * This one also shows which axes the scores were distributed between.
  */
 const StackedAxisScoreChart = ({ data }: ChartProps) => {
-  const values = getScoreHistogramByAxis(data);
+  const scores = getScoreHistogramByAxis(data);
   return (
     <div className="chart-wrapper">
       <BarChart
-        series={values.map((scores, index) => ({
+        series={transpose(scores).map((scores, index) => ({
           data: scores,
           stack: "stack",
           label: axisLabels[index],
@@ -102,11 +102,11 @@ const ScoreOverAreaChart = ({ data }: ChartProps) => {
 
 /** Show sum of scores over areas (Komunikace a spolupráce, …) split into axes (Kultura, …) */
 const ScoreOverAreaAndAxisChart = ({ data }: ChartProps) => {
-  const values = sumScoresByAreaAndAxis(data);
+  const areas = sumScoresByAreaAndAxis(data);
   return (
     <div className="chart-wrapper">
       <BarChart
-        series={values.map((axeValues, index) => ({
+        series={transpose(areas).map((axeValues, index) => ({
           label: axisLabels[index],
           data: axeValues,
         }))}

@@ -122,8 +122,8 @@ export const getScoreHistogram = (chart: ScoreChart) =>
   });
 
 export const getScoreHistogramByAxis = (chart: ScoreChart) =>
-  visit(chart, zero2(axes, scores), ({ accum, axis, score }) => {
-    accum[axis][score - 1] += 1;
+  visit(chart, zero2(scores, axes), ({ accum, axis, score }) => {
+    accum[score - 1][axis] += 1;
   });
 
 export const sumScoresByAxis = (chart: ScoreChart) =>
@@ -137,6 +137,6 @@ export const sumScoresByArea = (chart: ScoreChart) =>
   });
 
 export const sumScoresByAreaAndAxis = (chart: ScoreChart) =>
-  visit(chart, zero2(axes, areas), ({ accum, area, axis, score }) => {
-    accum[axis][area] += score;
+  visit(chart, zero2(areas, axes), ({ accum, area, axis, score }) => {
+    accum[area][axis] += score;
   });

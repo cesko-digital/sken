@@ -7,6 +7,7 @@ import {
   sumScoresByArea,
   sumScoresByAreaAndAxis,
   sumScoresByAxis,
+  transpose,
 } from "./model";
 
 test("Score histogram", () => {
@@ -38,6 +39,22 @@ test("Sum scores by area and axis", () => {
     [10, 15, 16],
     [10, 15, 16],
   ]);
+});
+
+test("Matrix transpose", () => {
+  assert.deepEqual(transpose([[1, 2, 3]]), [[1], [2], [3]]);
+  assert.deepEqual(
+    transpose([
+      [1, 2, 3],
+      [4, 5, 6],
+    ]),
+    [
+      [1, 4],
+      [2, 5],
+      [3, 6],
+    ]
+  );
+  assert.deepEqual(transpose([[1]]), [[1]]);
 });
 
 const sampleChart: ScoreChart = [

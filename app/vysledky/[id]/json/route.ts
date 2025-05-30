@@ -1,5 +1,4 @@
-import { getFormResponse } from "@/app/api";
-import { getAssessmentStats } from "@/app/model";
+import { getFormResponse } from "@/src/db";
 
 type Params = {
   id: string;
@@ -14,12 +13,7 @@ export async function GET(_: Request, { params }: Props): Promise<Response> {
   if (!response) {
     return new Response(null, { status: 404 });
   }
-  const out = {
-    meta: response.meta,
-    scores: response.scores,
-    stats: getAssessmentStats(response.scores),
-  };
-  return new Response(JSON.stringify(out, null, 2), {
+  return new Response(JSON.stringify(response, null, 2), {
     headers: { "Content-Type": "application/json" },
   });
 }

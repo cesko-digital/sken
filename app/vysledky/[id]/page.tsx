@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
-import { getFormResponse } from "@/app/api";
-import { getAssessmentStats } from "@/app/model";
+import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
-import { AxisScoreChart } from "./AxisScoreChart";
-import { AreaScoreChart } from "./AreaScoreChart";
-import { ScoreDistributionChart } from "./ScoreDistributionChart";
-import { StackedScoreChart } from "./StackedScoreChart";
-import { HowtoSection } from "./HowToSection";
-import { MarketPlaceSection } from "./MarketPlaceSection";
+import path from "path";
+import Markdoc, { renderers } from "@markdoc/markdoc";
+import { config } from "@/src/markdoc";
+import React from "react";
+import { promises as fs } from "fs";
+import { ContentTags } from "@/components/Content";
+import { ChartTags } from "@/components/Charts";
 
 type Params = {
   id: string;
@@ -17,29 +17,37 @@ export type Props = {
   params: Promise<Params>;
 };
 
+/** Show digital maturity assessment with text & charts */
 export default async function ResultPage({ params }: Props) {
+  // Read score data from DB
   const response = await getFormResponse((await params).id);
   if (!response) {
     notFound();
   }
-  const stats = getAssessmentStats(response.scores);
+
+  // Read page content from Markdown
+  const pageSource = await fs.readFile(
+    path.join(process.cwd(), "/app/vysledky/[id]/content.md"),
+    "utf-8"
+  );
+
+  const syntaxTree = Markdoc.parse(pageSource);
+  const renderTree = Markdoc.transform(syntaxTree, {
+    ...config,
+    variables: {
+      organizationName: response.meta.organizationName,
+      data: response.scores,
+    },
+  });
+
   return (
-    <div className="flex flex-col gap-10">
-      <h1 className="typo-title">
-        Výsledky skenu digitální vyspělosti pro {response.meta.organizationName}
-      </h1>
-      <p>
-        Pojďme se podívat, jak je na tom vaše organizace. 
-        <em className="typo-emphasis">
-          Doporučujeme si vzít k ruce papír a tužku.
-        </em>
-      </p>
-      <ScoreDistributionChart data={stats.scoreCountByScore} />
-      <AxisScoreChart data={stats.scoreCountByScoreAndAxis} />
-      <AreaScoreChart data={stats.totalScoreByArea} />
-      <StackedScoreChart data={stats.scoresByAxis} />
-      <HowtoSection />
-      <MarketPlaceSection />
+    <div>
+      {renderers.react(renderTree, React, {
+        components: {
+          ...ContentTags,
+          ...ChartTags,
+        },
+      })}
     </div>
   );
 }

@@ -4,6 +4,28 @@ Jednoduchá aplikace pro zobrazení výstupů z [dotazníku digitální vyspěl
 
 Napsaná v [Next.js](https://nextjs.org), běží na [Vercelu](https://vercel.com). Data se načítají z [Airtable](https://airtable.com).
 
+## Lokální vývoj
+
+Udělej si kopii repa:
+
+```bash
+git clone https://github.com/cesko-digital/sken
+```
+
+Nainstaluj závislosti:
+
+```bash
+npm i
+```
+
+A mělo by to jít spustit:
+
+```bash
+npm run dev
+```
+
+Pro lokální vývoj není potřeba přístup do databáze, na URL `/vysledky/sample` ([živá ukázka](https://sken.nezisk.digital/vysledky/sample)) je ukázkový dataset.
+
 ## Úpravy obsahu
 
 V principu jde hlavně o textový dokument s grafy, takže hlavní část obsahu je [tento soubor](https://github.com/cesko-digital/sken/blob/main/app/vysledky/%5Bid%5D/content.md) v [Markdownu](https://en.wikipedia.org/wiki/Markdown), parsovaný pomocí [Markdoc](https://markdoc.dev).
@@ -41,3 +63,9 @@ Specificky poslední graf bere ještě číselný argument `area`, který určuj
 ```
 
 Oblasti jsou číslované od nuly.
+
+## Kontakt
+
+Model digitální vyspělosti: <matej.malecha@cesko.digital>
+
+Kód: <zoul@cesko.digital>

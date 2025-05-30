@@ -18,7 +18,7 @@ export default function RootLayout({
         <script
           defer
           data-domain="sken.nezisk.digital"
-          src="https://plausible.io/js/script.js"
+          src="https://plausible.io/js/script.outbound-links.js"
         ></script>
       </head>
       <body>

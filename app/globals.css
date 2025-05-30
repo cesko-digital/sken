@@ -1,11 +1,93 @@
+:root {
+  --colors-it: #0000ff;
+  --colors-highlight: #fef9c2;
+  --colors-dark-gray: #d1d5dc;
+  --colors-gray: #f9fafb;
+}
+
+@font-face {
+  font-family: "Cesko.Digital";
+  font-display: swap;
+  src: url("https://data.cesko.digital/font/regular.woff2") format("woff2"),
+    url("https://data.cesko.digital/font/regular.woff") format("woff"),
+    url("https://data.cesko.digital/font/regular.eot") format("eot");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cesko.Digital";
+  font-display: swap;
+  src: url("https://data.cesko.digital/font/semibold.woff2") format("woff2"),
+    url("https://data.cesko.digital/font/semibold.woff") format("woff"),
+    url("https://data.cesko.digital/font/semibold.eot") format("eot");
+  font-weight: 600;
+  font-style: normal;
+}
+
 body {
   padding: 20px;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   line-height: 1.5em;
 }
 
+/* Layout */
+
 main,
 footer {
   max-width: 900px;
   margin: auto;
+}
+
+footer {
+  margin-top: 70px;
+  border-top: 1px solid var(--colors-dark-gray);
+}
+
+/* Charts */
+
+.chart-wrapper {
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid var(--colors-dark-gray);
+  background-color: var(--colors-gray);
+}
+
+/* Content */
+
+h1,
+h2 {
+  font-family: "Cesko.Digital", sans-serif;
+  font-weight: 600;
+  line-height: 1.3em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+a,
+a:visited {
+  color: var(--colors-it);
+}
+
+strong {
+  font-weight: normal;
+  background-color: var(--colors-highlight);
+}
+
+/* Markdoc content */
+
+.markdoc-root p,
+ul,
+ol {
+  max-width: 80ch;
 }

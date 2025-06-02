@@ -164,7 +164,9 @@ const TopicDrillDownChart = ({
           stack: "stack",
           color: colorSeries[index],
         }))}
-        xAxis={[{ data: topicLabels[area] }]}
+        xAxis={[
+          { data: topicLabels[area].map((s) => s.replaceAll(/\s+/g, "\n")) },
+        ]}
         yAxis={[{ label: "Součet skóre" }]}
         height={height.normal}
         barLabel="value"

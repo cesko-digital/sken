@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   redirects: async () => [
     {
       source: "/",
-      destination: "https://forms.fillout.com/t/ew3SxJA4UDus",
+      destination: "https://forms.fillout.com/t/rMoYry5Shaus",
       statusCode: 302,
     },
   ],

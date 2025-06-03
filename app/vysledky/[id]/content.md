@@ -4,6 +4,10 @@
 
 Sken vychází z předpokladu, že lidé v organizaci dosahují **špičkových výsledků** pouze pokud se vzájemně doplňují a podporují 3 pilíře: **Kultura, Dovednosti a Nástroje**.
 
+(Pokud s vámi tyto výsledky někdo sdílel a chtěli byste získat něco
+podobného pro vaši organizaci, {% link href=$formUrl %} stačí vyplnit
+náš formulář{% /link %}.)
+
 {% image src="https://assets.cesko.digital/11f81f04.jpg" width=2309 height=1732 alt="" /%}
 
 Sken funguje na principu _benchmarkování_: nabízí výroky, které popisují, jak může organizace fungovat. Úkolem vyplňující osoby je **posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované organizace**.

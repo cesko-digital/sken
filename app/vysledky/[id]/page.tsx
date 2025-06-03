@@ -8,6 +8,7 @@ import React, { ReactNode } from "react";
 import { promises as fs } from "fs";
 import { ChartTags } from "@/app/vysledky/[id]/Charts";
 import Image from "next/image";
+import { formUrl } from "@/src/utils";
 
 type Params = {
   id: string;
@@ -37,6 +38,7 @@ export default async function ResultPage({ params }: Props) {
     variables: {
       organisationName: response.meta.organisationName,
       data: response.scores,
+      formUrl,
     },
   });
 

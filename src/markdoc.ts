@@ -83,6 +83,16 @@ const mark = {
   children: ["inline"],
 };
 
+const link = {
+  render: "a",
+  children: ["inline"],
+  attributes: {
+    href: {
+      type: String,
+    },
+  },
+};
+
 /** Our custom Markdoc config with charting tags */
 export const config: Config = {
   tags: {
@@ -94,6 +104,7 @@ export const config: Config = {
     topic_drilldown_chart: topicChart("TopicDrillDownChart"),
     button,
     image,
+    link,
     mark,
     box,
   },

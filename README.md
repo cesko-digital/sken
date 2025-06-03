@@ -34,8 +34,9 @@ Kromě standardních Markdown značek dokument podporuje proměnné a značky pr
 
 ### Proměnné
 
-* `organisationName` – název organizace, za kterou byl formulář vyplněný
-* `data` – matice číselných skóre pro sazbu grafů
+- `organisationName` – název organizace, za kterou byl formulář vyplněný
+- `data` – matice číselných skóre pro sazbu grafů
+- `formUrl` – URL hodnoticího formuláře ve Filloutu
 
 Podrobně viz [dokumentaci Markdoc](https://markdoc.dev/docs/variables).
 
@@ -49,12 +50,12 @@ Značky se zapisují takto:
 
 Dokument podporuje následující typy grafů:
 
-* `axis_score_chart` – suma hodnocení podle jednotlivých pilířů
-* `score_distribution_chart` – histogram udělených známek
-* `stacked_axis_score_chart` – histogram udělených známek rozdělený ještě podle pilířů
-* `score_over_area_chart` – suma hodnocení podle jednotlivých oblastí
-* `score_over_area_and_axis_chart` – suma hodnocení podle jednotlivých oblastí rozdělená podle pilířů
-* `topic_drilldown_chart` – suma hodnocení v jedné konkrétní oblasti rozdělená podle témat
+- `axis_score_chart` – suma hodnocení podle jednotlivých pilířů
+- `score_distribution_chart` – histogram udělených známek
+- `stacked_axis_score_chart` – histogram udělených známek rozdělený ještě podle pilířů
+- `score_over_area_chart` – suma hodnocení podle jednotlivých oblastí
+- `score_over_area_and_axis_chart` – suma hodnocení podle jednotlivých oblastí rozdělená podle pilířů
+- `topic_drilldown_chart` – suma hodnocení v jedné konkrétní oblasti rozdělená podle témat
 
 Specificky poslední graf bere ještě číselný argument `area`, který určuje, kterou oblast má ukázat:
 

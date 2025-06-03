@@ -13,6 +13,9 @@ const customFont = localFont({
 export const metadata: Metadata = {
   title: "Sken digitální vyspělosti",
   description: "TBD: Stručný popisek",
+  openGraph: {
+    images: "https://assets.cesko.digital/9e28afa2.jpg",
+  },
 };
 
 export default function RootLayout({

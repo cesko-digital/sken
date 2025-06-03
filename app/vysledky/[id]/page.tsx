@@ -68,6 +68,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
-    description: "TBD: Stručný popisek",
   };
 }

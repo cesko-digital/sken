@@ -38,11 +38,20 @@ export default function RootLayout({
         <footer>
           <p>
             Sken digitální vyspělosti provozuje{" "}
-            <a href="https://www.cesko.digital">Česko.Digital</a>.
+            <a href="https://www.cesko.digital">Česko.Digital</a>
           </p>
           <p>
             Zdrojový kód najdete{" "}
-            <a href="https://github.com/cesko-digital/sken">na GitHubu</a>.
+            <a href="https://github.com/cesko-digital/sken">na GitHubu</a>
+          </p>
+          <p>
+            Ilustrační foto{" "}
+            <a
+              href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
+              rel="noreferrer"
+            >
+              kjpargeter
+            </a>
           </p>
         </footer>
       </body>

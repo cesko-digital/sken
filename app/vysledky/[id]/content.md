@@ -11,7 +11,7 @@ Sken funguje na principu _benchmarkování_: nabízí výroky, které popisují,
 Odpovědi se zaznamenávají jako hodnoty na škále 1–5, kde:
 
 1 = výrok vůbec neodpovídá  
-5 = výrok naprosto odpovídá  
+5 = výrok naprosto odpovídá
 
 Jinými slovy, **čím vyšší hodnota, tím blíže má aktuální stav organizace ke stavu popsanému ve výroku**.
 
@@ -21,7 +21,7 @@ V rámci vyhodnocení jsou pak hodnoty interpretovány následovně:
 2 = Dobrý začátek  
 3 = Solidní základ  
 4 = Vynikající praxe  
-5 = Inspirativní přístup  
+5 = Inspirativní přístup
 
 Sken mapuje **4 klíčové oblasti digitální vyspělosti**:
 
@@ -38,7 +38,7 @@ Výsledky mají podobu **grafů** a jsou rozděleny na 3 části podle míry det
 2. Srovnání _úrovní klíčových oblastí_
 3. Srovnání _úrovní klíčových témat_ v rámci jednotlivých oblastí
 
-**Cílem skenu je posoudit, nakolik jsou pilíře Kultura, Dovednosti a Nástroje v rovnováze, tedy jestli dosahují stejné úrovně v rámci organizace jako celku, v rámci jednotlivých oblastí a témat.**
+{% mark %} **Cílem skenu je posoudit, nakolik jsou pilíře Kultura, Dovednosti a Nástroje v rovnováze, tedy jestli dosahují stejné úrovně v rámci organizace jako celku, v rámci jednotlivých oblastí a témat.** {% /mark %}
 
 Při čtení grafů se snažte identifikovat **oblasti** a **témata**, ve kterých existuje **největší nerovnováha mezi jednotlivými pilíři**. Díky tomu budete schopni posoudit, na co přesně se při zvyšování digitální vyspělosti vaší organizace zaměřit.
 
@@ -56,7 +56,7 @@ A teď už se pojďme podívat, jak je na tom vaše organizace. **Doporučujeme 
 
 **V ideálním případě by všechny odpovědi měly spadat do kategorie _Solidní základ_ a výše.**
 
-- Pokud převažují odpovědi typu _Nevyužitý potenciál_ a _Dobrý začátek_, rovnou lze konstatovat, že zvyšování digitální vyspělosti by se mělo stát hlavní prioritou vaší organizace.
+- {% mark %} Pokud převažují odpovědi typu _Nevyužitý potenciál_ a _Dobrý začátek_, rovnou lze konstatovat, že zvyšování digitální vyspělosti by se mělo stát hlavní prioritou vaší organizace. {% /mark %}
 - Pokud převažují odpovědi typu _Solidní základ_ a výše, je třeba se nejprve podívat na další grafy.
 
 **Graf č. 2 ukazuje celkovou úroveň jednotlivých pilířů.**
@@ -73,7 +73,6 @@ _Jedná se o prostý součet hodnot napříč všemi výroky (nikoli o počet za
 
 - Podívejte se, **jaký pilíř se nejčastěji vyskytuje ve sloupci _Nevyužitý potenciál_ a _Dobrý začátek_**. Z posílení tohoto pilíře by se měla stát okamžitá priorita.
 - Pokud nejvyšších hodnot dosahuje **sloupec _Solidní základ_ a vyšší**, přesto se na rozložení pilířů podívejte – a **zpozorněte, pokud některý pilíř opakovaně zaostává za ostatními**. I tento pilíř byste měli co nejdříve posílit.
-
 
 ## Část druhá: Úroveň pilířů v jednotlivých oblastech
 
@@ -93,7 +92,7 @@ Zpozorněte, pokud **některý z pilířů dosahuje v rámci některé oblasti v
 
 V poslední části najdete detailní pohled na klíčová témata v jednotlivých oblastech. **Grafy rovnou ukazují, jak se do úrovně jednotlivých témat propisuje úroveň pilířů.**
 
-Vypište si na papír všechna témata, která splňují tato kritéria:
+{% mark %} Vypište si na papír všechna témata, která splňují tato kritéria: {% /mark %}
 
 - **Celková hodnota za téma je 8 a méně.**
 - **Pilíř v rámci tématu dosahuje hodnoty 1 („Nevyužitý potenciál“) nebo 2 („Dobrý začátek“)** – poznamenejte si také, o jaký pilíř se jedná.
@@ -112,19 +111,21 @@ Pokud je témat hodně, seřaďte je od nejnižší hodnoty a věnujte jim pozor
 
 **Jak zaznělo na začátku, úroveň pilířů by měla být co nejvyrovnanější** – v rámci jednotlivých témat, oblastí i celé organizace.
 
-**Co přesně je třeba dělat pro zvýšení digitální vyspělosti organizace záleží na tom, který pilíř vyšel v rámci oblasti nebo tématu jako nejslabší:**
+{% mark %} **Co přesně je třeba dělat pro zvýšení digitální vyspělosti organizace záleží na tom, který pilíř vyšel v rámci oblasti nebo tématu jako nejslabší:** {% /mark %}
 
-- **Nejslabší pilíř Kultura:**
+- **Nejslabší {% mark %} pilíř Kultura: {% /mark %}**
+
   - Znamená, že **hlavní překážkou** pro další zvyšování digitální vyspělosti je obecně **vztah k tématu digitálních technologií**.
   - Vhodné kroky: například **podpora** tématu digitalizace **ze strany nejvyššího vedení nebo vytvoření [týmových dohod](https://www.digiskills.cz/files/20231128/1701183043_639008.pdf)**.
   - Konkrétní témata, na která se zaměřit, vyčtete z grafů ve třetí části.
 
-- **Nejslabší pilíř Dovednosti:**
+- **Nejslabší {% mark %} pilíř Dovednosti: {% /mark %}**
+
   - **Hlavní překážkou** jsou **kompetence lidí**.
   - Vhodné kroky: například **školení nebo jiné vzdělávání** v oblastech a tématech s nejnižší úrovní.
   - Co by mělo být obsahem vzdělávání, vyčtete z grafů ve třetí části.
 
-- **Nejslabší pilíř Nástroje:**
+- **Nejslabší {% mark %} pilíř Nástroje: {% /mark %}**
   - **Hlavní překážkou** je **nedostatečná digitální infrastruktura**.
   - Vhodné kroky: například **zmapování procesů a potřeb** v oblastech a tématech s nejnižší úrovní s cílem pojmenovat kritéria pro výběr nového nástroje.
   - Kde s mapováním začít a na co se zaměřit, vyčtete z grafů ve třetí části.
@@ -140,7 +141,7 @@ Zavítejte sem, pokud:
 - váháte, jak na základě výsledků skenu postupovat dál,
 - nebo už máte konkrétní zadání a **sháníte někoho, kdo vám pomůže s jeho realizací**.
 
-**Vytvořte nový příspěvek, popište, s čím potřebujete pomoct a počkejte na reakce.**
+{% mark %} **Vytvořte nový příspěvek, popište, s čím potřebujete pomoct a počkejte na reakce.** {% /mark %}
 
 {% button href="https://trziste.diskutuj.digital" title="Navštivte Tržiště" /%}
 

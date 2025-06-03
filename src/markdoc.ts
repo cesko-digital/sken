@@ -55,11 +55,13 @@ const image: Schema = {
   },
 };
 
+/** Generic colored box with content */
 const box = {
   render: "Box",
   children: ["paragraph", "tag", "list"],
 };
 
+/** Link stylized as button */
 const button = {
   render: "Button",
   selfClosing: true,
@@ -75,6 +77,12 @@ const button = {
   },
 };
 
+/** Inline highlighter */
+const mark = {
+  render: "mark",
+  children: ["inline"],
+};
+
 /** Our custom Markdoc config with charting tags */
 export const config: Config = {
   tags: {
@@ -86,6 +94,7 @@ export const config: Config = {
     topic_drilldown_chart: topicChart("TopicDrillDownChart"),
     button,
     image,
+    mark,
     box,
   },
 };

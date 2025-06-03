@@ -34,15 +34,15 @@ export const topicLabels = [
     "Rychlost a jasnost komunikace",
     "Sdílení a dostupnost informací",
     "Kvalita spolupráce v týmu",
-    "Dokumentace a uchovávání komunikace",
-    "Digitální komunikace navenek",
+    "Plánování a sledování projektů",
+    "Komunikace navenek",
   ],
   [
     "Automatizace rutinních úkolů",
-    "Digitální postupy a schvalování",
-    "Sběr a využívání dat pro rozhodování",
-    "Plánování a sledování projektů",
-    "Integrace a propojení nástrojů",
+    "Vedení evidence",
+    "Schvalovací postupy",
+    "Strategické rozhodování",
+    "Propojení nástrojů a synchronizace dat",
   ],
   [
     "Ochrana před kybernetickými hrozbami",
@@ -54,8 +54,8 @@ export const topicLabels = [
   [
     "Samostatnost při řešení problémů",
     "Osvojování nových technologií",
-    "Využívání pokročilých funkcí",
-    "Správa digitálních znalostí",
+    "Zvyšování efektivity práce",
+    "Dokumentace procesů",
     "Investice do digitálního rozvoje",
   ],
 ];

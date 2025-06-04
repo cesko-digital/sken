@@ -155,6 +155,8 @@ const TopicDrillDownChart = ({
   area = 0,
 }: ChartProps & { area?: number }) => {
   const topics = transpose(data[area]);
+  const splitLines = (s: string) =>
+    s.replaceAll(/(?<!\s\p{L}{1,3})\s+/gu, "\n");
   return (
     <ChartWrapper caption={caption ?? areaLabels[area]}>
       <BarChart
@@ -165,7 +167,10 @@ const TopicDrillDownChart = ({
           color: colorSeries[index],
         }))}
         xAxis={[
-          { data: topicLabels[area].map((s) => s.replaceAll(/\s+/g, "\n")) },
+          {
+            data: topicLabels[area].map(splitLines),
+            height: 75,
+          },
         ]}
         yAxis={[{ label: "Součet skóre" }]}
         height={height.normal}

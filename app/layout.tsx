@@ -27,7 +27,6 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <head>
-        <title>Sken digitální vyspělosti</title>
         <script
           defer
           data-domain="sken.nezisk.digital"

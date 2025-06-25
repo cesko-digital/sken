@@ -2,7 +2,7 @@
 // Types
 //
 
-export type Score = 1 | 2 | 3 | 4 | 5;
+export type Score = number;
 
 export type TopicScores = Score[];
 export type AreaScores = TopicScores[];
@@ -60,10 +60,10 @@ export const topicLabels = [
   ],
 ];
 
-const areas = areaLabels.length;
-const axes = axisLabels.length;
-const scores = scoreLabels.length;
-const topics = 5;
+const areaCount = areaLabels.length;
+const axisCount = axisLabels.length;
+const scoreCount = scoreLabels.length;
+const topicCount = 5;
 
 //
 // Helpers
@@ -83,9 +83,9 @@ const visit = <T>(
   f: (args: VisitArgs<T>) => void
 ) => {
   const accum = initial;
-  for (let area = 0; area < areas; area++) {
-    for (let topic = 0; topic < topics; topic++) {
-      for (let axis = 0; axis < axes; axis++) {
+  for (let area = 0; area < areaCount; area++) {
+    for (let topic = 0; topic < topicCount; topic++) {
+      for (let axis = 0; axis < axisCount; axis++) {
         const score = chart[area][topic][axis];
         f({ accum, area, topic, axis, score });
       }
@@ -94,16 +94,20 @@ const visit = <T>(
   return accum;
 };
 
-const zero = (length: number): number[] => Array(length).fill(0);
-const zero2 = (length1: number, length2: number): number[][] =>
-  Array(length1)
-    .fill(0)
-    .map(() => zero(length2));
+export const repeat = <T>(size: number, val: () => T) =>
+  Array(size).fill(0).map(val) as T[];
+
+export const singleton = (n: number): ScoreChart =>
+  repeat(areaCount, () => repeat(topicCount, () => repeat(axisCount, () => n)));
+
+const zero = (size: number) => repeat(size, () => 0);
+const zeroSquare = (size1: number, size2: number) =>
+  repeat(size1, () => repeat(size2, () => 0));
 
 export const transpose = (matrix: number[][]): number[][] => {
   const height = matrix.length;
   const width = matrix[0].length;
-  const transposed = zero2(width, height);
+  const transposed = zeroSquare(width, height);
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
       transposed[col][row] = matrix[row][col];
@@ -117,26 +121,53 @@ export const transpose = (matrix: number[][]): number[][] => {
 //
 
 export const getScoreHistogram = (chart: ScoreChart) =>
-  visit(chart, zero(scores), ({ accum, score }) => {
+  visit(chart, zero(scoreCount), ({ accum, score }) => {
     accum[score - 1] += 1;
   });
 
 export const getScoreHistogramByAxis = (chart: ScoreChart) =>
-  visit(chart, zero2(scores, axes), ({ accum, axis, score }) => {
+  visit(chart, zeroSquare(scoreCount, axisCount), ({ accum, axis, score }) => {
     accum[score - 1][axis] += 1;
   });
 
 export const sumScoresByAxis = (chart: ScoreChart) =>
-  visit(chart, zero(axes), ({ accum, axis, score }) => {
+  visit(chart, zero(axisCount), ({ accum, axis, score }) => {
     accum[axis] += score;
   });
 
 export const sumScoresByArea = (chart: ScoreChart) =>
-  visit(chart, zero(areas), ({ accum, area, score }) => {
+  visit(chart, zero(areaCount), ({ accum, area, score }) => {
     accum[area] += score;
   });
 
 export const sumScoresByAreaAndAxis = (chart: ScoreChart) =>
-  visit(chart, zero2(areas, axes), ({ accum, area, axis, score }) => {
-    accum[area][axis] += score;
-  });
+  visit(
+    chart,
+    zeroSquare(areaCount, axisCount),
+    ({ accum, area, axis, score }) => {
+      accum[area][axis] += score;
+    }
+  );
+
+//
+// Aggregation
+//
+
+export function average(charts: ScoreChart[]): ScoreChart | undefined {
+  if (charts.length === 0) {
+    return undefined;
+  }
+
+  const result = singleton(0);
+  for (let area = 0; area < areaCount; area++) {
+    for (let topic = 0; topic < topicCount; topic++) {
+      for (let axis = 0; axis < axisCount; axis++) {
+        charts.forEach((c) => {
+          result[area][topic][axis] += c[area][topic][axis] / charts.length;
+        });
+      }
+    }
+  }
+
+  return result;
+}

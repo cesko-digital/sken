@@ -2,8 +2,11 @@ import assert from "node:assert";
 import test from "node:test";
 import {
   ScoreChart,
+  average,
   getScoreHistogram,
   getScoreHistogramByAxis,
+  repeat,
+  singleton,
   sumScoresByArea,
   sumScoresByAreaAndAxis,
   sumScoresByAxis,
@@ -55,6 +58,31 @@ test("Matrix transpose", () => {
     ]
   );
   assert.deepEqual(transpose([[1]]), [[1]]);
+});
+
+test("Array repeat", () => {
+  assert.deepStrictEqual(
+    repeat(3, () => 1),
+    [1, 1, 1]
+  );
+  assert.deepStrictEqual(
+    repeat(3, () => repeat(2, () => 1)),
+    [
+      [1, 1],
+      [1, 1],
+      [1, 1],
+    ]
+  );
+  const a = repeat(3, () => repeat(1, () => 1));
+  assert.deepStrictEqual(a, [[1], [1], [1]]);
+  a[0][0] = 2;
+  assert.deepStrictEqual(a, [[2], [1], [1]]);
+});
+
+test("Average", () => {
+  assert.strictEqual(average([]), undefined);
+  assert.deepStrictEqual(average([sampleChart]), sampleChart);
+  assert.deepStrictEqual(average([singleton(1), singleton(3)]), singleton(2));
 });
 
 const sampleChart: ScoreChart = [

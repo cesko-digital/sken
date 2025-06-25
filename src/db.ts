@@ -1,12 +1,21 @@
 import Airtable from "airtable";
 import { Score, ScoreChart } from "./model";
 import {
+  array,
   decodeType,
   field,
   number,
   record,
   string,
 } from "typescript-json-decoder";
+
+const table = () =>
+  new Airtable().base("appmxoOm1pOLmmGDn")("tblBOTdYlMjW4hxUb");
+
+const logErrorAndReturnNull = (e: unknown) => {
+  console.error(e);
+  return null;
+};
 
 //
 // API
@@ -15,9 +24,6 @@ import {
 export async function getFormResponse(
   id: string
 ): Promise<FormResponse | null> {
-  const base = new Airtable().base("appmxoOm1pOLmmGDn");
-  const table = base("tblBOTdYlMjW4hxUb");
-
   // Special-cased IDs for testing purposes
   if (["sample", "zkouska", "test"].includes(id)) {
     return sampleFormResponse;
@@ -26,7 +32,7 @@ export async function getFormResponse(
   // We should use `find` here since we know the ID beforehand,
   // but the `select` method lets us set the `returnFieldsByFieldId`
   // flag that we need.
-  return await table
+  return await table()
     .select({
       maxRecords: 1,
       filterByFormula: `{Airtable ID} = "${id}"`,
@@ -35,11 +41,22 @@ export async function getFormResponse(
     .all()
     .then((records) => records[0].fields)
     .then(decodeFormResponse)
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
+    .catch(logErrorAndReturnNull);
 }
+
+export const getAllFormResponsesForOrganization = (
+  organizationName: string
+): Promise<FormResponse[] | null> =>
+  table()
+    .select({
+      filterByFormula: `{flddAwhNuOpDJSrgJ} = "${organizationName}"`,
+      returnFieldsByFieldId: true,
+    })
+    .all()
+    .then((records) => records.map((r) => r.fields))
+    .then(array(decodeFormResponse))
+    .catch()
+    .catch(logErrorAndReturnNull);
 
 //
 // Decoding

@@ -7,6 +7,7 @@ import {
   getScoreHistogramByAxis,
   repeat,
   singleton,
+  sum,
   sumScoresByArea,
   sumScoresByAreaAndAxis,
   sumScoresByAxis,
@@ -79,10 +80,16 @@ test("Array repeat", () => {
   assert.deepStrictEqual(a, [[2], [1], [1]]);
 });
 
+test("Sum", () => {
+  assert.strictEqual(sum([1, 2, 3]), 6);
+  assert.strictEqual(sum([]), 0);
+});
+
 test("Average", () => {
   assert.strictEqual(average([]), undefined);
   assert.deepStrictEqual(average([sampleChart]), sampleChart);
   assert.deepStrictEqual(average([singleton(1), singleton(3)]), singleton(2));
+  assert.deepStrictEqual(average([singleton(1), singleton(2)]), singleton(2));
 });
 
 const sampleChart: ScoreChart = [

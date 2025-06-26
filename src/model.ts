@@ -153,21 +153,23 @@ export const sumScoresByAreaAndAxis = (chart: ScoreChart) =>
 // Aggregation
 //
 
-export function average(charts: ScoreChart[]): ScoreChart | undefined {
-  if (charts.length === 0) {
-    return undefined;
-  }
-
+const map = (
+  charts: ScoreChart[],
+  f: (scores: Score[]) => Score
+): ScoreChart => {
   const result = singleton(0);
   for (let area = 0; area < areaCount; area++) {
     for (let topic = 0; topic < topicCount; topic++) {
       for (let axis = 0; axis < axisCount; axis++) {
-        charts.forEach((c) => {
-          result[area][topic][axis] += c[area][topic][axis] / charts.length;
-        });
+        result[area][topic][axis] = f(charts.map((c) => c[area][topic][axis]));
       }
     }
   }
-
   return result;
-}
+};
+
+export const sum = (vals: number[]) => vals.reduce((a, b) => a + b, 0);
+export const average = (charts: ScoreChart[]) =>
+  charts.length > 0
+    ? map(charts, (vals) => Math.round(sum(vals) / vals.length))
+    : undefined;

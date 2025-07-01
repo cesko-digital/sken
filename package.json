@@ -11,24 +11,24 @@
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@markdoc/markdoc": "^0.5.2",
-    "@mui/material": "^7.1.0",
-    "@mui/x-charts": "^8.5.0",
+    "@mui/material": "^7.2.0",
+    "@mui/x-charts": "^8.6.0",
     "airtable": "^0.12.2",
-    "next": "15.3.3",
+    "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript-json-decoder": "^1.0.11"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^22",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.3.3",
-    "tsx": "^4.19.4",
+    "eslint-config-next": "15.3.4",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }

@@ -10,14 +10,13 @@ import { ScoreChart } from "@/src/model";
 
 type Props = {
   responseType: "individual" | "group";
-  haveGroupResponse: boolean;
   organisationName: string;
   data: ScoreChart;
 };
 
 /** Show digital maturity assessment with text and charts */
 export async function Results(props: Props) {
-  const { responseType, data, organisationName, haveGroupResponse } = props;
+  const { responseType, data, organisationName } = props;
 
   // Read page source in Markdoc
   const pageSource = await fs.readFile(
@@ -31,7 +30,6 @@ export async function Results(props: Props) {
     ...config,
     variables: {
       responseType,
-      haveGroupResponse,
       organisationName,
       formUrl,
       data,

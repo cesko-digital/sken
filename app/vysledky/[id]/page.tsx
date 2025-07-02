@@ -1,6 +1,6 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import { getGroupFormResponses, getFormResponse } from "@/src/db";
+import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
 import { Results } from "@/components/Results";
 
@@ -19,15 +19,9 @@ export default async function ResultPage({ params }: Props) {
   if (!individualResponse) {
     notFound();
   }
-
-  const organisationName = individualResponse.meta.organisationName;
-  const groupResponses = await getGroupFormResponses(organisationName);
-  const haveGroupResponses = !!groupResponses && groupResponses.length > 1;
-
   return (
     <Results
       responseType="individual"
-      haveGroupResponse={haveGroupResponses}
       organisationName={individualResponse.meta.organisationName}
       data={individualResponse.scores}
     />

@@ -35,7 +35,6 @@ export default async function GroupResultPage({ params }: Props) {
   return (
     <Results
       responseType="group"
-      haveGroupResponse={true}
       organisationName={organisationName}
       data={averageScoreChart}
     />

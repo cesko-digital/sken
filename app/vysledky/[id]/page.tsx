@@ -1,12 +1,8 @@
-import { notFound } from "next/navigation";
-import { getAllFormResponsesForOrganization, getFormResponse } from "@/src/db";
-import { Metadata } from "next";
-import Markdoc, { renderers } from "@markdoc/markdoc";
-import { config } from "@/src/markdoc";
 import React from "react";
-import ChartTags from "@/components/Charts";
-import { formUrl, resultsMarkdocSource } from "@/src/utils";
-import ContentTags from "@/components/ContentTags";
+import { notFound } from "next/navigation";
+import { getGroupFormResponses, getFormResponse } from "@/src/db";
+import { Metadata } from "next";
+import { Results } from "@/components/Results";
 
 type Params = {
   id: string;
@@ -16,32 +12,25 @@ export type Props = {
   params: Promise<Params>;
 };
 
-/** Show digital maturity assessment with text & charts */
+/** Show individual digital maturity assessment */
 export default async function ResultPage({ params }: Props) {
-  // Read score data from DB
-  const response = await getFormResponse((await params).id);
-  if (!response) {
+  const id = (await params).id;
+  const individualResponse = await getFormResponse(id);
+  if (!individualResponse) {
     notFound();
   }
 
-  // Read page content from Markdown
-  const pageSource = await resultsMarkdocSource();
-  const syntaxTree = Markdoc.parse(pageSource);
-  const renderTree = Markdoc.transform(syntaxTree, {
-    ...config,
-    variables: {
-      organisationName: response.meta.organisationName,
-      data: response.scores,
-      formUrl,
-    },
-  });
+  const organisationName = individualResponse.meta.organisationName;
+  const groupResponses = await getGroupFormResponses(organisationName);
+  const haveGroupResponses = !!groupResponses && groupResponses.length > 1;
 
   return (
-    <div className="markdoc-root">
-      {renderers.react(renderTree, React, {
-        components: { ...ChartTags, ...ContentTags },
-      })}
-    </div>
+    <Results
+      responseType="individual"
+      haveGroupResponse={haveGroupResponses}
+      organisationName={individualResponse.meta.organisationName}
+      data={individualResponse.scores}
+    />
   );
 }
 

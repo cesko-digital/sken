@@ -44,7 +44,7 @@ export async function getFormResponse(
     .catch(logErrorAndReturnNull);
 }
 
-export const getAllFormResponsesForOrganization = (
+export const getGroupFormResponses = (
   organizationName: string
 ): Promise<FormResponse[] | null> =>
   table()

@@ -1,4 +1,12 @@
+{% if equals($responseType, "individual") %}
+
 # Výsledky skenu digitální vyspělosti pro {% $organisationName %}
+
+{% else /%}
+
+# Průměrné výsledky skenu digitální vyspělosti pro {% $organisationName %}
+
+{% /if %}
 
 **Než se podíváte na samotné výsledky, pojďte si rychle připomenout, jak sken funguje.**
 
@@ -7,10 +15,6 @@ Sken vychází z předpokladu, že lidé v organizaci dosahují **špičkových 
 (Pokud s vámi tyto výsledky někdo sdílel a chtěli byste získat něco
 podobného pro vaši organizaci, {% link href=$formUrl %} stačí vyplnit
 náš formulář{% /link %}.)
-
-{% if $enableGroupResults %}
-Bagr
-{% /if %}
 
 {% image src="https://assets.cesko.digital/11f81f04.jpg" width=2309 height=1732 alt="" /%}
 

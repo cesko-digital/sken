@@ -1,6 +1,7 @@
 import { Results } from "@/components/Results";
 import { getGroupFormResponses, getFormResponse } from "@/src/db";
 import { average } from "@/src/model";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Params = {
@@ -10,6 +11,9 @@ type Params = {
 export type Props = {
   params: Promise<Params>;
 };
+
+/** Refresh data every 60 minutes */
+export const revalidate = 3600;
 
 /** Show group digital maturity assessment */
 export default async function GroupResultPage({ params }: Props) {
@@ -36,4 +40,19 @@ export default async function GroupResultPage({ params }: Props) {
       data={averageScoreChart}
     />
   );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const response = await getFormResponse((await params).id);
+  if (!response) {
+    notFound();
+  }
+  return {
+    title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
+  };
+}
+
+/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
+export async function generateStaticParams() {
+  return [];
 }

@@ -180,7 +180,7 @@ const TopicDrillDownChart = ({
   );
 };
 
-export const ChartTags = {
+const ChartTags = {
   ScoreDistributionChart,
   StackedAxisScoreChart,
   ScoreOverAreaChart,
@@ -188,3 +188,5 @@ export const ChartTags = {
   TopicDrillDownChart,
   AxisScoreChart,
 };
+
+export default ChartTags;

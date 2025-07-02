@@ -8,6 +8,10 @@ Sken vychází z předpokladu, že lidé v organizaci dosahují **špičkových 
 podobného pro vaši organizaci, {% link href=$formUrl %} stačí vyplnit
 náš formulář{% /link %}.)
 
+{% if $enableGroupResults %}
+Bagr
+{% /if %}
+
 {% image src="https://assets.cesko.digital/11f81f04.jpg" width=2309 height=1732 alt="" /%}
 
 Sken funguje na principu _benchmarkování_: nabízí výroky, které popisují, jak může organizace fungovat. Úkolem vyplňující osoby je **posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované organizace**.

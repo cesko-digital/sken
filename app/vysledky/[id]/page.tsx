@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
-import { getFormResponse } from "@/src/db";
+import { getAllFormResponsesForOrganization, getFormResponse } from "@/src/db";
 import { Metadata } from "next";
-import path from "path";
 import Markdoc, { renderers } from "@markdoc/markdoc";
 import { config } from "@/src/markdoc";
-import React, { ReactNode } from "react";
-import { promises as fs } from "fs";
-import { ChartTags } from "@/app/vysledky/[id]/Charts";
-import Image from "next/image";
-import { formUrl } from "@/src/utils";
+import React from "react";
+import ChartTags from "@/components/Charts";
+import { formUrl, resultsMarkdocSource } from "@/src/utils";
+import ContentTags from "@/components/ContentTags";
 
 type Params = {
   id: string;
@@ -27,11 +25,7 @@ export default async function ResultPage({ params }: Props) {
   }
 
   // Read page content from Markdown
-  const pageSource = await fs.readFile(
-    path.join(process.cwd(), "/app/vysledky/[id]/content.md"),
-    "utf-8"
-  );
-
+  const pageSource = await resultsMarkdocSource();
   const syntaxTree = Markdoc.parse(pageSource);
   const renderTree = Markdoc.transform(syntaxTree, {
     ...config,
@@ -45,23 +39,11 @@ export default async function ResultPage({ params }: Props) {
   return (
     <div className="markdoc-root">
       {renderers.react(renderTree, React, {
-        components: { ...ChartTags, Image, Box, Button },
+        components: { ...ChartTags, ...ContentTags },
       })}
     </div>
   );
 }
-
-const Box = ({ children }: { children: ReactNode }) => (
-  <div className="box">{children}</div>
-);
-
-const Button = ({ href, title }: { href: string; title: string }) => (
-  <div className="button-wrapper">
-    <a href={href} target="_blank" className="button">
-      {title}
-    </a>
-  </div>
-);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const response = await getFormResponse((await params).id);

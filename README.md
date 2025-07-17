@@ -65,6 +65,14 @@ Specificky poslední graf bere ještě číselný argument `area`, který určuj
 
 Oblasti jsou číslované od nuly.
 
+## Parametry formuláře
+
+Zásadní součástí skenu je formulář ve Filloutu. Kromě originálního URL od Filloutu se dá zobrazit též na URL `sken.nezisk.digital/vyplnit`. Formulář podporuje následující URL parametry:
+
+* `skip_results` – pokud je nastavený na libovolnou neprázdnou hodnotu, nebudeme po vyplnění posílat odkaz na výsledky hodnocení. Používáme v situacích, kdy chceme nechat sken vyplnit víc lidí z jedné organizace a až následně jim hromadně poslat výsledky za celou organizaci.
+* `source` – aktuálně používáme pouze ve variantě `source=kurz` (kurz Nezisk.Digital), kde se přepne na výběr organizace z předem připraveného seznamu.
+* `organization_name` – předvyplní název organizace na záložce Profil organizace.
+
 ## Kontakt
 
 Model digitální vyspělosti: <matej.malecha@cesko.digital>

@@ -1,4 +1,4 @@
-import { Results } from "@/components/Results";
+import { ResultsPage } from "@/components/ResultsPage";
 import { getGroupFormResponses, getFormResponse } from "@/src/db";
 import { average } from "@/src/model";
 import { Metadata } from "next";
@@ -33,7 +33,7 @@ export default async function GroupResultPage({ params }: Props) {
   const averageScoreChart = average(groupRatings)!;
 
   return (
-    <Results
+    <ResultsPage
       responseType="group"
       organisationName={organisationName}
       data={averageScoreChart}

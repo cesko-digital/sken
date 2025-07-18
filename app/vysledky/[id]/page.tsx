@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
-import { Results } from "@/components/Results";
+import { ResultsPage } from "@/components/ResultsPage";
 
 type Params = {
   id: string;
@@ -20,7 +20,7 @@ export default async function ResultPage({ params }: Props) {
     notFound();
   }
   return (
-    <Results
+    <ResultsPage
       responseType="individual"
       organisationName={individualResponse.meta.organisationName}
       data={individualResponse.scores}

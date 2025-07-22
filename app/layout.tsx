@@ -34,15 +34,17 @@ export default function RootLayout({
         ></script>
       </head>
       <body>
-        <main className={customFont.variable}>{children}</main>
-        <Footer />
+        <div className="max-w-[1024px] m-auto p-4 mt-10">
+          <div className={customFont.variable}>{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
 }
 
 const Footer = () => (
-  <footer>
+  <footer className="border-t-2 mt-20 pt-3 pb-10">
     <p>
       Sken digitální vyspělosti provozuje{" "}
       <a href="https://www.cesko.digital" className="typo-link">

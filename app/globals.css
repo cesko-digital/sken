@@ -1,6 +1,6 @@
-/** Tailwind setup */
-
 @import "tailwindcss";
+
+/** Theme presets */
 
 @theme {
   --font-cd: var(--font-cd);
@@ -11,6 +11,8 @@
   --colors-plum: #1e293b;
   --colors-gray: #f9fafb;
 }
+
+/** Typography */
 
 @layer components {
   .typo-link {
@@ -23,7 +25,8 @@
   .typo-head3 {
     font-family: var(--font-cd);
     text-wrap-style: balance;
-    line-height: 1.25em;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
   }
 
   .typo-head1 {
@@ -37,6 +40,18 @@
 
   .typo-head3 {
     font-size: var(--text-3xl);
+  }
+}
+
+/** Components */
+
+@layer components {
+  .button {
+    color: white;
+    padding: 1.2ex 2ex 1.2ex 2ex;
+    box-shadow: var(--shadow-sm);
+    border-radius: 10px;
+    background-color: var(--colors-plum);
   }
 }
 

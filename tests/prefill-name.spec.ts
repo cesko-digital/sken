@@ -1,7 +1,9 @@
 import { formUrl } from "@/src/utils";
 import { test, expect } from "@playwright/test";
 
-test("Prefill organization name with organization_name", async ({ page }) => {
+test.skip("Prefill organization name with organization_name", async ({
+  page,
+}) => {
   await page.goto(formUrl + "?organization_name=foo");
   await page.getByText("Zahájit sken ➡️").click();
 

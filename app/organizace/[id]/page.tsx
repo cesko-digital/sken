@@ -1,6 +1,8 @@
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ResultsPage } from "@/components/ResultsPage";
 import { getGroupFormResponses, getFormResponse } from "@/src/db";
 import { average } from "@/src/model";
+import { RouteTo } from "@/src/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -33,11 +35,17 @@ export default async function GroupResultPage({ params }: Props) {
   const averageScoreChart = average(groupRatings)!;
 
   return (
-    <ResultsPage
-      responseType="group"
-      organisationName={organisationName}
-      data={averageScoreChart}
-    />
+    <div className="flex flex-col gap-4">
+      <Breadcrumbs
+        path={[{ label: "Výsledky", path: RouteTo.overallResults }]}
+        currentPage={organisationName}
+      />
+      <ResultsPage
+        responseType="group"
+        organisationName={organisationName}
+        data={averageScoreChart}
+      />
+    </div>
   );
 }
 

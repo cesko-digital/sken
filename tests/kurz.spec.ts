@@ -1,8 +1,8 @@
-import { formUrl } from "@/src/utils";
+import { RouteTo } from "@/src/utils";
 import { test, expect } from "@playwright/test";
 
 test("Show organization dropdown for source=kurz", async ({ page }) => {
-  await page.goto(formUrl + "?source=kurz");
+  await page.goto(RouteTo.form + "?source=kurz");
   await page.getByText("Zahájit sken ➡️").click();
 
   await page.getByText("Další →").click();

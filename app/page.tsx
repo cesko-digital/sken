@@ -1,4 +1,5 @@
-import { leadFormUrl } from "@/src/utils";
+import { RouteTo } from "@/src/utils";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -13,10 +14,13 @@ export default function HomePage() {
             dispozici.
           </mark>
         </p>
-        <div>
-          <a href={leadFormUrl} className="inline-block button">
+        <div className="flex flex-row gap-4">
+          <Link href={RouteTo.leadFormUrl} className="inline-block button">
             Mám o Sken zájem
-          </a>
+          </Link>
+          <Link href={RouteTo.overallResults} className="inline-block button">
+            Chci vidět výsledky
+          </Link>
         </div>
       </div>
     </main>

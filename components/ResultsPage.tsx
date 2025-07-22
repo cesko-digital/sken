@@ -1,4 +1,3 @@
-import { formUrl } from "@/src/utils";
 import { ScoreChart } from "@/src/model";
 import Image from "next/image";
 import {
@@ -53,14 +52,6 @@ const Intro: Section = ({ responseType, organisationName }) => (
         Sken vychází z předpokladu, že lidé v organizaci dosahují{" "}
         <em>špičkových výsledků</em> pouze pokud se vzájemně doplňují a
         podporují 3 pilíře: <em>Kultura, Dovednosti a Nástroje</em>.
-      </p>
-      <p>
-        (Pokud s vámi tyto výsledky někdo sdílel a chtěli byste získat něco
-        podobného pro vaši organizaci,{" "}
-        <a href={formUrl} className="typo-link">
-          stačí vyplnit náš formulář
-        </a>
-        .)
       </p>
       <Image
         src="https://assets.cesko.digital/11f81f04.jpg"

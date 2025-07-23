@@ -35,7 +35,7 @@ export default function RootLayout({
       </head>
       <body className={customFont.variable}>
         <div className="flex flex-col min-h-screen gap-20">
-          <div className="w-full max-w-5xl m-auto p-4 mt-10">{children}</div>
+          <div className="w-full max-w-4xl m-auto p-4 mt-10">{children}</div>
           <Footer />
         </div>
       </body>

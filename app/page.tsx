@@ -1,22 +1,25 @@
 import { RouteTo } from "@/src/utils";
 import Link from "next/link";
 
-export default function HomePage() {
+export default function LandingPage() {
   return (
-    <main>
-      <h1 className="typo-head1">Sken bude dostupný zase v září</h1>
-      <div className="max-w-prose flex flex-col gap-10">
-        <p>
-          V červnu jsme Sken digitální vyspělosti úspěšně otestovali. Přes léto
-          jej vylepšíme a znovu spustíme v září.{" "}
-          <mark>
-            Nechte nám na sebe kontakt a ozveme se vám, až bude Sken opět k
-            dispozici.
-          </mark>
+    <main className="flex items-center justify-center px-4 mt-10 md:mt-30">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="font-cd text-6xl font-bold mb-6 leading-tight">
+          <span className="bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent">
+            Sken digitální vyspělosti
+          </span>
+        </h1>
+
+        <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+          Zjistěte, jak může vaše organizace zvyšovat svou digitální vyspělost –
+          a být tak úspěšnější při naplňování svého poslání.{" "}
+          <mark style={{ marginLeft: "0.1ex" }}>Nic to nestojí.</mark>
         </p>
-        <div className="flex flex-row gap-4">
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Link href={RouteTo.leadFormUrl} className="inline-block button">
-            Mám o Sken zájem
+            Chci se oskenovat
           </Link>
           <Link href={RouteTo.overallResults} className="inline-block button">
             Chci vidět výsledky

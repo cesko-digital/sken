@@ -44,8 +44,8 @@ export default function RootLayout({
 }
 
 const Footer = () => (
-  <footer className="py-8 px-4 border-t border-gray-200 bg-gray-50 text-gray-500">
-    <div className="max-w-5xl mx-auto">
+  <footer className="py-8 border-t border-gray-200 bg-gray-50 text-gray-500">
+    <div className="max-w-4xl mx-auto px-4">
       <p>
         Sken digitální vyspělosti provozuje{" "}
         <a href="https://www.cesko.digital" className="typo-link text-gray-500">

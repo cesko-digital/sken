@@ -18,7 +18,10 @@ export default function LandingPage() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Link href={RouteTo.leadFormUrl} className="inline-block button">
+          <Link
+            href={RouteTo.leadFormUrl}
+            className="inline-block button bg-gradient-to-r from-cyan-600 to-purple-600"
+          >
             Chci se oskenovat
           </Link>
           <Link href={RouteTo.overallResults} className="inline-block button">

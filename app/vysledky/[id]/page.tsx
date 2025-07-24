@@ -26,7 +26,6 @@ export default async function ResultPage({ params }: Props) {
     <div className="flex flex-col gap-4">
       <Breadcrumbs
         path={[
-          { label: "Výsledky", path: RouteTo.overallResults },
           {
             label: organizationName,
             path: RouteTo.organizationResults(id),

@@ -25,7 +25,7 @@ export default function LandingPage() {
             Chci se oskenovat
           </Link>
           <Link href={RouteTo.overallResults} className="inline-block button">
-            Chci vidět výsledky
+            Chci vidět celkové výsledky
           </Link>
         </div>
       </div>

@@ -64,9 +64,9 @@ const ScoreCard = ({ title, score, category, description, isStrong = false }) =>
   );
 };
 
-export default function NeziskovkyReport() {
+export default function Report() {
   return (
-    <div>
+    <div className="bg-white">
       {/* Header */}
       <div className="text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">
         <h1 className="text-3xl font-bold mb-4 text-balance">

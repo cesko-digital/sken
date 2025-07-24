@@ -51,7 +51,7 @@ const DataTable = ({ headers, rows, caption }) => {
 const ScoreCard = ({ title, score, category, description, isStrong = false }) => {
   const bgColor = isStrong ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200";
   const textColor = isStrong ? "text-green-800" : "text-red-800";
-  
+
   return (
     <div className={`p-4 rounded-lg border ${bgColor} mb-4`}>
       <div className="flex items-center justify-between mb-2">
@@ -89,24 +89,22 @@ export default function Report() {
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Sonda do digitální vyspělosti</h2>
         <div>
           <p className="mb-4">
-            Zjištění prezentovaná na tomto webu vycházejí z dat o <strong>164 neziskových organizacích</strong>, 
-            které jsme získali pomocí <strong>Skenu digitální vyspělosti</strong>. Tento nástroj mapuje aktuální 
-            stav organizace ve třech klíčových pilířích: <strong>kultura</strong> (postoje vedení), 
+            Zjištění prezentovaná na tomto webu vycházejí z dat o <strong>164 neziskových organizacích</strong>,
+            které jsme získali pomocí <strong>Skenu digitální vyspělosti</strong>. Tento nástroj mapuje aktuální
+            stav organizace ve třech klíčových pilířích: <strong>kultura</strong> (postoje vedení),
             <strong>dovednosti</strong> (schopnosti lidí) a <strong>nástroje</strong> (technické vybavení).
           </p>
           <p>
-            Cílem bylo zmapovat současný stav českého neziskového sektoru a identifikovat 
-            <strong> klíčové výzvy a příležitosti</strong> v oblasti digitalizace. Výsledky poskytují 
+            Cílem bylo zmapovat současný stav českého neziskového sektoru a identifikovat
+            <strong> klíčové výzvy a příležitosti</strong> v oblasti digitalizace. Výsledky poskytují
             cenné poznatky o tom, kde sektor stojí a kam by se měl ubírat.
           </p>
           <p className="mt-4">
-            <a 
-              href="https://www.google.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
+            <a
+              href="#metodika"
+              className="typo-link"
             >
-              Více o způsobu sběru dat a metodice najdete níže.
+              Více o způsobu sběru dat a metodice
             </a>
           </p>
         </div>
@@ -116,12 +114,12 @@ export default function Report() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Český neziskový sektor stojí na solidních základech s velkým potenciálem rozvoje</h2>
         <p className="mb-6">
-          Pouze <strong>1 % organizací</strong> dosahuje inspirativní úrovně digitální vyspělosti a dalších 
-          <strong> 12 % vynikající praxe</strong>. Většina organizací (<strong>57 %</strong>) má 
+          Pouze <strong>1 % organizací</strong> dosahuje inspirativní úrovně digitální vyspělosti a dalších
+          <strong> 12 % vynikající praxe</strong>. Většina organizací (<strong>57 %</strong>) má
           <strong> solidní základy</strong>, ale má prostor pro výrazné zlepšení. Přibližně <strong>30 % organizací</strong> potřebuje výraznější podporu v digitalizaci.
         </p>
 
-        <DataTable 
+        <DataTable
           headers={["Úroveň digitální vyspělosti", "Počet organizací", "Podíl", "Kritérium"]}
           rows={[
             ["Inspirativní přístup", "1", "1%", "80% výroků s hodnocením 4.5+"],
@@ -137,36 +135,36 @@ export default function Report() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Silná kultura, slabé nástroje: nerovnováha digitální vyspělosti</h2>
         <p className="mb-6">
-          Analýza tří pilířů digitální vyspělosti odhalila <strong>jasnou hierarchii</strong>: 
-          <strong> Kultura</strong> (3,89 bodu) &gt; <strong>Dovednosti</strong> (3,29 bodu) &gt; 
-          <strong> Nástroje</strong> (2,73 bodu). Tento vzorec platí <strong>univerzálně napříč 
+          Analýza tří pilířů digitální vyspělosti odhalila <strong>jasnou hierarchii</strong>:
+          <strong> Kultura</strong> (3,89 bodu) &gt; <strong>Dovednosti</strong> (3,29 bodu) &gt;
+          <strong> Nástroje</strong> (2,73 bodu). Tento vzorec platí <strong>univerzálně napříč
           všemi typy</strong> organizací bez výjimky.
         </p>
-        
+
         <h3 className="text-lg font-semibold mb-4 text-balance">Hodnocení pilířů digitální vyspělosti</h3>
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <StatCard 
-            number="3,89" 
-            label="Kultura" 
-            description="postoje vedení (78%)" 
-            color="green" 
+          <StatCard
+            number="3,89"
+            label="Kultura"
+            description="postoje vedení (78%)"
+            color="green"
           />
-          <StatCard 
-            number="3,29" 
-            label="Dovednosti" 
-            description="schopnosti lidí (66%)" 
-            color="orange" 
+          <StatCard
+            number="3,29"
+            label="Dovednosti"
+            description="schopnosti lidí (66%)"
+            color="orange"
           />
-          <StatCard 
-            number="2,73" 
-            label="Nástroje" 
-            description="technické vybavení (55%)" 
-            color="red" 
+          <StatCard
+            number="2,73"
+            label="Nástroje"
+            description="technické vybavení (55%)"
+            color="red"
           />
         </div>
 
         <h3 className="text-lg font-semibold mb-4 text-balance">Srovnání podle typů organizací</h3>
-        <DataTable 
+        <DataTable
           headers={["Typ organizace", "Kultura", "Dovednosti", "Nástroje"]}
           rows={[
             ["Profesionální velké", "3,89", "3,32", "2,92"],
@@ -181,8 +179,8 @@ export default function Report() {
 
         <h3 className="text-lg font-semibold mb-4 text-balance">Co to znamená</h3>
         <p className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-          Vedení organizací chápe důležitost digitalizace, ale chybějí 
-          <strong> praktické dovednosti zaměstnanců</strong> a především <strong>technické nástroje</strong>. 
+          Vedení organizací chápe důležitost digitalizace, ale chybějí
+          <strong> praktické dovednosti zaměstnanců</strong> a především <strong>technické nástroje</strong>.
           Investice do nástrojů a vzdělávání by měly být <strong>prioritou</strong>.
         </p>
       </section>
@@ -192,8 +190,8 @@ export default function Report() {
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Oblast činnosti jako prediktor digitální vyspělosti</h2>
         <div className="mb-6">
           <p className="mb-4">
-            Analýza potvrdila, že <strong>oblast činnosti je silnějším prediktorem</strong> digitální vyspělosti 
-            než typ organizace. Rozptyl mezi oblastmi činnosti (<strong>10,6 bodu</strong>) je výrazně vyšší 
+            Analýza potvrdila, že <strong>oblast činnosti je silnějším prediktorem</strong> digitální vyspělosti
+            než typ organizace. Rozptyl mezi oblastmi činnosti (<strong>10,6 bodu</strong>) je výrazně vyšší
             než mezi typy organizací (<strong>6,0 bodu</strong>).
           </p>
           <p className="mb-4">
@@ -239,14 +237,14 @@ export default function Report() {
           <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
             <h4 className="font-semibold text-green-800 mb-2 text-balance">Digitální lídři</h4>
             <p className="text-sm">
-              Organizace zaměřené na systémovou práci (lidská práva, vzdělávání, ochrana přírody) 
+              Organizace zaměřené na systémovou práci (lidská práva, vzdělávání, ochrana přírody)
               potřebují pokročilejší digitální nástroje pro koordinaci, komunikaci a advokacii.
             </p>
           </div>
           <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
             <h4 className="font-semibold text-red-800 mb-2 text-balance">Digitálně zaostávající</h4>
             <p className="text-sm">
-              Organizace zaměřené na přímé lokální služby (komunitní aktivity, aktivity pro mládež) 
+              Organizace zaměřené na přímé lokální služby (komunitní aktivity, aktivity pro mládež)
               čelí menšímu tlaku na digitalizaci kvůli charakteru své práce.
             </p>
           </div>
@@ -262,8 +260,8 @@ export default function Report() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Týmová spolupráce ano, analytické nástroje ne</h2>
         <p className="mb-6">
-          Analýza výroků odhalila <strong>jasné vzorce napříč sektorem</strong>. Sektor má dobré základy 
-          v <strong>kultuře a základních procesech</strong>, ale výrazně zaostává v 
+          Analýza výroků odhalila <strong>jasné vzorce napříč sektorem</strong>. Sektor má dobré základy
+          v <strong>kultuře a základních procesech</strong>, ale výrazně zaostává v
           <strong> pokročilých analytických nástrojích</strong>. Čísla v následujících kartách ukazují průměrné hodnocení jednotlivých výroků všemi organizacemi.
         </p>
 
@@ -283,35 +281,35 @@ export default function Report() {
         <div className="mb-8">
           <h3 className="text-xl font-semibold mb-4 text-green-700 text-balance">Nejsilnější stránky sektoru</h3>
           <div className="space-y-4">
-            <ScoreCard 
+            <ScoreCard
               title="Evidence a transparentnost"
               score="4,18"
               category="Procesy & Automatizace"
               description="Většina lidí na vedoucích pozicích je přesvědčena, že systematická evidence lidí, majetku, dokumentů a financí je základem pro transparentní a zodpovědné řízení organizace"
               isStrong={true}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Týmová spolupráce"
               score="4,17"
               category="Komunikace & Spolupráce"
               description="Většina lidí na vedoucích pozicích je přesvědčena, že nejlepší výsledky vznikají při týmové spolupráci"
               isStrong={true}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Zálohování dat"
               score="4,14"
               category="Bezpečnost & Flexibilita"
               description="Většina lidí na vedoucích pozicích je přesvědčena, že pravidelné zálohování je nezbytnou pojistkou proti technickým selháním a lidským chybám"
               isStrong={true}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Zápisy ze schůzek"
               score="4,12"
               category="Komunikace & Spolupráce"
               description="Většina lidí na vedoucích pozicích je přesvědčena, že zapisování na schůzkách je způsob, jak předejít nedorozuměním a zrychlit budoucí rozhodování"
               isStrong={true}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Vzdálená práce"
               score="4,10"
               category="Bezpečnost & Flexibilita"
@@ -324,35 +322,35 @@ export default function Report() {
         <div className="mb-8">
           <h3 className="text-xl font-semibold mb-4 text-red-700 text-balance">Nejslabší stránky sektoru</h3>
           <div className="space-y-4">
-            <ScoreCard 
+            <ScoreCard
               title="Analytické nástroje"
               score="1,55"
               category="Procesy & Automatizace"
               description="Máme nástroj nebo sadu nástrojů, kterou používáme pro volné procházení, analýzu a vizualizaci dat o dopadu aktivit organizace, aniž bychom museli data ručně importovat z jednotlivých databází nebo nástrojů"
               isStrong={false}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Měření návratnosti investic"
               score="1,56"
               category="Učení & Rozvoj"
               description="Máme nástroje, které používáme pro sledování nákladů na technologie, měření jejich přínosů a výpočet návratnosti investic do digitálního rozvoje"
               isStrong={false}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Sledování času"
               score="1,56"
               category="Učení & Rozvoj"
               description="Máme nástroje pro měření času stráveného na úkolech, které používáme pro automatické sbírání dat o tom, jak dlouho co trvá"
               isStrong={false}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Propojení systémů"
               score="1,90"
               category="Procesy & Automatizace"
               description="Máme propojené nástroje, takže se všechna data zadávají pouze jednou a automaticky se synchronizují do všech dalších relevantních aplikací"
               isStrong={false}
             />
-            <ScoreCard 
+            <ScoreCard
               title="Bezpečné učení"
               score="2,05"
               category="Učení & Rozvoj"
@@ -365,9 +363,9 @@ export default function Report() {
         <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
           <h4 className="font-semibold text-yellow-800 mb-2 text-balance">Klíčové pozorování</h4>
           <p className="text-sm">
-            Sektor výrazně zaostává v <strong>pokročilých analytických nástrojích</strong>, 
-            <strong> automatizaci</strong> a <strong>měření výkonu</strong>. Tyto oblasti představují 
-            <strong> největší příležitost pro zlepšení</strong> a měly by být prioritou při plánování 
+            Sektor výrazně zaostává v <strong>pokročilých analytických nástrojích</strong>,
+            <strong> automatizaci</strong> a <strong>měření výkonu</strong>. Tyto oblasti představují
+            <strong> největší příležitost pro zlepšení</strong> a měly by být prioritou při plánování
             investic do digitalizace.
           </p>
         </div>
@@ -377,11 +375,11 @@ export default function Report() {
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center mb-12">
         <h3 className="text-xl font-semibold mb-4 text-balance">Sondou to nekončí, ale začíná</h3>
         <p className="mb-6">
-          Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit, 
+          Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit,
           jakou formu pomoci oceníte nejvíce a jaké kroky by pro vaši organizaci byly nejpřínosnější.
         </p>
         <p className='my-2'>
-        <a className="button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus">
+        <a className="button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus" target='_blank'>
           Vyplnit dotazník
         </a>
         </p>
@@ -391,11 +389,11 @@ export default function Report() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Správa IT infrastruktury rozhoduje o digitální vyspělosti</h2>
         <p className="mb-6">
-          Analýza souvislostí mezi provozními charakteristikami a digitální vyspělostí odhalila 
+          Analýza souvislostí mezi provozními charakteristikami a digitální vyspělostí odhalila
           <strong> tři klíčové faktory</strong>, které nejvíce ovlivňují úroveň digitalizace organizace.
         </p>
 
-        <DataTable 
+        <DataTable
           headers={["Charakteristika", "Rozdíl v digitální vyspělosti", "Praktický dopad"]}
           rows={[
             ["Správa IT infrastruktury", "41 bodů", "Organizace s interní IT pozicí (214 bodů) vs. organizace, které IT neřeší (173 bodů)"],
@@ -407,7 +405,7 @@ export default function Report() {
         <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
           <h4 className="font-semibold text-blue-800 mb-2 text-balance">Hlavní zjištění</h4>
           <p className="text-sm">
-            Investice do <strong>systematické správy IT</strong> (vlastní specialista nebo kvalitní externí služba) 
+            Investice do <strong>systematické správy IT</strong> (vlastní specialista nebo kvalitní externí služba)
             a <strong>vyhrazování prostředků na IT</strong> v rozpočtu jsou klíčové kroky pro zvýšení digitální vyspělosti.
           </p>
         </div>
@@ -417,11 +415,11 @@ export default function Report() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Celostátní organizace mají systematičtější přístup k digitalizaci</h2>
         <p className="mb-6">
-          Analýza <strong>66 celostátně působících</strong> a <strong>98 regionálních</strong> organizací 
+          Analýza <strong>66 celostátně působících</strong> a <strong>98 regionálních</strong> organizací
           odhalila významné rozdíly v přístupu k digitalizaci a charakteru činnosti.
         </p>
 
-        <DataTable 
+        <DataTable
           headers={["Charakteristika", "Celostátní organizace", "Regionální organizace"]}
           rows={[
             ["Digitální vyspělost", "202 bodů", "196 bodů"],
@@ -435,9 +433,9 @@ export default function Report() {
         <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
           <h4 className="font-semibold text-blue-800 mb-2 text-balance">Co z toho vyplývá</h4>
           <p className="text-sm">
-            <strong>Celostátní organizace</strong> častěji využívají externí IT služby a mají 
-            <strong> systematičtější přístup k IT investicím</strong>. <strong>Regionální organizace</strong> 
-            častěji spoléhají na vlastní IT specialisty a zaměřují se na <strong>přímé služby</strong>. 
+            <strong>Celostátní organizace</strong> častěji využívají externí IT služby a mají
+            <strong> systematičtější přístup k IT investicím</strong>. <strong>Regionální organizace</strong>
+            častěji spoléhají na vlastní IT specialisty a zaměřují se na <strong>přímé služby</strong>.
             Obě cesty jsou validní, ale vyžadují různé přístupy k digitální podpoře.
           </p>
         </div>
@@ -499,26 +497,26 @@ export default function Report() {
       </section>
 
       {/* Metodika */}
-      <section className="mb-12">
+      <section className="mb-12" id="metodika">
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Metodika a struktura vzorku</h2>
         <div className="space-y-6">
           <div>
             <h3 className="text-xl font-semibold mb-3 text-balance">Sken digitální vyspělosti</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Data byla získána prostřednictvím Skenu digitální vyspělosti, který hodnotí organizace 
-              ve čtyřech tematických oblastech: <strong>Komunikace & Spolupráce</strong>, 
-              <strong> Procesy & Automatizace</strong>, <strong>Bezpečnost & Flexibilita</strong>, 
+              Data byla získána prostřednictvím Skenu digitální vyspělosti, který hodnotí organizace
+              ve čtyřech tematických oblastech: <strong>Komunikace & Spolupráce</strong>,
+              <strong> Procesy & Automatizace</strong>, <strong>Bezpečnost & Flexibilita</strong>,
               a <strong>Učení & Rozvoj</strong>. Každá oblast je posuzována ze tří perspektiv: <strong>Kultura</strong> (postoje vedení), <strong>Dovednosti</strong> (schopnosti lidí), a <strong>Nástroje</strong> (technické vybavení).
             </p>
             <p className="text-sm text-gray-600 mb-4">
               Sken obsahuje 60 výroků, které respondenti hodnotí na škále 1–5, kde 1 = výrok vůbec neodpovídá aktuálnímu stavu organizace a 5 = výrok naprosto odpovídá aktuálnímu stavu organizace.
             </p>
             <p className="text-sm">
-              <a 
-                href="https://www.google.com" 
-                target="_blank" 
+              <a
+                href="https://docs.google.com/spreadsheets/d/1Jba9Tc-zqiPvaITtFw67Qta07aWirSzPixlpz_3ABHs/edit?usp=sharing"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="typo-link"
               >
                 Podívejte se na kompletní seznam hodnocených výroků
               </a>
@@ -558,7 +556,7 @@ export default function Report() {
             </ul>
 
             <h4 className="font-semibold mb-3 text-balance">Podle typu organizace:</h4>
-            <DataTable 
+            <DataTable
               headers={["Typ organizace", "Počet", "Průměrné skóre", "Medián"]}
               rows={[
                 ["Profesionální střední", "69", "191", "189"],
@@ -572,7 +570,7 @@ export default function Report() {
             />
 
             <h4 className="font-semibold mb-3 text-balance">Podle oblasti činnosti (hlavní oblasti):</h4>
-            <DataTable 
+            <DataTable
               headers={["Oblast činnosti", "Počet", "Průměrné skóre", "Medián"]}
               rows={[
                 ["Sociální služby", "46", "201", "198"],

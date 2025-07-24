@@ -374,7 +374,7 @@ export default function Report() {
       </section>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg text-center mb-12">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center mb-12">
         <h3 className="text-xl font-semibold mb-4 text-balance">Sondou to nekončí, ale začíná</h3>
         <p className="mb-4">
           Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit, 

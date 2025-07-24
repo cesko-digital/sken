@@ -55,7 +55,7 @@ const ScoreCard = ({ title, score, category, description, isStrong = false }) =>
   return (
     <div className={`p-4 rounded-lg border ${bgColor} mb-4`}>
       <div className="flex items-center justify-between mb-2">
-        <h4 className={`font-semibold ${textColor}`}>{title}</h4>
+        <h4 className={`font-semibold ${textColor} text-balance`}>{title}</h4>
         <span className={`text-2xl font-bold ${textColor}`}>{score}</span>
       </div>
       <div className="text-sm text-gray-600 mb-2 italic">{category}</div>
@@ -69,7 +69,7 @@ export default function NeziskovkyReport() {
     <div>
       {/* Header */}
       <div className="text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">
-        <h1 className="text-3xl font-bold mb-4">
+        <h1 className="text-3xl font-bold mb-4 text-balance">
           Většina neziskovek má solidní základ, ale jen 1 % dosahuje digitální špičky
         </h1>
         <p className="text-lg opacity-90">
@@ -86,7 +86,7 @@ export default function NeziskovkyReport() {
 
       {/* Sonda do digitální vyspělosti */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Sonda do digitální vyspělosti</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Sonda do digitální vyspělosti</h2>
         <div>
           <p className="mb-4">
             Zjištění prezentovaná na tomto webu vycházejí z dat o <strong>164 neziskových organizacích</strong>, 
@@ -114,11 +114,11 @@ export default function NeziskovkyReport() {
 
       {/* Český neziskový sektor */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Český neziskový sektor stojí na solidních základech s velkým potenciálem rozvoje</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Český neziskový sektor stojí na solidních základech s velkým potenciálem rozvoje</h2>
         <p className="mb-6">
           Pouze <strong>1 % organizací</strong> dosahuje inspirativní úrovně digitální vyspělosti a dalších 
           <strong> 12 % vynikající praxe</strong>. Většina organizací (<strong>57 %</strong>) má 
-          <strong> solidní základy</strong>, ale má prostor pro výrazné zlepšení.
+          <strong> solidní základy</strong>, ale má prostor pro výrazné zlepšení. Přibližně <strong>30 % organizací</strong> potřebuje výraznější podporu v digitalizaci.
         </p>
 
         <DataTable 
@@ -135,7 +135,7 @@ export default function NeziskovkyReport() {
 
       {/* Silná kultura, slabé nástroje */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Silná kultura, slabé nástroje: nerovnováha digitální vyspělosti</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Silná kultura, slabé nástroje: nerovnováha digitální vyspělosti</h2>
         <p className="mb-6">
           Analýza tří pilířů digitální vyspělosti odhalila <strong>jasnou hierarchii</strong>: 
           <strong> Kultura</strong> (3,89 bodu) &gt; <strong>Dovednosti</strong> (3,29 bodu) &gt; 
@@ -143,7 +143,7 @@ export default function NeziskovkyReport() {
           všemi typy</strong> organizací bez výjimky.
         </p>
         
-        <h3 className="text-lg font-semibold mb-4">Hodnocení pilířů digitální vyspělosti</h3>
+        <h3 className="text-lg font-semibold mb-4 text-balance">Hodnocení pilířů digitální vyspělosti</h3>
         <div className="grid md:grid-cols-3 gap-4 mb-6">
           <StatCard 
             number="3,89" 
@@ -165,7 +165,7 @@ export default function NeziskovkyReport() {
           />
         </div>
 
-        <h3 className="text-lg font-semibold mb-4">Srovnání podle typů organizací</h3>
+        <h3 className="text-lg font-semibold mb-4 text-balance">Srovnání podle typů organizací</h3>
         <DataTable 
           headers={["Typ organizace", "Kultura", "Dovednosti", "Nástroje"]}
           rows={[
@@ -179,7 +179,7 @@ export default function NeziskovkyReport() {
           caption="*Malý vzorek (4 organizace) - závěry mají omezenou vypovídací hodnotu."
         />
 
-        <h3 className="text-lg font-semibold mb-4">Co to znamená</h3>
+        <h3 className="text-lg font-semibold mb-4 text-balance">Co to znamená</h3>
         <p className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
           Vedení organizací chápe důležitost digitalizace, ale chybějí 
           <strong> praktické dovednosti zaměstnanců</strong> a především <strong>technické nástroje</strong>. 
@@ -189,7 +189,7 @@ export default function NeziskovkyReport() {
 
       {/* Oblast činnosti */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Oblast činnosti jako prediktor digitální vyspělosti</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Oblast činnosti jako prediktor digitální vyspělosti</h2>
         <div className="mb-6">
           <p className="mb-4">
             Analýza potvrdila, že <strong>oblast činnosti je silnějším prediktorem</strong> digitální vyspělosti 
@@ -202,7 +202,7 @@ export default function NeziskovkyReport() {
         </div>
 
         <div className="bg-gray-100 p-6 rounded-lg mb-6">
-          <h4 className="font-semibold mb-4">Odchylky od průměru podle oblastí činnosti</h4>
+          <h4 className="font-semibold mb-4 text-balance">Odchylky od průměru podle oblastí činnosti</h4>
           <div className="space-y-2">
             <div className="flex justify-between items-center p-2 bg-green-200 rounded">
               <span>Lidská práva</span>
@@ -235,27 +235,32 @@ export default function NeziskovkyReport() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-            <h4 className="font-semibold text-green-800 mb-2">Digitální lídři</h4>
+            <h4 className="font-semibold text-green-800 mb-2 text-balance">Digitální lídři</h4>
             <p className="text-sm">
               Organizace zaměřené na systémovou práci (lidská práva, vzdělávání, ochrana přírody) 
               potřebují pokročilejší digitální nástroje pro koordinaci, komunikaci a advokacii.
             </p>
           </div>
           <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-            <h4 className="font-semibold text-red-800 mb-2">Digitálně zaostávající</h4>
+            <h4 className="font-semibold text-red-800 mb-2 text-balance">Digitálně zaostávající</h4>
             <p className="text-sm">
               Organizace zaměřené na přímé lokální služby (komunitní aktivity, aktivity pro mládež) 
               čelí menšímu tlaku na digitalizaci kvůli charakteru své práce.
             </p>
           </div>
         </div>
+
+        <h3 className="text-lg font-semibold mb-4 text-balance">Co to znamená</h3>
+        <p className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+          Charakter činnosti organizace významně ovlivňuje digitální vyspělost. Při plánování digitalizace je třeba zohlednit <strong>specifika oboru</strong>. <strong>Systémově zaměřené organizace</strong> by měly investovat do pokročilejších nástrojů, zatímco <strong>lokálně zaměřené organizace</strong> mohou začít se základními řešeními.
+        </p>
       </section>
 
       {/* Týmová spolupráce */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Týmová spolupráce ano, analytické nástroje ne</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Týmová spolupráce ano, analytické nástroje ne</h2>
         <p className="mb-6">
           Analýza výroků odhalila <strong>jasné vzorce napříč sektorem</strong>. Sektor má dobré základy 
           v <strong>kultuře a základních procesech</strong>, ale výrazně zaostává v 
@@ -263,7 +268,7 @@ export default function NeziskovkyReport() {
         </p>
 
         <div className="bg-gray-50 p-4 rounded-lg border mb-6">
-          <h4 className="font-semibold text-gray-800 mb-3">Způsob hodnocení výroků</h4>
+          <h4 className="font-semibold text-gray-800 mb-3 text-balance">Způsob hodnocení výroků</h4>
           <p className="text-sm mb-3">
             Sken digitální vyspělosti obsahuje 60 výroků, které popisují optimální způsoby fungování neziskových organizací. Organizace při vyplňování hodnotily výroky na škále 1–5, kde 1 = výrok vůbec neodpovídá aktuálnímu stavu organizace a 5 = výrok naprosto odpovídá aktuálnímu stavu organizace.
           </p>
@@ -276,7 +281,7 @@ export default function NeziskovkyReport() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4 text-green-700">Nejsilnější stránky sektoru</h3>
+          <h3 className="text-xl font-semibold mb-4 text-green-700 text-balance">Nejsilnější stránky sektoru</h3>
           <div className="space-y-4">
             <ScoreCard 
               title="Evidence a transparentnost"
@@ -317,7 +322,7 @@ export default function NeziskovkyReport() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4 text-red-700">Nejslabší stránky sektoru</h3>
+          <h3 className="text-xl font-semibold mb-4 text-red-700 text-balance">Nejslabší stránky sektoru</h3>
           <div className="space-y-4">
             <ScoreCard 
               title="Analytické nástroje"
@@ -358,7 +363,7 @@ export default function NeziskovkyReport() {
         </div>
 
         <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-          <h4 className="font-semibold text-yellow-800 mb-2">Klíčové pozorování</h4>
+          <h4 className="font-semibold text-yellow-800 mb-2 text-balance">Klíčové pozorování</h4>
           <p className="text-sm">
             Sektor výrazně zaostává v <strong>pokročilých analytických nástrojích</strong>, 
             <strong> automatizaci</strong> a <strong>měření výkonu</strong>. Tyto oblasti představují 
@@ -370,7 +375,7 @@ export default function NeziskovkyReport() {
 
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg text-center mb-12">
-        <h3 className="text-xl font-semibold mb-4">Sondou to nekončí, ale začíná</h3>
+        <h3 className="text-xl font-semibold mb-4 text-balance">Sondou to nekončí, ale začíná</h3>
         <p className="mb-4">
           Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit, 
           jakou formu pomoci oceníte nejvíce a jaké kroky by pro vaši organizaci byly nejpřínosnější.
@@ -382,7 +387,7 @@ export default function NeziskovkyReport() {
 
       {/* Správa IT */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Správa IT infrastruktury rozhoduje o digitální vyspělosti</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Správa IT infrastruktury rozhoduje o digitální vyspělosti</h2>
         <p className="mb-6">
           Analýza souvislostí mezi provozními charakteristikami a digitální vyspělostí odhalila 
           <strong> tři klíčové faktory</strong>, které nejvíce ovlivňují úroveň digitalizace organizace.
@@ -398,7 +403,7 @@ export default function NeziskovkyReport() {
         />
 
         <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-          <h4 className="font-semibold text-blue-800 mb-2">Hlavní zjištění</h4>
+          <h4 className="font-semibold text-blue-800 mb-2 text-balance">Hlavní zjištění</h4>
           <p className="text-sm">
             Investice do <strong>systematické správy IT</strong> (vlastní specialista nebo kvalitní externí služba) 
             a <strong>vyhrazování prostředků na IT</strong> v rozpočtu jsou klíčové kroky pro zvýšení digitální vyspělosti.
@@ -408,7 +413,7 @@ export default function NeziskovkyReport() {
 
       {/* Celostátní organizace */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Celostátní organizace mají systematičtější přístup k digitalizaci</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Celostátní organizace mají systematičtější přístup k digitalizaci</h2>
         <p className="mb-6">
           Analýza <strong>66 celostátně působících</strong> a <strong>98 regionálních</strong> organizací 
           odhalila významné rozdíly v přístupu k digitalizaci a charakteru činnosti.
@@ -426,7 +431,7 @@ export default function NeziskovkyReport() {
         />
 
         <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-          <h4 className="font-semibold text-blue-800 mb-2">Co z toho vyplývá</h4>
+          <h4 className="font-semibold text-blue-800 mb-2 text-balance">Co z toho vyplývá</h4>
           <p className="text-sm">
             <strong>Celostátní organizace</strong> častěji využívají externí IT služby a mají 
             <strong> systematičtější přístup k IT investicím</strong>. <strong>Regionální organizace</strong> 
@@ -438,11 +443,11 @@ export default function NeziskovkyReport() {
 
       {/* Strategická doporučení */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Strategická doporučení pro zvýšení digitální vyspělosti sektoru</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Strategická doporučení pro zvýšení digitální vyspělosti sektoru</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <h4 className="font-semibold mb-2">Investice do IT infrastruktury</h4>
+              <h4 className="font-semibold mb-2 text-balance">Investice do IT infrastruktury</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Podporovat vytváření interních IT pozic</li>
                 <li>Prosazovat vyhrazování prostředků na IT</li>
@@ -451,7 +456,7 @@ export default function NeziskovkyReport() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2">Rozvoj dovedností</h4>
+              <h4 className="font-semibold mb-2 text-balance">Rozvoj dovedností</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Vzdělávací programy pro zaměstnance</li>
                 <li>Výměna zkušeností mezi organizacemi</li>
@@ -460,7 +465,7 @@ export default function NeziskovkyReport() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2">Pokročilé nástroje</h4>
+              <h4 className="font-semibold mb-2 text-balance">Pokročilé nástroje</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Nástroje pro analýzu dat a měření dopadu</li>
                 <li>Automatizace rutinních procesů</li>
@@ -471,7 +476,7 @@ export default function NeziskovkyReport() {
 
           <div className="space-y-4">
             <div>
-              <h4 className="font-semibold mb-2">Diferenciovaná podpora</h4>
+              <h4 className="font-semibold mb-2 text-balance">Diferenciovaná podpora</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Přizpůsobit podporu specifickým potřebám</li>
                 <li>Systémové organizace - pokročilé nástroje</li>
@@ -480,7 +485,7 @@ export default function NeziskovkyReport() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-2">Grantová politika</h4>
+              <h4 className="font-semibold mb-2 text-balance">Grantová politika</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Rozšířit dostupnost grantů</li>
                 <li>Dlouhodobé programy transformace</li>
@@ -493,10 +498,10 @@ export default function NeziskovkyReport() {
 
       {/* Metodika */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Metodika a struktura vzorku</h2>
+        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-balance">Metodika a struktura vzorku</h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold mb-3">Sken digitální vyspělosti</h3>
+            <h3 className="text-xl font-semibold mb-3 text-balance">Sken digitální vyspělosti</h3>
             <p className="text-sm text-gray-600 mb-4">
               Data byla získána prostřednictvím Skenu digitální vyspělosti, který hodnotí organizace 
               ve čtyřech tematických oblastech: <strong>Komunikace & Spolupráce</strong>, 
@@ -519,7 +524,7 @@ export default function NeziskovkyReport() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-3">Typologie organizací</h3>
+            <h3 className="text-xl font-semibold mb-3 text-balance">Typologie organizací</h3>
             <p className="text-sm text-gray-600 mb-3">
               <strong>Profesionální organizace</strong> = činnost organizace zajišťují převážně lidé, kteří jsou za to placení
             </p>
@@ -541,7 +546,7 @@ export default function NeziskovkyReport() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-3">Struktura vzorku</h3>
+            <h3 className="text-xl font-semibold mb-3 text-balance">Struktura vzorku</h3>
             <p className="text-sm text-gray-600 mb-4">
               <strong>Celkový vzorek:</strong> 164 organizací (data sbírána v červnu 2025)
             </p>
@@ -550,7 +555,7 @@ export default function NeziskovkyReport() {
               <li><strong>Rozsah skóre:</strong> 73–290 bodů</li>
             </ul>
 
-            <h4 className="font-semibold mb-3">Podle typu organizace:</h4>
+            <h4 className="font-semibold mb-3 text-balance">Podle typu organizace:</h4>
             <DataTable 
               headers={["Typ organizace", "Počet", "Průměrné skóre", "Medián"]}
               rows={[
@@ -564,7 +569,7 @@ export default function NeziskovkyReport() {
               caption="*Malý vzorek (4 organizace) - závěry mají omezenou vypovídací hodnotu."
             />
 
-            <h4 className="font-semibold mb-3">Podle oblasti činnosti (hlavní oblasti):</h4>
+            <h4 className="font-semibold mb-3 text-balance">Podle oblasti činnosti (hlavní oblasti):</h4>
             <DataTable 
               headers={["Oblast činnosti", "Počet", "Průměrné skóre", "Medián"]}
               rows={[
@@ -579,7 +584,7 @@ export default function NeziskovkyReport() {
           </div>
 
           <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-            <h4 className="font-semibold text-yellow-800 mb-2">Metodické limity</h4>
+            <h4 className="font-semibold text-yellow-800 mb-2 text-balance">Metodické limity</h4>
             <p className="text-sm mb-3">
               <strong>Reprezentativnost vzorku:</strong> Vzorek není reprezentativní pro celý český neziskový sektor. Účast byla dobrovolná, což může vést k nadreprezentaci digitálně aktivnějších organizací.
             </p>

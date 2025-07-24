@@ -54,6 +54,11 @@
     background-color: var(--colors-plum);
     box-shadow: var(--shadow-md);
   }
+
+  .button-light {
+    background-color: white;
+    color: var(--colors-plum);
+  }
 }
 
 /** Custom styles */

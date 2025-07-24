@@ -376,13 +376,15 @@ export default function Report() {
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center mb-12">
         <h3 className="text-xl font-semibold mb-4 text-balance">Sondou to nekončí, ale začíná</h3>
-        <p className="mb-4">
+        <p className="mb-6">
           Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit, 
           jakou formu pomoci oceníte nejvíce a jaké kroky by pro vaši organizaci byly nejpřínosnější.
         </p>
-        <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+        <p className='my-2'>
+        <a className="button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus">
           Vyplnit dotazník
-        </button>
+        </a>
+        </p>
       </div>
 
       {/* Správa IT */}

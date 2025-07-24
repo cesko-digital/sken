@@ -48,7 +48,7 @@
 @layer components {
   .button {
     color: white;
-    padding: 1.2ex 2ex 1.2ex 2ex;
+    padding: 1.3ex 2ex 1.3ex 2ex;
     box-shadow: var(--shadow-sm);
     border-radius: var(--radius-md);
     background-color: var(--colors-plum);

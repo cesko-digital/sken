@@ -18,7 +18,7 @@ type Props = {
 
 /** Show digital maturity assessment with text and charts */
 export const ResultsPage = (props: Props) => (
-  <div className="max-w-[1024px] m-auto flex flex-col gap-20">
+  <div className="flex flex-col gap-20">
     <Intro {...props} />
     <Overview {...props} />
     <AxisDrillDown {...props} />
@@ -61,7 +61,7 @@ const Intro: Section = ({ responseType, organisationName, sampleSize }) => (
       </p>
       <Image
         src="https://assets.cesko.digital/11f81f04.jpg"
-        className="my-4 border-[1px] border-gray-300 max-w-prose"
+        className="my-4 border-[1px] border-gray-300 w-full max-w-prose"
         width={2309}
         height={1732}
         alt=""

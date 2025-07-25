@@ -35,6 +35,7 @@ export default async function GroupResultPage({ params }: Props) {
         responseType="group"
         organisationName={organisationName}
         data={averageScoreChart}
+        sampleSize={groupRatings.length}
       />
     </div>
   );

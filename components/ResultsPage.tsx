@@ -13,6 +13,7 @@ type Props = {
   responseType: "individual" | "group";
   organisationName: string;
   data: ScoreChart;
+  sampleSize?: number;
 };
 
 /** Show digital maturity assessment with text and charts */
@@ -29,7 +30,7 @@ export const ResultsPage = (props: Props) => (
 
 type Section = (props: Props) => React.ReactNode;
 
-const Intro: Section = ({ responseType, organisationName }) => (
+const Intro: Section = ({ responseType, organisationName, sampleSize }) => (
   <section>
     {responseType === "individual" && (
       <h1 className="typo-head1">
@@ -40,6 +41,11 @@ const Intro: Section = ({ responseType, organisationName }) => (
       <h1 className="typo-head1">
         Průměrné výsledky skenu digitální vyspělosti pro {organisationName}
       </h1>
+    )}
+    {sampleSize && sampleSize > 1 && (
+      <h2 className="typo-head2 text-gray-500 -mt-2 mb-6">
+        Počítáno z celkem {sampleSize} hodnocení
+      </h2>
     )}
     <Text>
       <p>

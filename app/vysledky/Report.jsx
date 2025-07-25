@@ -80,8 +80,8 @@ export default function Report() {
       {/* Key Statistics */}
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         <StatCard number="164" label="analyzovaných organizací" color="blue" />
-        <StatCard number="57%" label="má solidní základ" color="green" />
-        <StatCard number="1%" label="dosahuje špičky" color="purple" />
+        <StatCard number="57 %" label="má solidní základ" color="green" />
+        <StatCard number="1 %" label="dosahuje špičky" color="purple" />
       </div>
 
       {/* Sonda do digitální vyspělosti */}
@@ -122,11 +122,11 @@ export default function Report() {
         <DataTable
           headers={["Úroveň digitální vyspělosti", "Počet organizací", "Podíl", "Kritérium"]}
           rows={[
-            ["Inspirativní přístup", "1", "1%", "80% výroků s hodnocením 4.5+"],
-            ["Vynikající praxe", "20", "12%", "75% výroků s hodnocením 4.0+"],
-            ["Solidní základ", "93", "57%", "Průměr 3.0+ ve všech výrocích"],
-            ["Dobrý začátek", "35", "21%", "Průměr 2.5+ ve všech výrocích"],
-            ["Nevyužitý potenciál", "15", "9%", "Průměr pod 2.5 ve všech výrocích"]
+            ["Inspirativní přístup", "1", "1 %", "80 % výroků s hodnocením 4,5+"],
+            ["Vynikající praxe", "20", "12 %", "75 % výroků s hodnocením 4,0+"],
+            ["Solidní základ", "93", "57 %", "Průměr 3,0+ ve všech výrocích"],
+            ["Dobrý začátek", "35", "21 %", "Průměr 2,5+ ve všech výrocích"],
+            ["Nevyužitý potenciál", "15", "9 %", "Průměr pod 2,5 ve všech výrocích"]
           ]}
         />
       </section>
@@ -146,19 +146,19 @@ export default function Report() {
           <StatCard
             number="3,89"
             label="Kultura"
-            description="postoje vedení (78%)"
+            description="postoje vedení (78 %)"
             color="green"
           />
           <StatCard
             number="3,29"
             label="Dovednosti"
-            description="schopnosti lidí (66%)"
+            description="schopnosti lidí (66 %)"
             color="orange"
           />
           <StatCard
             number="2,73"
             label="Nástroje"
-            description="technické vybavení (55%)"
+            description="technické vybavení (55 %)"
             color="red"
           />
         </div>
@@ -174,7 +174,7 @@ export default function Report() {
             ["Dobrovolnické malé", "4,14", "3,64", "2,69"],
             ["Občanské organizace*", "3,75", "3,00", "2,25"]
           ]}
-          caption="*Malý vzorek (4 organizace) - závěry mají omezenou vypovídací hodnotu."
+          caption="*Malý vzorek (4 organizace) – závěry mají omezenou vypovídací hodnotu."
         />
 
         <h3 className="typo-head3">Co to znamená</h3>
@@ -204,31 +204,31 @@ export default function Report() {
           <div className="space-y-2">
             <div className="flex justify-between items-center p-2 bg-green-200 rounded">
               <span>Lidská práva</span>
-              <span className="font-bold text-green-800">+8,4%</span>
+              <span className="font-bold text-green-800">+8,4 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-green-100 rounded">
               <span>Vzdělávání</span>
-              <span className="font-bold text-green-700">+6,8%</span>
+              <span className="font-bold text-green-700">+6,8 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-green-50 rounded">
               <span>Ochrana přírody</span>
-              <span className="font-bold text-green-600">+3,6%</span>
+              <span className="font-bold text-green-600">+3,6 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-gray-100 rounded">
               <span>Sociální služby</span>
-              <span className="font-bold text-gray-600">+1,3%</span>
+              <span className="font-bold text-gray-600">+1,3 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-red-50 rounded">
               <span>Jiné</span>
-              <span className="font-bold text-red-600">-3,3%</span>
+              <span className="font-bold text-red-600">-3,3 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-red-100 rounded">
               <span>Aktivity pro mládež</span>
-              <span className="font-bold text-red-700">-4,4%</span>
+              <span className="font-bold text-red-700">-4,4 %</span>
             </div>
             <div className="flex justify-between items-center p-2 bg-red-200 rounded">
               <span>Komunitní aktivity</span>
-              <span className="font-bold text-red-800">-6,6%</span>
+              <span className="font-bold text-red-800">-6,6 %</span>
             </div>
           </div>
         </div>
@@ -423,10 +423,10 @@ export default function Report() {
           headers={["Charakteristika", "Celostátní organizace", "Regionální organizace"]}
           rows={[
             ["Digitální vyspělost", "202 bodů", "196 bodů"],
-            ["Vyhrazené prostředky na IT", "49%", "38%"],
-            ["Interní IT pozice", "15%", "22%"],
-            ["Externí IT služby", "32%", "19%"],
-            ["Dominantní oblast činnosti", "Diverzifikované (max. 15%)", "Sociální služby (40%)"]
+            ["Vyhrazené prostředky na IT", "49 %", "38 %"],
+            ["Interní IT pozice", "15 %", "22 %"],
+            ["Externí IT služby", "32 %", "19 %"],
+            ["Dominantní oblast činnosti", "Diverzifikované (max. 15 %)", "Sociální služby (40 %)"]
           ]}
         />
 
@@ -479,8 +479,8 @@ export default function Report() {
               <h4 className="typo-head4">Diferenciovaná podpora</h4>
               <ul className="text-sm space-y-1 text-gray-600 list-disc list-inside">
                 <li>Přizpůsobit podporu specifickým potřebám</li>
-                <li>Systémové organizace - pokročilé nástroje</li>
-                <li>Lokální organizace - základní dovednosti</li>
+                <li>Systémové organizace – pokročilé nástroje</li>
+                <li>Lokální organizace – základní dovednosti</li>
               </ul>
             </div>
 
@@ -566,7 +566,7 @@ export default function Report() {
                 ["Dobrovolnické malé", "10", "205", "203"],
                 ["Občanské organizace*", "4", "168", "165"]
               ]}
-              caption="*Malý vzorek (4 organizace) - závěry mají omezenou vypovídací hodnotu."
+              caption="*Malý vzorek (4 organizace) – závěry mají omezenou vypovídací hodnotu."
             />
 
             <h4 className="typo-head4">Podle oblasti činnosti (hlavní oblasti):</h4>

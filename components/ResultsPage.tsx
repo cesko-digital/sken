@@ -55,7 +55,7 @@ const Intro: Section = ({ responseType, organisationName }) => (
       </p>
       <Image
         src="https://assets.cesko.digital/11f81f04.jpg"
-        className="my-4 border-[1px] border-gray-300"
+        className="my-4 border-[1px] border-gray-300 max-w-prose"
         width={2309}
         height={1732}
         alt=""
@@ -346,11 +346,11 @@ const TopicDrillDown: Section = ({ data }) => (
             – poznamenejte si také, o jaký pilíř se jedná.
           </p>
         </li>
-        <p>
-          Pokud je témat hodně, seřaďte je od nejnižší hodnoty a věnujte jim
-          pozornost v tomto pořadí.
-        </p>
       </ul>
+      <p>
+        Pokud je témat hodně, seřaďte je od nejnižší hodnoty a věnujte jim
+        pozornost v tomto pořadí.
+      </p>
     </Text>
 
     <TopicDrillDownChart
@@ -534,7 +534,7 @@ const MarketplacePromo: Section = () => (
 type Wrapper = ({ children }: { children: React.ReactNode }) => React.ReactNode;
 
 const Text: Wrapper = ({ children }) => (
-  <div className="max-w-prose flex flex-col gap-4">{children}</div>
+  <div className="flex flex-col gap-4">{children}</div>
 );
 
 const SubSection: Wrapper = ({ children }) => (

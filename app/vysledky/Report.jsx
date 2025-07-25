@@ -528,7 +528,7 @@ export default function Report() {
             <p className="text-sm text-gray-600 mb-3">
               <strong>Profesionální organizace</strong> = činnost organizace zajišťují převážně lidé, kteří jsou za to placení
             </p>
-            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside ml-4">
+            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside">
               <li><strong>Malé:</strong> do 10 lidí</li>
               <li><strong>Střední:</strong> 11–50 lidí</li>
               <li><strong>Velké:</strong> více než 50 lidí</li>
@@ -536,7 +536,7 @@ export default function Report() {
             <p className="text-sm text-gray-600 mb-3">
               <strong>Dobrovolnické organizace</strong> = činnost organizace zajišťují převážně lidé, kteří za to nejsou placení, s podporou malého placeného týmu
             </p>
-            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside ml-4">
+            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside">
               <li><strong>Malé:</strong> do 10 lidí</li>
               <li><strong>Velké:</strong> více než 10 lidí</li>
             </ul>

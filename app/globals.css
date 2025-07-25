@@ -22,7 +22,8 @@
 
   .typo-head1,
   .typo-head2,
-  .typo-head3 {
+  .typo-head3,
+  .typo-head4 {
     font-family: var(--font-cd);
     text-wrap-style: balance;
     line-height: 1.2em;
@@ -40,6 +41,11 @@
 
   .typo-head3 {
     font-size: var(--text-3xl);
+  }
+
+  .typo-head4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
   }
 }
 

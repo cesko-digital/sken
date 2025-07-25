@@ -40,7 +40,8 @@
   }
 
   .typo-head3 {
-    font-size: var(--text-3xl);
+    font-size: var(--text-xl);
+    text-transform: uppercase;
   }
 
   .typo-head4 {

@@ -8,7 +8,8 @@ export const RouteTo = {
   overallResults: "/vysledky",
 
   /** Organization results */
-  organizationResults: (individualId: string) => `/organizace/${individualId}`,
+  organizationResults: (organizationName: string) =>
+    "/organizace/" + hashOrganizationName(organizationName),
 
   /** The URL of the Fillout form */
   form: "https://forms.fillout.com/t/rMoYry5Shaus",
@@ -32,3 +33,6 @@ export const hashDigest = (params: string[]) =>
     .digest("hex")
     // Return first 10 chars
     .slice(0, 10);
+
+export const hashOrganizationName = (organizationName: string) =>
+  hashDigest([organizationName, process.env.SHASUM_SECRET!]);

@@ -28,7 +28,7 @@ export default async function ResultPage({ params }: Props) {
         path={[
           {
             label: organizationName,
-            path: RouteTo.organizationResults(id),
+            path: RouteTo.organizationResults(organizationName),
           },
         ]}
         currentPage="Vaše hodnocení"

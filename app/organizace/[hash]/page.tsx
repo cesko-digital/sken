@@ -1,12 +1,12 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ResultsPage } from "@/components/ResultsPage";
-import { getGroupFormResponses, getFormResponse } from "@/src/db";
+import { getAllGroupFormResponsesForHash } from "@/src/db";
 import { average } from "@/src/model";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Params = {
-  id: string;
+  hash: string;
 };
 
 export type Props = {
@@ -18,19 +18,14 @@ export const revalidate = 3600;
 
 /** Show group digital maturity assessment */
 export default async function GroupResultPage({ params }: Props) {
-  const id = (await params).id;
-  const individualResponse = await getFormResponse(id);
-  if (!individualResponse) {
+  const hash = (await params).hash;
+  const responses = await getAllGroupFormResponsesForHash(hash);
+  if (responses.length === 0) {
     notFound();
   }
 
-  const organisationName = individualResponse.meta.organisationName;
-  const groupResponses = await getGroupFormResponses(organisationName);
-  if (!groupResponses) {
-    notFound();
-  }
-
-  const groupRatings = groupResponses.map((r) => r.scores);
+  const groupRatings = responses.map((r) => r.scores);
+  const organisationName = responses[0].meta.organisationName;
   const averageScoreChart = average(groupRatings)!;
 
   return (
@@ -46,12 +41,14 @@ export default async function GroupResultPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const response = await getFormResponse((await params).id);
-  if (!response) {
+  const hash = (await params).hash;
+  const responses = await getAllGroupFormResponsesForHash(hash);
+  if (responses.length === 0) {
     notFound();
   }
+  const organizationName = responses[0].meta.organisationName;
   return {
-    title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
+    title: `${organizationName}: Výsledky skenu digitální vyspělosti`,
   };
 }
 

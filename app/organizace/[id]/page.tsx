@@ -26,7 +26,7 @@ export default async function GroupResultPage({ params }: Props) {
 
   const organisationName = individualResponse.meta.organisationName;
   const groupResponses = await getGroupFormResponses(organisationName);
-  if (!groupResponses || groupResponses.length <= 1) {
+  if (!groupResponses) {
     notFound();
   }
 

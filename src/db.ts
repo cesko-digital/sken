@@ -8,6 +8,7 @@ import {
   record,
   string,
 } from "typescript-json-decoder";
+import { hashOrganizationName } from "./utils";
 
 const table = () =>
   new Airtable().base("appmxoOm1pOLmmGDn")("tblBOTdYlMjW4hxUb");
@@ -44,12 +45,10 @@ export async function getFormResponse(
     .catch(logErrorAndReturnNull);
 }
 
-export const getGroupFormResponses = (
-  organizationName: string
-): Promise<FormResponse[] | null> =>
+export const getAllGroupFormResponses = () =>
   table()
     .select({
-      filterByFormula: `{flddAwhNuOpDJSrgJ} = "${organizationName}"`,
+      view: "Have organization name",
       returnFieldsByFieldId: true,
     })
     .all()
@@ -57,6 +56,13 @@ export const getGroupFormResponses = (
     .then(array(decodeFormResponse))
     .catch()
     .catch(logErrorAndReturnNull);
+
+export const getAllGroupFormResponsesForHash = async (hash: string) => {
+  const all = (await getAllGroupFormResponses()) ?? [];
+  return all.filter(
+    (response) => hashOrganizationName(response.meta.organisationName) === hash
+  );
+};
 
 //
 // Decoding

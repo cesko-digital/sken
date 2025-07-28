@@ -1,4 +1,4 @@
-import { formUrl } from "@/src/utils";
+import { RouteTo } from "@/src/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 /**
@@ -8,7 +8,7 @@ import { NextRequest, NextResponse } from "next/server";
  */
 export async function GET(request: NextRequest): Promise<Response> {
   const sourceUrl = new URL(request.url);
-  const targetUrl = new URL(formUrl);
+  const targetUrl = new URL(RouteTo.form);
   sourceUrl.searchParams.forEach((val, key) => {
     targetUrl.searchParams.append(key, val);
   });

@@ -26,52 +26,13 @@ npm run dev
 
 Pro lokální vývoj není potřeba přístup do databáze, na URL `/vysledky/sample` ([živá ukázka](https://sken.nezisk.digital/vysledky/sample)) je ukázkový dataset.
 
-## Úpravy obsahu
-
-V principu jde hlavně o textový dokument s grafy, takže hlavní část obsahu je [tento soubor](https://github.com/cesko-digital/sken/blob/main/app/vysledky/%5Bid%5D/content.md) v [Markdownu](https://en.wikipedia.org/wiki/Markdown), parsovaný pomocí [Markdoc](https://markdoc.dev).
-
-Kromě standardních Markdown značek dokument podporuje proměnné a značky pro grafy.
-
-### Proměnné
-
-- `organisationName` – název organizace, za kterou byl formulář vyplněný
-- `data` – matice číselných skóre pro sazbu grafů
-- `formUrl` – URL hodnoticího formuláře ve Filloutu
-
-Podrobně viz [dokumentaci Markdoc](https://markdoc.dev/docs/variables).
-
-### Značky
-
-Značky se zapisují takto:
-
-```markdown
-{% score_distribution_chart caption="Popisek grafu" data=$data /%}
-```
-
-Dokument podporuje následující typy grafů:
-
-- `axis_score_chart` – suma hodnocení podle jednotlivých pilířů
-- `score_distribution_chart` – histogram udělených známek
-- `stacked_axis_score_chart` – histogram udělených známek rozdělený ještě podle pilířů
-- `score_over_area_chart` – suma hodnocení podle jednotlivých oblastí
-- `score_over_area_and_axis_chart` – suma hodnocení podle jednotlivých oblastí rozdělená podle pilířů
-- `topic_drilldown_chart` – suma hodnocení v jedné konkrétní oblasti rozdělená podle témat
-
-Specificky poslední graf bere ještě číselný argument `area`, který určuje, kterou oblast má ukázat:
-
-```markdown
-{% score_distribution_chart data=$data area=0 /%}
-```
-
-Oblasti jsou číslované od nuly.
-
 ## Parametry formuláře
 
 Zásadní součástí skenu je formulář ve Filloutu. Kromě originálního URL od Filloutu se dá zobrazit též na URL `sken.nezisk.digital/vyplnit`. Formulář podporuje následující URL parametry:
 
-* `skip_results` – pokud je nastavený na libovolnou neprázdnou hodnotu, nebudeme po vyplnění posílat odkaz na výsledky hodnocení. Používáme v situacích, kdy chceme nechat sken vyplnit víc lidí z jedné organizace a až následně jim hromadně poslat výsledky za celou organizaci.
-* `source` – aktuálně používáme pouze ve variantě `source=kurz` (kurz Nezisk.Digital), kde se přepne na výběr organizace z předem připraveného seznamu.
-* `organization_name` – předvyplní název organizace na záložce Profil organizace.
+- `skip_results` – pokud je nastavený na libovolnou neprázdnou hodnotu, nebudeme po vyplnění posílat odkaz na výsledky hodnocení. Používáme v situacích, kdy chceme nechat sken vyplnit víc lidí z jedné organizace a až následně jim hromadně poslat výsledky za celou organizaci.
+- `source` – aktuálně používáme pouze ve variantě `source=kurz` (kurz Nezisk.Digital), kde se přepne na výběr organizace z předem připraveného seznamu.
+- `organization_name` – předvyplní název organizace na záložce Profil organizace.
 
 ## Kontakt
 

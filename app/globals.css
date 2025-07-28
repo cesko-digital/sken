@@ -1,81 +1,77 @@
-:root {
-  /* Colors */
+@import "tailwindcss";
+
+/** Theme presets */
+
+@theme {
+  --font-cd: var(--font-cd);
+
   --colors-it: #0000ff;
   --colors-highlight: #fef9c2;
   --colors-dark-gray: #d1d5dc;
-  --colors-black: #1e293b;
+  --colors-plum: #1e293b;
   --colors-gray: #f9fafb;
-  /* Layout */
-  --width-prose: 80ch;
 }
 
-body {
-  padding: 40px 20px 50px 20px;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  line-height: 1.5em;
+/** Typography */
+
+@layer components {
+  .typo-link {
+    text-decoration: underline;
+    color: var(--colors-it);
+  }
+
+  .typo-head1,
+  .typo-head2,
+  .typo-head3,
+  .typo-head4 {
+    font-family: var(--font-cd);
+    text-wrap-style: balance;
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .typo-head1 {
+    font-size: var(--text-5xl);
+    font-weight: bold;
+  }
+
+  .typo-head2 {
+    font-size: var(--text-4xl);
+  }
+
+  .typo-head3 {
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+  }
+
+  .typo-head4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+  }
 }
 
-/* Layout */
+/** Components */
 
-main,
-footer {
-  max-width: 900px;
-  margin: auto;
+@layer components {
+  .button {
+    color: white;
+    padding: 1.3ex 2ex 1.3ex 2ex;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    background-color: var(--colors-plum);
+    box-shadow: var(--shadow-md);
+  }
+
+  .button-light {
+    background-color: white;
+    color: var(--colors-plum);
+  }
 }
 
-footer {
-  margin-top: 70px;
-  border-top: 1px solid var(--colors-dark-gray);
-}
+/** Custom styles */
 
-/* Charts */
-
-.chart-wrapper {
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border: 1px solid var(--colors-dark-gray);
-  background-color: var(--colors-gray);
-}
-
-.chart-wrapper h3 {
-  text-align: center;
-  font-weight: normal;
-}
-
-/* Content */
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-cd), sans-serif;
-  font-weight: 600;
-  line-height: 1.2em;
-  text-wrap: balance;
-}
-
-h1 {
-  font-size: 3em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-top: 2em;
-  margin-bottom: 0.7em;
-}
-
-h1:first-child,
-h2:first-child,
-h3:first-child {
-  margin-top: 0;
-}
-
-a,
-a:visited {
-  color: var(--colors-it);
-}
-
-strong {
+em {
+  font-style: normal;
   font-weight: bold;
 }
 
@@ -92,43 +88,4 @@ mark {
     rgba(255, 225, 0, 0.3)
   );
   box-decoration-break: clone;
-}
-
-/* Markdoc content */
-
-.markdoc-root p,
-ul,
-ol {
-  max-width: var(--width-prose);
-}
-
-.markdoc-root img {
-  width: 100%;
-  max-width: var(--width-prose);
-  height: auto;
-  border: 1px solid var(--colors-dark-gray);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.markdoc-root .box {
-  background-color: var(--colors-gray);
-  border: 1px solid var(--colors-dark-gray);
-  padding: 30px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.markdoc-root .button-wrapper {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.markdoc-root .button {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  padding: 1.5ex 3ex 1.5ex 3ex;
-  background-color: var(--colors-black);
-  border-radius: 1ex;
 }

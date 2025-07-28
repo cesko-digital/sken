@@ -2,7 +2,9 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
-import { Results } from "@/components/Results";
+import { ResultsPage } from "@/components/ResultsPage";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RouteTo } from "@/src/utils";
 
 type Params = {
   id: string;
@@ -19,12 +21,24 @@ export default async function ResultPage({ params }: Props) {
   if (!individualResponse) {
     notFound();
   }
+  const organizationName = individualResponse.meta.organisationName;
   return (
-    <Results
-      responseType="individual"
-      organisationName={individualResponse.meta.organisationName}
-      data={individualResponse.scores}
-    />
+    <div className="flex flex-col gap-4">
+      <Breadcrumbs
+        path={[
+          {
+            label: organizationName,
+            path: RouteTo.organizationResults(organizationName),
+          },
+        ]}
+        currentPage="Vaše hodnocení"
+      />
+      <ResultsPage
+        responseType="individual"
+        organisationName={organizationName}
+        data={individualResponse.scores}
+      />
+    </div>
   );
 }
 

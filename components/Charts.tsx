@@ -42,14 +42,14 @@ const ChartWrapper = ({
   caption?: string;
   children: ReactNode;
 }) => (
-  <div className="chart-wrapper">
+  <div className="p-5 my-6 border-[1px] border-gray-300 bg-gray-50">
     {children}
-    {caption && <h3>{caption}</h3>}
+    {caption && <h3 className="text-center">{caption}</h3>}
   </div>
 );
 
 /** Shows score sum over axes (Kultura, Dovednosti, Nástroje) */
-const AxisScoreChart = ({ data, caption }: ChartProps) => {
+export const AxisScoreChart = ({ data, caption }: ChartProps) => {
   const values = sumScoresByAxis(data);
   return (
     <ChartWrapper caption={caption}>
@@ -73,7 +73,7 @@ const AxisScoreChart = ({ data, caption }: ChartProps) => {
 };
 
 /** Shows score mark distribution – how many times was a mark given? */
-const ScoreDistributionChart = ({ data, caption }: ChartProps) => {
+export const ScoreDistributionChart = ({ data, caption }: ChartProps) => {
   const values = getScoreHistogram(data);
   return (
     <ChartWrapper caption={caption}>
@@ -93,7 +93,7 @@ const ScoreDistributionChart = ({ data, caption }: ChartProps) => {
  *
  * This one also shows which axes the scores were distributed between.
  */
-const StackedAxisScoreChart = ({ data, caption }: ChartProps) => {
+export const StackedAxisScoreChart = ({ data, caption }: ChartProps) => {
   const scores = getScoreHistogramByAxis(data);
   return (
     <ChartWrapper caption={caption}>
@@ -114,7 +114,7 @@ const StackedAxisScoreChart = ({ data, caption }: ChartProps) => {
 };
 
 /** Show sum of scores over areas (Komunikace a spolupráce, …) */
-const ScoreOverAreaChart = ({ data, caption }: ChartProps) => {
+export const ScoreOverAreaChart = ({ data, caption }: ChartProps) => {
   const values = sumScoresByArea(data);
   return (
     <ChartWrapper caption={caption}>
@@ -130,7 +130,7 @@ const ScoreOverAreaChart = ({ data, caption }: ChartProps) => {
 };
 
 /** Show sum of scores over areas (Komunikace a spolupráce, …) split into axes (Kultura, …) */
-const ScoreOverAreaAndAxisChart = ({ data, caption }: ChartProps) => {
+export const ScoreOverAreaAndAxisChart = ({ data, caption }: ChartProps) => {
   const areas = sumScoresByAreaAndAxis(data);
   return (
     <ChartWrapper caption={caption}>
@@ -149,7 +149,7 @@ const ScoreOverAreaAndAxisChart = ({ data, caption }: ChartProps) => {
   );
 };
 
-const TopicDrillDownChart = ({
+export const TopicDrillDownChart = ({
   data,
   caption,
   area = 0,
@@ -179,14 +179,3 @@ const TopicDrillDownChart = ({
     </ChartWrapper>
   );
 };
-
-const ChartTags = {
-  ScoreDistributionChart,
-  StackedAxisScoreChart,
-  ScoreOverAreaChart,
-  ScoreOverAreaAndAxisChart,
-  TopicDrillDownChart,
-  AxisScoreChart,
-};
-
-export default ChartTags;

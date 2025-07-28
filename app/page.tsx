@@ -1,22 +1,34 @@
-import { leadFormUrl } from "@/src/utils";
+import { RouteTo } from "@/src/utils";
+import Link from "next/link";
 
-export default function HomePage() {
+export default function LandingPage() {
   return (
-    <div className="markdoc-root">
-      <h1>Sken bude dostupný zase v září</h1>
-      <p>
-        V červnu jsme Sken digitální vyspělosti úspěšně otestovali. Přes léto
-        jej vylepšíme a znovu spustíme v září.{" "}
-        <mark>
-          Nechte nám na sebe kontakt a ozveme se vám, až bude Sken opět k
-          dispozici.
-        </mark>
-      </p>
-      <div style={{ marginTop: "40px" }}>
-        <a href={leadFormUrl} className="button">
-          Mám o Sken zájem
-        </a>
+    <main className="flex items-center justify-center px-4 mt-10 md:mt-30">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="font-cd text-6xl font-bold mb-6 leading-tight">
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Sken digitální vyspělosti
+          </span>
+        </h1>
+
+        <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+          Zjistěte, jak může vaše organizace zvyšovat svou digitální vyspělost –
+          a být tak úspěšnější při naplňování svého poslání.{" "}
+          <mark style={{ marginLeft: "0.1ex" }}>Nic to nestojí.</mark>
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <Link
+            href={RouteTo.leadFormUrl}
+            className="inline-block button bg-gradient-to-r from-blue-600 to-purple-600"
+          >
+            Chci se oskenovat
+          </Link>
+          <Link href={RouteTo.overallResults} className="inline-block button">
+            Chci vidět celkové výsledky
+          </Link>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

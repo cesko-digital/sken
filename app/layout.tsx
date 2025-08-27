@@ -32,6 +32,7 @@ export default function RootLayout({
           data-domain="sken.nezisk.digital"
           src="https://plausible.io/js/script.outbound-links.js"
         ></script>
+        <link rel="shortcut icon" type="image/png" href="/logo.png" />
       </head>
       <body className={customFont.variable}>
         <div className="flex flex-col min-h-screen gap-20">

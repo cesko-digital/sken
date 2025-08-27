@@ -6,9 +6,7 @@ export default function LandingPage() {
     <main className="flex items-center justify-center px-4 mt-10 md:mt-30">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="font-cd text-6xl font-bold mb-6 leading-tight">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Sken digitální vyspělosti
-          </span>
+          <span className="text-[blue]">Sken digitální vyspělosti</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
@@ -20,7 +18,7 @@ export default function LandingPage() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Link
             href={RouteTo.leadFormUrl}
-            className="inline-block button bg-gradient-to-r from-blue-600 to-purple-600"
+            className="inline-block button bg-[blue]"
           >
             Chci se oskenovat
           </Link>

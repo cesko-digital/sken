@@ -42,9 +42,9 @@ const Intro: Section = ({ responseType, organisationName, sampleSize }) => (
         Průměrné výsledky skenu digitální vyspělosti pro {organisationName}
       </h1>
     )}
-    {sampleSize && sampleSize > 1 && (
+    {sampleSize && sampleSize >= 1 && (
       <h2 className="typo-head2 text-gray-500 -mt-2 mb-6">
-        Počítáno z celkem {sampleSize} hodnocení
+        <mark>Počítáno z celkem {sampleSize} hodnocení</mark>
       </h2>
     )}
     <Text>

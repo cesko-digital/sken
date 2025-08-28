@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { string } from "typescript-json-decoder";
 
 /** Common routing targets */
 export const RouteTo = {
@@ -36,3 +37,5 @@ export const hashDigest = (params: string[]) =>
 
 export const hashOrganizationName = (organizationName: string) =>
   hashDigest([organizationName, process.env.SHASUM_SECRET!]);
+
+export const decodeStringAsNumber = (val: unknown) => Number(string(val));

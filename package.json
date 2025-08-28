@@ -35,5 +35,8 @@
     "glob": "^11.0.3",
     "tsx": "^4.20.3",
     "typescript": "^5"
+  },
+  "prettier": {
+    "quoteProps": "consistent"
   }
 }

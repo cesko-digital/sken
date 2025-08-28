@@ -5,10 +5,11 @@ import {
   decodeType,
   field,
   number,
+  optional,
   record,
   string,
 } from "typescript-json-decoder";
-import { hashOrganizationName } from "./utils";
+import { decodeStringAsNumber, hashOrganizationName } from "./utils";
 
 const table = () =>
   new Airtable().base("appmxoOm1pOLmmGDn")("tblBOTdYlMjW4hxUb");
@@ -70,7 +71,53 @@ export const getAllGroupFormResponsesForHash = async (hash: string) => {
 
 export type FormResponse = decodeType<typeof decodeFormResponse>;
 
-/** Decode linear Airtable column data into a score chart */
+/**
+ * Decode sequential Airtable column data into a score chart
+ *
+ * This is how the data is stored sequentially in the DB:
+ *
+ * ```
+ * Komunikace & Spolupráce
+ *   Kultura
+ *     01 Rychlost a jasnost komunikace
+ *     02 Sdílení a dostupnost informací
+ *     03 Kvalita spolupráce v týmu
+ *     04 Plánování a sledování projektů
+ *     05 Komunikace navenek
+ *   Dovednosti
+ *     06 Rychlost a jasnost komunikace
+ *     07 Sdílení a dostupnost informací
+ *     08 Kvalita spolupráce v týmu
+ *     09 Plánování a sledování projektů
+ *     10 Komunikace navenek
+ *   Nástroje
+ *     11 Rychlost a jasnost komunikace
+ *     12 Sdílení a dostupnost informací
+ *     13 Kvalita spolupráce v týmu
+ *     14 Plánování a sledování projektů
+ *     15 Komunikace navenek
+ * Procesy & Automatizace
+ *   Kultura
+ *     16 Automatizace rutinních úkolů
+ *     17 Vedení evidence
+ *     18 …
+ *   Dovednosti
+ *     21 Automatizace rutinních úkolů
+ *     22 Vedení evidence
+ *     23 …
+ *   Nástroje
+ *     26 Automatizace rutinních úkolů
+ *     27 Vedení evidence
+ *     28 …
+ * Bezpečnost & Flexibilita
+ *   …
+ * Učení & Rozvoj
+ *   …
+ * ```
+ *
+ * There are 4 main areas, 5 topics in each, scored on 3 axes, resulting
+ * in 3*4*5 = 60 columns in total.
+ */
 export const decodeScoreChart = (chart: unknown): ScoreChart => {
   const isObject = (value: unknown): value is Record<string, unknown> =>
     typeof value === "object" && value !== null;
@@ -85,33 +132,36 @@ export const decodeScoreChart = (chart: unknown): ScoreChart => {
   };
 
   return [
-    // Area 1
+    // Komunikace & Spolupráce
     [
-      // Topic 1
+      // Rychlost a jasnost komunikace
       [
+        // Kultura
         field("fldHt6aXoRu3joiJR"),
+        // Dovednosti
         field("fldjRTg0ZCIqqzyiw"),
+        // Nástroje
         field("fldjY5ozg1XbNWxyv"),
       ],
-      // Topic 2
+      // Sdílení a dostupnost informací
       [
         field("flduerpZlRngJtdwp"),
         field("fldn7MehKh9eSYTDA"),
         field("fldDwsXg9Z6ovEIH3"),
       ],
-      // Topic 3
+      // Kvalita spolupráce v týmu
       [
         field("fld6Fdi9L81kYfsAE"),
         field("fldpgBVqxU71OePTp"),
         field("fldOFPl1WpAsWwVso"),
       ],
-      // Topic 4
+      // Plánování a sledování projektů
       [
         field("fld2OAAWEojDxSNIS"),
         field("fldK4K8CzNX1YsOCs"),
         field("fldb7gXQfXEZKB0up"),
       ],
-      // Topic 5
+      // Komunikace navenek
       [
         field("fldLDghocszgofV3I"),
         field("fld7iHnM6vw2c0II4"),
@@ -220,17 +270,27 @@ export const decodeScoreChart = (chart: unknown): ScoreChart => {
   ];
 };
 
+export type OrganisationMetadata = decodeType<typeof decodeMetadata>;
+export const decodeMetadata = record({
+  id: field("fldz2KGNqvJe7TUiv", string),
+  organisationName: field("flddAwhNuOpDJSrgJ", string),
+  organisationField: field("fldMMRJRE1OE7RYFL", optional(string)),
+  paidFullTimeMembers: field(
+    "fld8jG3XuA0u4dBDB",
+    optional(decodeStringAsNumber)
+  ),
+  paidPartTimeMembers: field(
+    "flddvyzQ40QFVquAd",
+    optional(decodeStringAsNumber)
+  ),
+  volunteers: field("fldV40WHMtfTx9eoj", optional(decodeStringAsNumber)),
+});
+
 /** Decode form response (metadata + scores) */
-export const decodeFormResponse = (value: unknown) => {
-  const decodeMetadata = record({
-    id: field("fldz2KGNqvJe7TUiv", string),
-    organisationName: field("flddAwhNuOpDJSrgJ", string),
-  });
-  return {
-    meta: decodeMetadata(value),
-    scores: decodeScoreChart(value),
-  };
-};
+export const decodeFormResponse = (value: unknown) => ({
+  meta: decodeMetadata(value),
+  scores: decodeScoreChart(value),
+});
 
 //
 // Samples
@@ -242,13 +302,16 @@ const sampleFormResponse = {
     organisationName: "Doughnut Czechia",
   },
   scores: [
+    // 1. Komunikace & Spolupráce"
     [
-      [2, 4, 4],
+      // Rychlost a jasnost komunikace
+      [2, 4, 4], // Kultura, Dovednosti, Nástroje
       [1, 1, 1],
       [4, 5, 5],
       [2, 1, 1],
       [4, 3, 3],
     ],
+    // 2. Procesy & Automatizace
     [
       [2, 2, 1],
       [1, 1, 1],
@@ -256,6 +319,7 @@ const sampleFormResponse = {
       [4, 4, 2],
       [1, 1, 1],
     ],
+    // 3. Bezpečnost & Flexibilita
     [
       [1, 3, 1],
       [1, 4, 1],
@@ -263,6 +327,7 @@ const sampleFormResponse = {
       [5, 5, 5],
       [2, 3, 2],
     ],
+    // 4. Učení & Rozvoj
     [
       [5, 4, 1],
       [4, 4, 1],

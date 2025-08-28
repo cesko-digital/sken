@@ -4,9 +4,29 @@
 
 export type Score = number;
 
-export type TopicScores = Score[];
-export type AreaScores = TopicScores[];
-export type ScoreChart = AreaScores[];
+/**
+ * A single topic score chart
+ *
+ * A single topic is scored on three axes: Kultura, Dovednosti, and Nástroje
+ */
+export type TopicScores = Score[]; // length is always 3
+
+/**
+ * Area score chart
+ *
+ * A single area score chart consists of five unique topics. For the
+ * `Komunikace & Spolupráce` area, for example, these topics are `Rychlost
+ * a jasnost komunikace`, `Sdílení a dostupnost informací`, etc.
+ */
+export type AreaScores = TopicScores[]; // length is always 5
+
+/**
+ * Organisation score chart
+ *
+ * The score chart consists of an array of scores for the four top-level areas:
+ * Komunikace & Spolupráce, Procesy & Automatizace, …
+ */
+export type ScoreChart = AreaScores[]; // length is always 4
 
 //
 // Labels
@@ -30,6 +50,7 @@ export const scoreLabels = [
 export const axisLabels = ["Kultura", "Dovednosti", "Nástroje"] as const;
 
 export const topicLabels = [
+  // Komunikace & Spolupráce
   [
     "Rychlost a jasnost komunikace",
     "Sdílení a dostupnost informací",
@@ -37,6 +58,7 @@ export const topicLabels = [
     "Plánování a sledování projektů",
     "Komunikace navenek",
   ],
+  // Procesy & Automatizace
   [
     "Automatizace rutinních úkolů",
     "Vedení evidence",
@@ -44,6 +66,7 @@ export const topicLabels = [
     "Strategické rozhodování",
     "Propojení nástrojů a synchronizace dat",
   ],
+  // Bezpečnost & Flexibilita
   [
     "Ochrana před kybernetickými hrozbami",
     "Správa uživatelských účtů a přístupů",
@@ -51,6 +74,7 @@ export const topicLabels = [
     "Hybridní a vzdálená práce",
     "Aktualizace a údržba systémů",
   ],
+  // Učení & Rozvoj
   [
     "Samostatnost při řešení problémů",
     "Osvojování nových technologií",

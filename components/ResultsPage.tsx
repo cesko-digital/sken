@@ -88,7 +88,7 @@ const Intro: Section = ({ responseType, organisationName, sampleSize }) => (
         </em>
         .
       </p>
-      <p>PV rámci vyhodnocení jsou pak hodnoty interpretovány následovně:</p>
+      <p>V rámci vyhodnocení jsou pak hodnoty interpretovány následovně:</p>
       <ul>
         <li>1 = Nevyužitý potenciál</li>
         <li>2 = Dobrý začátek</li>

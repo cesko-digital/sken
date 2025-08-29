@@ -1,22 +1,36 @@
 import {
+  getRatingSummary,
   GroupAverageRating,
-  OrganisationRatingSummary,
+  RatingSummary as ScoreSummary,
   Rating,
 } from "@/src/benchmarking";
+import { FormResponse } from "@/src/db";
 import { Fragment } from "react";
+import TurndownService from "turndown";
 
 /**
  * Organisation rating summary to use in LLMs
  *
  * We want the summary to be in Markdown, but start with an ordinary React
- * component to get reasonable DX. Later we convert the React tree to HTML
+ * component to get reasonable DX. Then we convert the React tree to HTML
  * and Markdown.
  */
-export const RatingSummary = ({
-  summary,
-}: {
-  summary: OrganisationRatingSummary;
-}) => (
+export async function getTextualRatingSummary(
+  formResponse: FormResponse
+): Promise<string> {
+  const summary = getRatingSummary(formResponse);
+  // https://github.com/vercel/next.js/discussions/57631
+  const { renderToString } = await import("react-dom/server");
+  const html = renderToString(RatingSummary({ summary }));
+  const markdown = new TurndownService({
+    headingStyle: "atx",
+    bulletListMarker: "-",
+  }).turndown(html);
+  return markdown;
+}
+
+/** React component used to render the LLM rating summary */
+const RatingSummary = ({ summary }: { summary: ScoreSummary }) => (
   <div>
     <h1>Výsledky skenu digitální vyspělosti</h1>
     <p>

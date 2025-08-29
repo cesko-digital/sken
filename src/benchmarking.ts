@@ -24,7 +24,7 @@ export type Warning = {
   problemDescription: string;
 };
 
-export type OrganisationRatingSummary = {
+export type RatingSummary = {
   name: string;
   rating: Rating;
   type?: string;
@@ -34,10 +34,10 @@ export type OrganisationRatingSummary = {
   warnings: Warning[];
 };
 
-export function getOrganisationSummary({
+export function getRatingSummary({
   meta,
   scores,
-}: FormResponse): OrganisationRatingSummary {
+}: FormResponse): RatingSummary {
   const [cultureScore, skillScore, toolingScore] = sumScoresByAxis(scores);
   const type = getOrganisationType(meta);
   return {

@@ -35,8 +35,18 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/png" href="/logo.png" />
       </head>
       <body className={customFont.variable}>
-        <div className="flex flex-col min-h-screen gap-20">
-          <div className="w-full max-w-4xl m-auto p-4 mt-10">{children}</div>
+        <div className="w-full max-w-4xl m-auto px-4">
+          <a
+            className="block max-sm:mx-auto bg-[blue] w-[200px] p-5 cursor-pointer"
+            href="https://cesko.digital"
+            target="_blank"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Česko.Digital" width="100%" />
+          </a>
+        </div>
+        <div className="flex flex-col min-h-[calc(100vh-73px)] gap-20">
+          <div className="w-full max-w-4xl m-auto p-4 mt-5">{children}</div>
           <Footer />
         </div>
       </body>

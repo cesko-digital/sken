@@ -1,5 +1,12 @@
 import { FormResponse, OrganisationMetadata } from "./db";
-import { sum, sumScoresByArea, sumScoresByAxis } from "./model";
+import {
+  sum,
+  sumScoresByArea,
+  sumScoresByAxis,
+  areaLabels,
+  sumScoresByAreaAndAxis,
+  ScoreChart,
+} from "./model";
 
 export type Rating = {
   overallScore: number;
@@ -12,6 +19,11 @@ export type GroupAverageRating = Rating & {
   sampleSize: number;
 };
 
+export type Warning = {
+  area: (typeof areaLabels)[number];
+  problemDescription: string;
+};
+
 export type OrganisationRatingSummary = {
   name: string;
   rating: Rating;
@@ -19,6 +31,7 @@ export type OrganisationRatingSummary = {
   field?: string;
   wholeDatasetAverage: GroupAverageRating;
   segmentAverage?: GroupAverageRating;
+  warnings: Warning[];
 };
 
 export function getOrganisationSummary({
@@ -32,6 +45,7 @@ export function getOrganisationSummary({
     field: meta.organisationField,
     wholeDatasetAverage: firstWaveRating,
     segmentAverage: firstWaveSegmentsRating[type ?? "<none>"],
+    warnings: detectWarnings(scores),
     rating: {
       overallScore: sum(sumScoresByArea(scores)),
       cultureScore,
@@ -42,10 +56,41 @@ export function getOrganisationSummary({
   };
 }
 
+/**
+ * We return a warning if any of the axes in given area has score
+ * average under 3 or if the difference between strongest and weakest
+ * axis average in the area is over 1.5.
+ */
+function detectWarnings(scores: ScoreChart): Warning[] {
+  const scoresByAreaAndAxis = sumScoresByAreaAndAxis(scores);
+  const warnings: Warning[] = [];
+  areaLabels.forEach((areaLabel, area) => {
+    const averageAxeScores = scoresByAreaAndAxis[area].map((n) => n / 5);
+    const best = Math.max(...averageAxeScores);
+    const worst = Math.min(...averageAxeScores);
+    const diff = best - worst;
+    if (worst < 3) {
+      warnings.push({
+        area: areaLabel,
+        problemDescription: `Nejslabší pilíř má průměr ${worst.toFixed(
+          1
+        )} (pod úrovní Solidní základ)`,
+      });
+    }
+    if (diff > 1.5) {
+      warnings.push({
+        area: areaLabel,
+        problemDescription: `Velká nevyváženost mezi pilíři (rozdíl ${diff.toFixed(
+          1
+        )} bodu)`,
+      });
+    }
+  });
+  return warnings;
+}
+
 // TBD: Consult with Matěj
-export function getOrganisationType(
-  meta: OrganisationMetadata
-): string | undefined {
+function getOrganisationType(meta: OrganisationMetadata): string | undefined {
   const { paidFullTimeMembers, paidPartTimeMembers, volunteers } = meta;
   if (!paidFullTimeMembers || !paidPartTimeMembers || !volunteers) {
     return undefined;

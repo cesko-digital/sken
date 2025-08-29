@@ -56,6 +56,7 @@ export const RatingSummary = ({
         Nástroje: `${summary.rating.toolingScore} bodů ze 100`,
       }}
     />
+
     <h2>Srovnání s celým sektorem</h2>
     <p>
       Jak si stojíte mezi všemi {summary.wholeDatasetAverage.sampleSize}{" "}
@@ -65,6 +66,7 @@ export const RatingSummary = ({
       rating={summary.rating}
       benchmark={summary.wholeDatasetAverage}
     />
+
     {summary.segmentAverage && (
       <Fragment>
         <h2>Srovnání s podobnými organizacemi</h2>
@@ -75,6 +77,17 @@ export const RatingSummary = ({
         <BenchmarkCompare
           rating={summary.rating}
           benchmark={summary.segmentAverage}
+        />
+      </Fragment>
+    )}
+
+    {summary.warnings.length > 0 && (
+      <Fragment>
+        <h2>Problematické oblasti</h2>
+        <List
+          data={Object.fromEntries(
+            summary.warnings.map((w) => [w.area, w.problemDescription])
+          )}
         />
       </Fragment>
     )}

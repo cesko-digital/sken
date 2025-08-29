@@ -10,8 +10,8 @@ export default function LandingPage() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
-          Zjistěte, jak může vaše organizace zvyšovat svou digitální vyspělost –
-          a být tak úspěšnější při naplňování svého poslání.{" "}
+          Zjistěte, jak může vaše nezisková organizace zvyšovat svou digitální
+          vyspělost – a být tak úspěšnější při naplňování svého poslání.{" "}
           <mark style={{ marginLeft: "0.1ex" }}>Nic to nestojí.</mark>
         </p>
 

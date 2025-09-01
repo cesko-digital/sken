@@ -86,12 +86,12 @@ export default function Report() {
 
       {/* Sonda do digitální vyspělosti */}
       <section className="mb-12">
-        <h2 className="typo-head2">Sonda do digitální vyspělosti</h2>
+        <h2 className="typo-head2">Jak je na tom český nezisk s digitalizací?</h2>
         <div>
           <p className="mb-4">
             Zjištění prezentovaná na tomto webu vycházejí z dat o <strong>164 neziskových organizacích</strong>,
             které jsme získali pomocí <strong>Skenu digitální vyspělosti</strong>. Tento nástroj mapuje aktuální
-            stav organizace ve třech klíčových pilířích: <strong>kultura</strong> (postoje vedení),
+            stav organizace ve třech klíčových pilířích: <strong>kultura</strong> (postoje vedení),{" "}
             <strong>dovednosti</strong> (schopnosti lidí) a <strong>nástroje</strong> (technické vybavení).
           </p>
           <p>

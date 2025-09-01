@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Zjistěte, v jakých oblastech lze významně zlepšit fungování neziskové organizace pomocí digitálních nástrojů",
   openGraph: {
-    images: "https://assets.cesko.digital/9e28afa2.jpg",
+    images: "https://assets.cesko.digital/251e94ef.jpg",
   },
 };
 

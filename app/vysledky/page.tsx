@@ -5,7 +5,7 @@ import Report from "./Report";
 export const metadata: Metadata = {
   title: "Sken digitální vyspělosti – výsledky první vlny",
   description:
-    "Sonda do digitální vyspělosti 164 českých neziskových organizací odhalila jasné vzorce: silnou kulturu, slabé nástroje a velký potenciál",
+    "Silná kultura, slabé nástroje a velký potenciál. Jaké další vzorce odhalila naše sonda do digitální vyspělosti 164 českých neziskových organizací?",
 };
 
 export default async function OverallResultsPage() {

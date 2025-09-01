@@ -13,7 +13,7 @@ const customFont = localFont({
 export const metadata: Metadata = {
   title: "Sken digitální vyspělosti",
   description:
-    "Zjistěte, v jakých oblastech lze významně zlepšit fungování neziskové organizace pomocí digitálních nástrojů",
+    "Zjistěte, jak může vaše nezisková organizace zvyšovat svou digitální vyspělost – a být tak úspěšnější při naplňování svého poslání. Nic to nestojí.",
   openGraph: {
     images: "https://assets.cesko.digital/251e94ef.jpg",
   },

@@ -24,15 +24,7 @@ export default async function ResultPage({ params }: Props) {
   const organizationName = individualResponse.meta.organisationName;
   return (
     <div className="flex flex-col gap-4">
-      <Breadcrumbs
-        path={[
-          {
-            label: organizationName,
-            path: RouteTo.organizationResults(organizationName),
-          },
-        ]}
-        currentPage="Vaše hodnocení"
-      />
+      <Breadcrumbs currentPage={organizationName} />
       <ResultsPage
         responseType="individual"
         organisationName={organizationName}

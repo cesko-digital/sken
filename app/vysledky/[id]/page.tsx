@@ -4,7 +4,6 @@ import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
 import { ResultsPage } from "@/components/ResultsPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { RouteTo } from "@/src/utils";
 
 type Params = {
   id: string;

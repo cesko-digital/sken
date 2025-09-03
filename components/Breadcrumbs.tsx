@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Link from "next/link";
 
 export type Crumb = { label: string; path: string };
@@ -14,14 +13,14 @@ export const Breadcrumbs = ({ path = [], currentPage }: Props) => {
     ...path,
   ];
   return (
-    <div>
+    <div className="mt-6 flex flex-row max-sm:flex-col max-sm:text-sm">
       {rootedPath.map(({ label, path }) => (
-        <Fragment key={label}>
+        <div key={label}>
           <Link href={path} className="typo-link">
             {label}
           </Link>
           <span className="inline-block px-2">/</span>
-        </Fragment>
+        </div>
       ))}
       <span>{currentPage}</span>
     </div>

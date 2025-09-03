@@ -29,7 +29,7 @@ export default async function GroupResultPage({ params }: Props) {
   const averageScoreChart = average(groupRatings)!;
 
   return (
-    <div className="flex flex-col gap-4">
+    <section className="content-wrapper flex flex-col gap-4">
       <Breadcrumbs currentPage={organisationName} />
       <ResultsPage
         responseType="group"
@@ -37,7 +37,7 @@ export default async function GroupResultPage({ params }: Props) {
         data={averageScoreChart}
         sampleSize={groupRatings.length}
       />
-    </div>
+    </section>
   );
 }
 

@@ -42,7 +42,7 @@ const ChartWrapper = ({
   caption?: string;
   children: ReactNode;
 }) => (
-  <div className="p-5 my-6 border-[1px] border-gray-300 bg-gray-50">
+  <div className="p-5 my-6 border-[1px] border-gray-300 bg-light-gray">
     {children}
     {caption && <h3 className="text-center">{caption}</h3>}
   </div>

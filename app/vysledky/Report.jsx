@@ -1,22 +1,5 @@
 import React from 'react';
-
-const StatCard = ({ number, label, description, color = "blue" }) => {
-  const colorClasses = {
-    blue: "bg-blue-50 border-blue-200 text-blue-800",
-    green: "bg-green-50 border-green-200 text-green-800",
-    orange: "bg-orange-50 border-orange-200 text-orange-800",
-    purple: "bg-purple-50 border-purple-200 text-purple-800",
-    red: "bg-red-50 border-red-200 text-red-800"
-  };
-
-  return (
-    <div className={`p-6 rounded-lg border-2 ${colorClasses[color]} mb-4`}>
-      <div className="text-3xl font-bold mb-2">{number}</div>
-      <div className="text-lg font-semibold mb-1">{label}</div>
-      {description && <div className="text-sm opacity-80">{description}</div>}
-    </div>
-  );
-};
+import { StatCard } from '@/components/StatCard';
 
 const DataTable = ({ headers, rows, caption }) => {
   return (
@@ -79,9 +62,9 @@ export default function Report() {
 
       {/* Key Statistics */}
       <div className="grid md:grid-cols-3 gap-4 mb-8">
-        <StatCard number="164" label="analyzovaných organizací" color="blue" />
-        <StatCard number="57 %" label="má solidní základ" color="green" />
-        <StatCard number="1 %" label="dosahuje špičky" color="purple" />
+        <StatCard value="164" label="analyzovaných organizací" color="blue" />
+        <StatCard value="57 %" label="má solidní základ" color="green" />
+        <StatCard value="1 %" label="dosahuje špičky" color="purple" />
       </div>
 
       {/* Sonda do digitální vyspělosti */}
@@ -144,19 +127,19 @@ export default function Report() {
         <h3 className="typo-head3">Hodnocení pilířů digitální vyspělosti</h3>
         <div className="grid md:grid-cols-3 gap-4 mb-6">
           <StatCard
-            number="3,89"
+            value="3,89"
             label="Kultura"
             description="postoje vedení (78 %)"
             color="green"
           />
           <StatCard
-            number="3,29"
+            value="3,29"
             label="Dovednosti"
             description="schopnosti lidí (66 %)"
             color="orange"
           />
           <StatCard
-            number="2,73"
+            value="2,73"
             label="Nástroje"
             description="technické vybavení (55 %)"
             color="red"

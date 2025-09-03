@@ -1,5 +1,4 @@
 import { ScoreChart } from "@/src/model";
-import Image from "next/image";
 import {
   AxisScoreChart,
   ScoreDistributionChart,
@@ -48,70 +47,6 @@ const Intro: Section = ({ responseType, organisationName, sampleSize }) => (
       </h2>
     )}
     <Text>
-      <p>
-        <em>
-          Než se podíváte na samotné výsledky, pojďte si rychle připomenout, jak
-          sken funguje.
-        </em>
-      </p>
-      <p>
-        Sken vychází z předpokladu, že lidé v organizaci dosahují{" "}
-        <em>špičkových výsledků</em> pouze pokud se vzájemně doplňují a
-        podporují 3 pilíře: <em>Kultura, Dovednosti a Nástroje</em>.
-      </p>
-      <Image
-        src="https://assets.cesko.digital/11f81f04.jpg"
-        className="my-4 border-[1px] border-gray-300 w-full max-w-prose"
-        width={2309}
-        height={1732}
-        alt=""
-      />
-      <p>
-        Sken funguje na principu <i>benchmarkování</i>: nabízí výroky, které
-        popisují, jak může organizace fungovat. Úkolem vyplňující osoby je{" "}
-        <em>
-          posoudit, nakolik nabízený popis odpovídá reálnému fungování skenované
-          organizace
-        </em>
-        .
-      </p>
-      <p>Odpovědi se zaznamenávají jako hodnoty na škále 1–5, kde:</p>
-      <ul>
-        <li>1 = výrok vůbec neodpovídá</li>
-        <li>5 = výrok naprosto odpovídá</li>
-      </ul>
-      <p>
-        Jinými slovy,{" "}
-        <em>
-          čím vyšší hodnota, tím blíže má aktuální stav organizace ke stavu
-          popsanému ve výroku
-        </em>
-        .
-      </p>
-      <p>V rámci vyhodnocení jsou pak hodnoty interpretovány následovně:</p>
-      <ul>
-        <li>1 = Nevyužitý potenciál</li>
-        <li>2 = Dobrý začátek</li>
-        <li>3 = Solidní základ</li>
-        <li>4 = Vynikající praxe</li>
-        <li>5 = Inspirativní přístup</li>
-      </ul>
-      <p>
-        Sken mapuje <em>4 klíčové oblasti digitální vyspělosti</em>:
-      </p>
-      <ul className="list-disc">
-        <li>Komunikace & Spolupráce</li>
-        <li>Procesy & Automatizace</li>
-        <li>Bezpečnost & Flexibilita</li>
-        <li>Učení & Rozvoj</li>
-      </ul>
-      <p>
-        <em>
-          V každé oblasti sken navíc mapuje 5 klíčových témat. Každé téma se
-          vždy posuzuje optikou všech 3 pilířů.
-        </em>{" "}
-        Výstupem skenu je tedy 60 výroků ohodnocených na škále 1–5.
-      </p>
       <p>
         Výsledky mají podobu <em>grafů</em> a jsou rozděleny na 3 části podle
         míry detailu:
@@ -494,7 +429,7 @@ const Outro: Section = () => (
 );
 
 const MarketplacePromo: Section = () => (
-  <section className="p-10 bg-gray-50 border-[1px] border-gray-300">
+  <section className="p-10 bg-light-gray border-[1px] border-gray-300">
     <div className="max-w-prose m-auto">
       <h2 className="typo-head2">
         Máte téma, ale nevíte, co dál? Zkonzultujte další postup na Tržišti

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -19,44 +20,44 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="cs">
-      <head>
-        <script
-          defer
-          data-domain="sken.nezisk.digital"
-          src="https://plausible.io/js/script.outbound-links.js"
-        ></script>
-        <link rel="shortcut icon" type="image/png" href="/logo.png" />
-      </head>
-      <body className={customFont.variable}>
-        <div className="w-full max-w-4xl m-auto px-4">
-          <a
-            className="block max-sm:mx-auto bg-[blue] w-[200px] p-5 cursor-pointer"
-            href="https://cesko.digital"
-            target="_blank"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Česko.Digital" width="100%" />
-          </a>
-        </div>
-        <div className="flex flex-col min-h-[calc(100vh-73px)] gap-20">
-          <div className="w-full max-w-4xl m-auto p-4 mt-5">{children}</div>
+const RootLayout = ({ children }: { children: ReactNode }) => (
+  <html lang="cs">
+    <head>
+      <script
+        defer
+        data-domain="sken.nezisk.digital"
+        src="https://plausible.io/js/script.outbound-links.js"
+      ></script>
+      <link rel="shortcut icon" type="image/png" href="/logo.png" />
+    </head>
+    <body className={customFont.variable}>
+      <div className="min-h-dvh flex flex-col">
+        <Header />
+        {children}
+        <div className="mt-auto">
           <Footer />
         </div>
-      </body>
-    </html>
-  );
-}
+      </div>
+    </body>
+  </html>
+);
+
+const Header = () => (
+  <header className="content-wrapper">
+    <a
+      className="block max-sm:mx-auto bg-it w-[200px] p-5 cursor-pointer"
+      href="https://cesko.digital"
+      target="_blank"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/logo.svg" alt="Česko.Digital" width="100%" />
+    </a>
+  </header>
+);
 
 const Footer = () => (
-  <footer className="py-8 border-t border-gray-200 bg-gray-50 text-gray-500">
-    <div className="max-w-4xl mx-auto px-4">
+  <footer className="w-full bg-light-gray text-gray-500 py-8 pb-20 mt-20">
+    <div className="content-wrapper">
       <p>
         Sken digitální vyspělosti provozuje{" "}
         <a href="https://www.cesko.digital" className="typo-link text-gray-500">
@@ -85,3 +86,5 @@ const Footer = () => (
     </div>
   </footer>
 );
+
+export default RootLayout;

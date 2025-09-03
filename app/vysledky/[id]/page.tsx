@@ -22,14 +22,14 @@ export default async function ResultPage({ params }: Props) {
   }
   const organizationName = individualResponse.meta.organisationName;
   return (
-    <div className="flex flex-col gap-4">
+    <main className="content-wrapper flex flex-col gap-4">
       <Breadcrumbs currentPage={organizationName} />
       <ResultsPage
         responseType="individual"
         organisationName={organizationName}
         data={individualResponse.scores}
       />
-    </div>
+    </main>
   );
 }
 

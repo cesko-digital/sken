@@ -4,12 +4,12 @@
 
 @theme {
   --font-cd: var(--font-cd);
-
-  --colors-it: #0000ff;
-  --colors-highlight: #fef9c2;
-  --colors-dark-gray: #d1d5dc;
-  --colors-plum: #1e293b;
-  --colors-gray: #f9fafb;
+  --color-it: #0000ff;
+  --color-highlight: #fef9c2;
+  --color-dark-gray: #d1d5dc;
+  --color-plum: #1e293b;
+  --color-gray: #f9fafb;
+  --color-light-gray: #f8f8ff;
 }
 
 /** Typography */
@@ -17,7 +17,7 @@
 @layer components {
   .typo-link {
     text-decoration: underline;
-    color: var(--colors-it);
+    color: var(--color-it);
   }
 
   .typo-head1,
@@ -58,13 +58,21 @@
     padding: 1.3ex 2ex 1.3ex 2ex;
     box-shadow: var(--shadow-sm);
     border-radius: var(--radius-md);
-    background-color: var(--colors-plum);
+    background-color: var(--color-plum);
     box-shadow: var(--shadow-md);
+    text-align: center;
   }
 
   .button-light {
     background-color: white;
-    color: var(--colors-plum);
+    color: var(--color-plum);
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: var(--container-4xl);
+    margin-inline: auto;
+    padding-inline: calc(var(--spacing) * 5);
   }
 }
 

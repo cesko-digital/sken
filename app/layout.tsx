@@ -43,7 +43,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
 );
 
 const Header = () => (
-  <header className="content-wrapper">
+  <header className="content-wrapper mb-5">
     <a
       className="block max-sm:mx-auto bg-it w-[200px] p-5 cursor-pointer"
       href="https://cesko.digital"

@@ -2,8 +2,10 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { getFormResponse } from "@/src/db";
 import { Metadata } from "next";
-import { ResultsPage } from "@/components/ResultsPage";
+import { ChartsSummaryPage } from "@/components/ChartsSummaryPage";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { TabBar, TabItem } from "@/components/TabBar";
+import { RouteTo } from "@/src/utils";
 
 type Params = {
   id: string;
@@ -14,7 +16,7 @@ export type Props = {
 };
 
 /** Show individual digital maturity assessment */
-export default async function ResultPage({ params }: Props) {
+export default async function IndividualRatingPage({ params }: Props) {
   const id = (await params).id;
   const individualResponse = await getFormResponse(id);
   if (!individualResponse) {
@@ -24,11 +26,16 @@ export default async function ResultPage({ params }: Props) {
   return (
     <main className="content-wrapper flex flex-col gap-4">
       <Breadcrumbs currentPage={organizationName} />
-      <ResultsPage
-        responseType="individual"
-        organisationName={organizationName}
-        data={individualResponse.scores}
-      />
+      <h1 className="typo-head1">
+        Výsledky skenu digitální vyspělosti pro {organizationName}
+      </h1>
+      <TabBar>
+        <TabItem href={RouteTo.individualRating(id)} isActive>
+          Číselné výsledky
+        </TabItem>
+        <TabItem href={RouteTo.llmSummary(id)}>Strojové shrnutí</TabItem>
+      </TabBar>
+      <ChartsSummaryPage data={individualResponse.scores} />
     </main>
   );
 }

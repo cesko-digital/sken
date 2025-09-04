@@ -51,7 +51,7 @@ export default function Report() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">
+      <div className="text-center mb-8 bg-it text-white p-8 rounded-lg">
         <h2 className="text-3xl font-bold font-cd mb-4 text-balance">
           Většina neziskovek má solidní základ, ale jen 1 % dosahuje digitální špičky
         </h2>
@@ -355,14 +355,14 @@ export default function Report() {
       </section>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center mb-12">
+      <div className="bg-it text-white p-6 py-8 rounded-lg text-center mb-12 flex flex-col gap-4">
         <h3 className="typo-head3">Sondou to nekončí, ale začíná</h3>
-        <p className="mb-6">
+        <p className="max-w-prose m-auto">
           Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit,
           jakou formu pomoci oceníte nejvíce a jaké kroky by pro vaši organizaci byly nejpřínosnější.
         </p>
-        <p className='my-2'>
-        <a className="button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus" target='_blank'>
+        <p className="mt-4">
+        <a className="inline-block button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus" target="_blank">
           Vyplnit dotazník
         </a>
         </p>

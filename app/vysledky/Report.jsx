@@ -51,7 +51,7 @@ export default function Report() {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="text-center mb-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg">
+      <div className="text-center mb-8 bg-it text-white p-8 rounded-lg">
         <h2 className="text-3xl font-bold font-cd mb-4 text-balance">
           Většina neziskovek má solidní základ, ale jen 1 % dosahuje digitální špičky
         </h2>

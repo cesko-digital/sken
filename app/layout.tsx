@@ -56,33 +56,39 @@ const Header = () => (
 );
 
 const Footer = () => (
-  <footer className="w-full bg-light-gray text-gray-500 py-8 pb-20 mt-20">
-    <div className="content-wrapper">
+  <footer className="w-full bg-light-gray text-[#080825] py-8 pb-20 mt-20">
+    <div className="content-wrapper flex flex-col md:flex-row justify-between">
       <p>
         Sken digitální vyspělosti provozuje{" "}
-        <a href="https://www.cesko.digital" className="typo-link text-gray-500">
+        <a
+          href="https://www.cesko.digital"
+          className="typo-link text-gray-500"
+          target="_blank"
+        >
           Česko.Digital
         </a>
       </p>
-      <p>
-        Zdrojový kód najdete{" "}
-        <a
-          href="https://github.com/cesko-digital/sken"
-          className="typo-link text-gray-500"
-        >
-          na GitHubu
-        </a>
-      </p>
-      <p>
-        Ilustrační foto{" "}
-        <a
-          href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
-          className="typo-link text-gray-500"
-          rel="noreferrer"
-        >
-          kjpargeter
-        </a>
-      </p>
+      <div>
+        <p>
+          Zdrojový kód najdete{" "}
+          <a
+            href="https://github.com/cesko-digital/sken"
+            className="typo-link text-gray-500"
+          >
+            na GitHubu
+          </a>
+        </p>
+        <p>
+          Ilustrační foto{" "}
+          <a
+            href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
+            className="typo-link text-gray-500"
+            rel="noreferrer"
+          >
+            kjpargeter
+          </a>
+        </p>
+      </div>
     </div>
   </footer>
 );

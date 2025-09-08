@@ -33,7 +33,7 @@ export default async function IndividualRatingPage({ params }: Props) {
         <TabItem href={RouteTo.individualRating(id)} isActive>
           Číselné výsledky
         </TabItem>
-        <TabItem href={RouteTo.llmSummary(id)}>Strojové shrnutí</TabItem>
+        <TabItem href={RouteTo.llmSummary(id)}>Automatické vyhodnocení</TabItem>
       </TabBar>
       <ChartsSummaryPage data={individualResponse.scores} />
     </main>

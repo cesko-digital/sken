@@ -48,9 +48,9 @@ const Explainer = () => (
       jazykového modelu (LLM).
     </mark>{" "}
     Jako obvykle platí, že umělá inteligence je dobrý sluha, ale zlý pán.
-    Automatické shrnutí vám může pomoct nasměrovat pozornost na správná místa,
-    ale nespoléhejte na něj slepě, stroj se může snadno splést. Rozumné je
-    ověřit jeho tipy na číselných výsledcích nebo konzultovat s expertem či
+    Automatické vyhodnocení vám může pomoct nasměrovat pozornost na správná
+    místa, ale nespoléhejte na něj slepě, stroj se může snadno splést. Rozumné
+    je ověřit jeho tipy na číselných výsledcích nebo konzultovat s expertem či
     expertkou. A teď už stroj:
   </p>
 );

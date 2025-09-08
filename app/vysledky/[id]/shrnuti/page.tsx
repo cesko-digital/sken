@@ -29,7 +29,7 @@ export default async function LLMSummaryPage({ params }: Props) {
       <TabBar>
         <TabItem href={RouteTo.individualRating(id)}>Číselné výsledky</TabItem>
         <TabItem href={RouteTo.llmSummary(id)} isActive>
-          Strojové shrnutí
+          Automatické vyhodnocení
         </TabItem>
       </TabBar>
       <LLMReport individualResponseId={id} />

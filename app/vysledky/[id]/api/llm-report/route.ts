@@ -11,7 +11,6 @@ export type Props = {
   params: Promise<Params>;
 };
 
-// TBD: Add caching headers
 export async function GET(_: Request, { params }: Props): Promise<Response> {
   const id = (await params).id;
   if (id === "sample") {
@@ -31,7 +30,13 @@ export async function GET(_: Request, { params }: Props): Promise<Response> {
     input: summary,
   });
 
-  return new Response(response.output_text, { status: 200 });
+  return new Response(response.output_text, {
+    status: 200,
+    headers: {
+      // Cache mostly forever on the CDN
+      "cache-control": "public, max-age=0, s-maxage=1209600, must-revalidate",
+    },
+  });
 }
 
 const systemPrompt = `

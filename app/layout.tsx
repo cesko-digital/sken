@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
 
 const customFont = localFont({
   src: [
@@ -57,29 +58,51 @@ const Header = () => (
 
 const Footer = () => (
   <footer className="w-full bg-light-gray text-[#080825] py-8 pb-20 mt-20">
-    <div className="content-wrapper flex flex-col md:flex-row justify-between">
-      <p>
-        Sken digitální vyspělosti provozuje{" "}
-        <a
-          href="https://www.cesko.digital"
-          className="typo-link text-gray-500"
-          target="_blank"
-        >
-          Česko.Digital
-        </a>
-      </p>
+    <div className="content-wrapper grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-15">
+      <div className="col-span-2 text-balance flex flex-col gap-6">
+        <p>
+          Projekt realizujeme díky grantu z programu Zaměstnanost plus
+          (financováno Evropskou unií), který vyhlašuje odbor realizace ESF
+          programů pod{" "}
+          <a href="https://www.mpsv.cz/" target="_blank" className="typo-link">
+            Ministerstvem práce a sociálních věcí
+          </a>{" "}
+          –{" "}
+          <a
+            href="https://www.podporujemeinovace.cz/"
+            target="_blank"
+            className="typo-link"
+          >
+            Oddělení sociálních inovací
+          </a>
+          .
+        </p>
+        <Image
+          src="/eu.svg"
+          className="w-[200px]"
+          alt="Financováno Evropskou unií"
+          width={768}
+          height={200}
+        />
+      </div>
       <div>
         <p>
-          Zdrojový kód najdete{" "}
+          Sken digitální vyspělosti provozuje{" "}
+          <a
+            href="https://www.cesko.digital"
+            className="typo-link text-gray-500"
+            target="_blank"
+          >
+            Česko.Digital
+          </a>
+          . Zdrojový kód najdete{" "}
           <a
             href="https://github.com/cesko-digital/sken"
             className="typo-link text-gray-500"
           >
             na GitHubu
           </a>
-        </p>
-        <p>
-          Ilustrační foto{" "}
+          . Ilustrační foto{" "}
           <a
             href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
             className="typo-link text-gray-500"
@@ -87,6 +110,7 @@ const Footer = () => (
           >
             kjpargeter
           </a>
+          .
         </p>
       </div>
     </div>

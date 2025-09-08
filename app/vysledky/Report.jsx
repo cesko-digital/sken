@@ -354,20 +354,6 @@ export default function Report() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center mb-12">
-        <h3 className="typo-head3">Sondou to nekončí, ale začíná</h3>
-        <p className="mb-6">
-          Máme nápady, jak neziskovkám pomáhat v klíčových tématech. Pomozte nám pochopit,
-          jakou formu pomoci oceníte nejvíce a jaké kroky by pro vaši organizaci byly nejpřínosnější.
-        </p>
-        <p className='my-2'>
-        <a className="button button-light" href="https://forms.fillout.com/t/pzoWoXPD8tus" target='_blank'>
-          Vyplnit dotazník
-        </a>
-        </p>
-      </div>
-
       {/* Správa IT */}
       <section className="mb-12">
         <h2 className="typo-head2">Správa IT infrastruktury rozhoduje o digitální vyspělosti</h2>

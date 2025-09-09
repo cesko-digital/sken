@@ -12,10 +12,9 @@ export const RouteTo = {
   organizationResults: (organizationName: string) =>
     "/organizace/" + hashOrganizationName(organizationName),
   /** Individual rating results */
-  individualRating: (ratingId: string) => `/vysledky/${ratingId}`,
+  individualRating: (ratingId: string) => `/vysledky/${ratingId}/cisla`,
   /** LLM summary of individual rating */
-  llmSummary: (individualRatingId: string) =>
-    `/vysledky/${individualRatingId}/shrnuti`,
+  llmSummary: (individualRatingId: string) => `/vysledky/${individualRatingId}`,
 
   /** The URL of the Fillout form */
   form: "https://forms.fillout.com/t/rMoYry5Shaus",

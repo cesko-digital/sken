@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { LLMReport } from "./LLMReport";
 import { TabBar, TabItem } from "@/components/TabBar";
 import { RouteTo } from "@/src/utils";
+import { Metadata } from "next";
 
 type Params = {
   id: string;
@@ -35,4 +36,19 @@ export default async function LLMSummaryPage({ params }: Props) {
       <LLMReport individualResponseId={id} />
     </main>
   );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const response = await getFormResponse((await params).id);
+  if (!response) {
+    notFound();
+  }
+  return {
+    title: `${response.meta.organisationName}: Výsledky skenu digitální vyspělosti`,
+  };
+}
+
+/** Force incremental static generation (ISR), see https://github.com/cesko-digital/web/issues/987 */
+export async function generateStaticParams() {
+  return [];
 }

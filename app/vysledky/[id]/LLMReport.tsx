@@ -57,13 +57,18 @@ const Explainer = () => (
 
 const SkeletonLoader = () => {
   return (
-    <div role="status" className="max-w-sm animate-pulse flex flex-col gap-4">
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px]"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px]"></div>
-      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
-      <span className="sr-only">Generuji report…</span>
+    <div role="status" className="flex flex-col gap-4">
+      <div className="max-w-sm animate-pulse flex flex-col gap-4">
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px]"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px]"></div>
+        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+        <span className="sr-only">Generuji report…</span>
+      </div>
+      <p className="text-gray-700 text-sm">
+        Analyzujeme vaše výsledky, může to trvat až minutu.
+      </p>
     </div>
   );
 };

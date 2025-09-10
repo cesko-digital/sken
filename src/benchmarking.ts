@@ -89,7 +89,6 @@ function detectWarnings(scores: ScoreChart): Warning[] {
   return warnings;
 }
 
-// TBD: Consult with Matěj
 function getOrganisationType(meta: OrganisationMetadata): string | undefined {
   const { paidFullTimeMembers, paidPartTimeMembers, volunteers } = meta;
   if (!paidFullTimeMembers || !paidPartTimeMembers || !volunteers) {
@@ -97,13 +96,14 @@ function getOrganisationType(meta: OrganisationMetadata): string | undefined {
   }
   const paidMembers = paidFullTimeMembers + paidPartTimeMembers;
   const totalMembers = paidMembers + volunteers;
-  const sizeTag =
-    totalMembers > 50 ? "velká" : totalMembers > 10 ? "střední" : "malá";
   if (paidMembers === 0) {
     return "Občanská";
   } else if (volunteers >= paidMembers * 2) {
+    const sizeTag = totalMembers > 10 ? "velká" : "malá";
     return "Dobrovolnická " + sizeTag;
   } else {
+    const sizeTag =
+      totalMembers > 50 ? "velká" : totalMembers > 10 ? "střední" : "malá";
     return "Profesionální " + sizeTag;
   }
 }

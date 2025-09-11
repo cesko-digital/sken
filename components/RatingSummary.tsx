@@ -105,6 +105,24 @@ const RatingSummary = ({ summary }: { summary: ScoreSummary }) => (
         />
       </Fragment>
     )}
+
+    {Object.entries(summary.weakScoringQuestions).length > 0 && (
+      <Fragment>
+        <h2>Výroky s hodnocením pod 2,5</h2>
+        <ul>
+          {Object.keys(summary.weakScoringQuestions).map((area) => (
+            <li key={area}>
+              {area}:
+              <ul>
+                {summary.weakScoringQuestions[area].map((question) => (
+                  <li key={question}>{question}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Fragment>
+    )}
   </div>
 );
 

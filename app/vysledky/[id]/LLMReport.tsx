@@ -22,9 +22,10 @@ export const LLMReport = ({
         </section>
       )}
       {model.state === "loaded" && (
-        <section>
+        <section className="flex flex-col gap-6">
           <Explainer />
           <StyledMarkdown source={model.report} />
+          <ContactNotice />
         </section>
       )}
       {model.state === "failed" && (
@@ -72,3 +73,17 @@ const SkeletonLoader = () => {
     </div>
   );
 };
+
+const ContactNotice = () => (
+  <div>
+    <h2 className="typo-head2">Bylo to pro vás užitečné?</h2>
+    <p>
+      Pomohlo vám tohle shrnutí? Rozuměli jste všemu? Potřebovali byste něco
+      jinak? Ozvěte se nám na adresu{" "}
+      <a href="mailto:matej.malecha@cesko.digital" className="typo-link">
+        matej.malecha@cesko.digital
+      </a>
+      , budeme rádi za zpětnou vazbu. Díky!
+    </p>
+  </div>
+);

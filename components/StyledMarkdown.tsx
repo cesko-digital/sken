@@ -15,8 +15,8 @@ const config: Config = {
     paragraph: { render: "Para" },
     list: { render: "List" },
     item: { render: "Item" },
-    em: { render: "mark" },
-    strong: { render: "mark" },
+    em: { render: "em" },
+    strong: { render: "em" },
     heading: {
       children: ["inline"],
       render: "Heading",

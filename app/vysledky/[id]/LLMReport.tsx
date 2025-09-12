@@ -67,7 +67,7 @@ const SkeletonLoader = () => {
         <span className="sr-only">Generuji report…</span>
       </div>
       <p className="text-gray-700 text-sm">
-        Analyzujeme vaše výsledky, může to trvat až minutu.
+        Analyzujeme vaše výsledky, může to dvě tři minuty trvat.
       </p>
     </div>
   );

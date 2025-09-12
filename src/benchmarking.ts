@@ -6,6 +6,8 @@ import {
   areaLabels,
   sumScoresByAreaAndAxis,
   ScoreChart,
+  visit,
+  questions,
 } from "./model";
 
 export type Rating = {
@@ -32,6 +34,7 @@ export type RatingSummary = {
   wholeDatasetAverage: GroupAverageRating;
   segmentAverage?: GroupAverageRating;
   warnings: Warning[];
+  weakScoringQuestions: Record<string, string[]>;
 };
 
 export function getRatingSummary({
@@ -46,6 +49,7 @@ export function getRatingSummary({
     wholeDatasetAverage: firstWaveRating,
     segmentAverage: firstWaveSegmentsRating[type ?? "<none>"],
     warnings: detectWarnings(scores),
+    weakScoringQuestions: getWeakScoringQuestions(scores),
     rating: {
       overallScore: sum(sumScoresByArea(scores)),
       cultureScore,
@@ -55,6 +59,24 @@ export function getRatingSummary({
     type,
   };
 }
+
+/** Get a list of questions that scored below given treshold, grouped by area */
+const getWeakScoringQuestions = (scores: ScoreChart, treshold = 2.5) =>
+  visit<Record<string, string[]>>(
+    scores,
+    {},
+    ({ area, topic, axis, score, accum: weakScores }) => {
+      if (score < treshold) {
+        const questionIndex = area * 15 + axis * 5 + topic;
+        const questionText = questions[questionIndex];
+        const label = areaLabels[area];
+        if (!weakScores[label]) {
+          weakScores[label] = [];
+        }
+        weakScores[label].push(questionText);
+      }
+    }
+  );
 
 /**
  * We return a warning if any of the axes in given area has score
@@ -89,7 +111,6 @@ function detectWarnings(scores: ScoreChart): Warning[] {
   return warnings;
 }
 
-// TBD: Consult with Matěj
 function getOrganisationType(meta: OrganisationMetadata): string | undefined {
   const { paidFullTimeMembers, paidPartTimeMembers, volunteers } = meta;
   if (!paidFullTimeMembers || !paidPartTimeMembers || !volunteers) {
@@ -97,13 +118,14 @@ function getOrganisationType(meta: OrganisationMetadata): string | undefined {
   }
   const paidMembers = paidFullTimeMembers + paidPartTimeMembers;
   const totalMembers = paidMembers + volunteers;
-  const sizeTag =
-    totalMembers > 50 ? "velká" : totalMembers > 10 ? "střední" : "malá";
   if (paidMembers === 0) {
     return "Občanská";
   } else if (volunteers >= paidMembers * 2) {
+    const sizeTag = totalMembers > 10 ? "velká" : "malá";
     return "Dobrovolnická " + sizeTag;
   } else {
+    const sizeTag =
+      totalMembers > 50 ? "velká" : totalMembers > 10 ? "střední" : "malá";
     return "Profesionální " + sizeTag;
   }
 }

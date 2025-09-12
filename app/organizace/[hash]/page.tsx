@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ResultsPage } from "@/components/ResultsPage";
+import { ChartsSummaryPage } from "@/components/ChartsSummaryPage";
 import { getAllGroupFormResponsesForHash } from "@/src/db";
 import { average } from "@/src/model";
 import { Metadata } from "next";
@@ -29,15 +29,16 @@ export default async function GroupResultPage({ params }: Props) {
   const averageScoreChart = average(groupRatings)!;
 
   return (
-    <div className="flex flex-col gap-4">
+    <section className="content-wrapper flex flex-col gap-4">
       <Breadcrumbs currentPage={organisationName} />
-      <ResultsPage
-        responseType="group"
-        organisationName={organisationName}
-        data={averageScoreChart}
-        sampleSize={groupRatings.length}
-      />
-    </div>
+      <h1 className="typo-head1">
+        Průměrné výsledky skenu digitální vyspělosti pro {organisationName}
+      </h1>
+      <h2 className="typo-head2 text-gray-500 -mt-4 mb-6">
+        <mark>Počítáno z celkem {groupRatings.length} hodnocení</mark>
+      </h2>
+      <ChartsSummaryPage data={averageScoreChart} />
+    </section>
   );
 }
 

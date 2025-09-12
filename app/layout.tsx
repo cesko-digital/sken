@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
 
 const customFont = localFont({
   src: [
@@ -19,69 +21,100 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="cs">
-      <head>
-        <script
-          defer
-          data-domain="sken.nezisk.digital"
-          src="https://plausible.io/js/script.outbound-links.js"
-        ></script>
-        <link rel="shortcut icon" type="image/png" href="/logo.png" />
-      </head>
-      <body className={customFont.variable}>
-        <div className="w-full max-w-4xl m-auto px-4">
-          <a
-            className="block max-sm:mx-auto bg-[blue] w-[200px] p-5 cursor-pointer"
-            href="https://cesko.digital"
-            target="_blank"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Česko.Digital" width="100%" />
-          </a>
-        </div>
-        <div className="flex flex-col min-h-[calc(100vh-73px)] gap-20">
-          <div className="w-full max-w-4xl m-auto p-4 mt-5">{children}</div>
+const RootLayout = ({ children }: { children: ReactNode }) => (
+  <html lang="cs">
+    <head>
+      <script
+        defer
+        data-domain="sken.nezisk.digital"
+        src="https://plausible.io/js/script.outbound-links.js"
+      ></script>
+      <link rel="shortcut icon" type="image/png" href="/logo.png" />
+    </head>
+    <body className={customFont.variable}>
+      <div className="min-h-dvh flex flex-col">
+        <Header />
+        {children}
+        <div className="mt-auto">
           <Footer />
         </div>
-      </body>
-    </html>
-  );
-}
+      </div>
+    </body>
+  </html>
+);
+
+const Header = () => (
+  <header className="content-wrapper mb-5">
+    <a
+      className="block max-sm:mx-auto bg-it w-[200px] p-5 cursor-pointer"
+      href="https://cesko.digital"
+      target="_blank"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/logo.svg" alt="Česko.Digital" width="100%" />
+    </a>
+  </header>
+);
 
 const Footer = () => (
-  <footer className="py-8 border-t border-gray-200 bg-gray-50 text-gray-500">
-    <div className="max-w-4xl mx-auto px-4">
-      <p>
-        Sken digitální vyspělosti provozuje{" "}
-        <a href="https://www.cesko.digital" className="typo-link text-gray-500">
-          Česko.Digital
-        </a>
-      </p>
-      <p>
-        Zdrojový kód najdete{" "}
-        <a
-          href="https://github.com/cesko-digital/sken"
-          className="typo-link text-gray-500"
-        >
-          na GitHubu
-        </a>
-      </p>
-      <p>
-        Ilustrační foto{" "}
-        <a
-          href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
-          className="typo-link text-gray-500"
-          rel="noreferrer"
-        >
-          kjpargeter
-        </a>
-      </p>
+  <footer className="w-full bg-light-gray text-[#080825] py-8 pb-20 mt-20">
+    <div className="content-wrapper grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-15">
+      <div className="col-span-2 text-balance flex flex-col gap-6">
+        <p>
+          Projekt realizujeme díky grantu z programu Zaměstnanost plus
+          (financováno Evropskou unií), který vyhlašuje odbor realizace ESF
+          programů pod{" "}
+          <a href="https://www.mpsv.cz/" target="_blank" className="typo-link">
+            Ministerstvem práce a sociálních věcí
+          </a>{" "}
+          –{" "}
+          <a
+            href="https://www.podporujemeinovace.cz/"
+            target="_blank"
+            className="typo-link"
+          >
+            Oddělení sociálních inovací
+          </a>
+          .
+        </p>
+        <Image
+          src="/eu.svg"
+          className="w-[200px]"
+          alt="Financováno Evropskou unií"
+          width={768}
+          height={200}
+        />
+      </div>
+      <div>
+        <p>
+          Sken digitální vyspělosti provozuje{" "}
+          <a
+            href="https://www.cesko.digital"
+            className="typo-link text-gray-500"
+            target="_blank"
+          >
+            Česko.Digital
+          </a>
+          . Zdrojový kód najdete{" "}
+          <a
+            href="https://github.com/cesko-digital/sken"
+            className="typo-link text-gray-500"
+          >
+            na GitHubu
+          </a>
+          . Ilustrační foto{" "}
+          <a
+            href="https://www.freepik.com/free-photo/3d-flowing-cyber-particles-with-shallow-depth-field_9760752.htm"
+            className="typo-link text-gray-500"
+            rel="noreferrer"
+          >
+            kjpargeter
+          </a>
+          .
+        </p>
+      </div>
     </div>
   </footer>
 );
+
+export default RootLayout;

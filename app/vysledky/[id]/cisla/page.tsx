@@ -1,10 +1,11 @@
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { getFormResponse } from "@/src/db";
+import React from "react";
 import { notFound } from "next/navigation";
-import { LLMReport } from "./LLMReport";
+import { getFormResponse } from "@/src/db";
+import { Metadata } from "next";
+import { ChartsSummaryPage } from "@/components/ChartsSummaryPage";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TabBar, TabItem } from "@/components/TabBar";
 import { RouteTo } from "@/src/utils";
-import { Metadata } from "next";
 
 type Params = {
   id: string;
@@ -14,7 +15,8 @@ export type Props = {
   params: Promise<Params>;
 };
 
-export default async function LLMSummaryPage({ params }: Props) {
+/** Show individual digital maturity assessment */
+export default async function IndividualRatingPage({ params }: Props) {
   const id = (await params).id;
   const individualResponse = await getFormResponse(id);
   if (!individualResponse) {
@@ -28,12 +30,12 @@ export default async function LLMSummaryPage({ params }: Props) {
         Výsledky skenu digitální vyspělosti pro {organizationName}
       </h1>
       <TabBar>
-        <TabItem href={RouteTo.llmSummary(id)} isActive>
-          Automatické vyhodnocení
+        <TabItem href={RouteTo.llmSummary(id)}>Automatické vyhodnocení</TabItem>
+        <TabItem href={RouteTo.individualRating(id)} isActive>
+          Číselné výsledky
         </TabItem>
-        <TabItem href={RouteTo.individualRating(id)}>Číselné výsledky</TabItem>
       </TabBar>
-      <LLMReport individualResponseId={id} />
+      <ChartsSummaryPage data={individualResponse.scores} />
     </main>
   );
 }

@@ -9,7 +9,7 @@ type Model =
 export function useLLMReport(individualRatingId: string) {
   const [model, setModel] = useState<Model>({ state: "idle" });
   const load = () => {
-    const url = `/vysledky/${individualRatingId}/api/llm-report`;
+    const url = `/vysledky/${individualRatingId}/report.md`;
     setModel({ state: "loading" });
     fetch(url).then(async (response) => {
       if (response.ok) {

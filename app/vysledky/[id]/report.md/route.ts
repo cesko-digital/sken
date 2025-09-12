@@ -22,7 +22,7 @@ export async function GET(_: Request, { params }: Props): Promise<Response> {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const response = await createResponseWithRetry(openai, {
     instructions: systemPrompt,
-    model: "gpt-4-turbo",
+    model: "gpt-5",
     input: summary,
   });
 

@@ -44,7 +44,9 @@ const Heading = ({
 type C = ({ children }: { children: ReactNode }) => ReactNode;
 
 const Para: C = ({ children }) => <p className="mb-2">{children}</p>;
-const Item: C = ({ children }) => <li className="ml-6">{children}</li>;
+const Item: C = ({ children }) => (
+  <li className="ml-6 text-balance">{children}</li>
+);
 const List: C = ({ children }) => (
   <ul className="list-disc list-outside">{children}</ul>
 );

@@ -23,6 +23,9 @@ export const RouteTo = {
     "https://crm.cesko.digital?entryPoint=leadCaptureForm&id=6862594be878a533b",
 };
 
+/** Are we running in development mode? */
+export const devMode = () => process.env.NODE_ENV === "development";
+
 /**
  * Compute a simple message digest
  *

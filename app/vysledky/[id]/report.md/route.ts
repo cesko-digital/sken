@@ -1,6 +1,7 @@
 import { getTextualRatingSummary } from "@/components/RatingSummary";
 import { getFormResponse } from "@/src/db";
 import { createResponseWithRetry } from "@/src/openai";
+import { devMode } from "@/src/utils";
 import OpenAI from "openai";
 
 type Params = {
@@ -22,7 +23,8 @@ export async function GET(_: Request, { params }: Props): Promise<Response> {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const response = await createResponseWithRetry(openai, {
     instructions: systemPrompt,
-    model: "gpt-5",
+    // Use a cheaper & faster model during development
+    model: devMode() ? "gpt-4.1-nano" : "gpt-5",
     input: summary,
   });
 

@@ -29,7 +29,7 @@ const HeroSection = () => (
 
     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
       <Link
-        href={RouteTo.leadFormUrl}
+        href={RouteTo.form}
         className="inline-block button bg-it max-sm:w-full"
       >
         Chci se oskenovat

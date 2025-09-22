@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { string } from "typescript-json-decoder";
+import { DecoderFunction, string } from "typescript-json-decoder";
 
 /** Common routing targets */
 export const RouteTo = {
@@ -46,3 +46,17 @@ export const hashOrganizationName = (organizationName: string) =>
   hashDigest([organizationName, process.env.SHASUM_SECRET!]);
 
 export const decodeStringAsNumber = (val: unknown) => Number(string(val));
+
+/** Try a decoder and return a default value in case it fails or returns `undefined` */
+export const withDefault = <T>(
+  decoder: DecoderFunction<T | undefined>,
+  defaultValue: T
+): DecoderFunction<T> => {
+  return (value: unknown) => {
+    try {
+      return decoder(value) ?? defaultValue;
+    } catch {
+      return defaultValue;
+    }
+  };
+};

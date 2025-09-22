@@ -9,11 +9,7 @@ import {
   record,
   string,
 } from "typescript-json-decoder";
-import {
-  decodeStringAsNumber,
-  hashOrganizationName,
-  withDefault,
-} from "./utils";
+import { decodeStringAsNumber, hashOrganizationName } from "./utils";
 
 const table = () =>
   new Airtable().base("appmxoOm1pOLmmGDn")("tblBOTdYlMjW4hxUb");
@@ -277,10 +273,7 @@ export const decodeScoreChart = (chart: unknown): ScoreChart => {
 export type OrganisationMetadata = decodeType<typeof decodeMetadata>;
 export const decodeMetadata = record({
   id: field("fldz2KGNqvJe7TUiv", string),
-  organisationName: field(
-    "flddAwhNuOpDJSrgJ",
-    withDefault(string, "Anonymní organizace")
-  ),
+  organisationName: field("flddAwhNuOpDJSrgJ", string),
   organisationField: field("fldMMRJRE1OE7RYFL", optional(string)),
   paidFullTimeMembers: field(
     "fld8jG3XuA0u4dBDB",

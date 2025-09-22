@@ -46,3 +46,13 @@ export const hashOrganizationName = (organizationName: string) =>
   hashDigest([organizationName, process.env.SHASUM_SECRET!]);
 
 export const decodeStringAsNumber = (val: unknown) => Number(string(val));
+
+export const stripMarkdownCodefence = (s: string) => {
+  if (s.startsWith("```markdown") && s.match(/\n```\n*$/)) {
+    s = s.replace(/^```markdown\n*/, "");
+    s = s.replace(/\n```\n*$/, "");
+    return s;
+  } else {
+    return s;
+  }
+};

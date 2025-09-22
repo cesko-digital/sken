@@ -1,6 +1,7 @@
 import { getTextualRatingSummary } from "@/components/RatingSummary";
 import { getFormResponse } from "@/src/db";
 import { createResponseWithRetry } from "@/src/openai";
+import { stripMarkdownCodefence } from "@/src/utils";
 import OpenAI from "openai";
 
 type Params = {
@@ -26,7 +27,7 @@ export async function GET(_: Request, { params }: Props): Promise<Response> {
     input: summary,
   });
 
-  return new Response(response.output_text, {
+  return new Response(stripMarkdownCodefence(response.output_text), {
     status: 200,
     headers: {
       // Cache mostly forever on the CDN

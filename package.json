@@ -17,7 +17,7 @@
     "@tailwindcss/postcss": "^4.1.12",
     "@markdoc/markdoc": "^0.5.4",
     "airtable": "^0.12.2",
-    "next": "15.5.2",
+    "next": "15.5.7",
     "clsx": "^2.1.1",
     "openai": "^5.15.0",
     "postcss": "^8.5.6",
